@@ -1,12 +1,12 @@
-import axios from 'axios';
-
+import axios, { AxiosResponse } from 'axios';
+import { callAPiParams } from './modal';
 export const methods = {
     POST: 'POST',
     GET: 'GET',
     PUT: 'PUT',
 };
 
-export const callAPI = async ({ url, method, body }) => {
+export const callAPI = async ({ url, method, body }: callAPiParams): Promise<AxiosResponse | { error: String }> => {
     try {
         const response = await axios(url, {
             method,

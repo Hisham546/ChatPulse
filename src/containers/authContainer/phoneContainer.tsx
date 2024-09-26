@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Phone from "../../screens/auth/phone";
-import { supabase } from '../../services/supabase';
+
 const PhoneContainer = ({ ...props }) => {
     const { navigation } = props
 
