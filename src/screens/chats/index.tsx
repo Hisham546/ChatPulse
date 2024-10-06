@@ -3,13 +3,18 @@ import { View, TouchableOpacity, Text, FlatList } from "react-native";
 import styles from "./styles";
 
 import ChatsList from "./layouts/chatList";
+import { getAllUsers } from "../../services/api/apiFunction";
+import { useQuery } from '@tanstack/react-query';
+import { ChatsScreenProps } from "../../containers/chatsContainer/modal";
 
+const ChatsScreen: React.FC<ChatsScreenProps> = (props) => {
+const{navigation}=props
 
+  const { data, error, isLoading } = useQuery({
 
-export default function ChatsScreen() {
-
-
-
+    queryKey: ['allUsers'],
+    queryFn: getAllUsers
+  });
 
 
 
@@ -30,7 +35,10 @@ export default function ChatsScreen() {
       <View style={styles.topView}></View>
 
       <View style={styles.centerView}>
-        <ChatsList />
+        <ChatsList
+        navigation={navigation}
+          loading={isLoading}
+          userData={data} />
       </View>
 
       <View>
@@ -40,3 +48,4 @@ export default function ChatsScreen() {
   )
 
 }
+export default ChatsScreen;

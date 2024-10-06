@@ -26,8 +26,8 @@ const styles = StyleSheet.create({
     },
     topView: {
         width: deviceWidth,
-        height: deviceHeight * 0.55,
-      //  backgroundColor: 'red',
+        height: deviceHeight * 0.65,
+       // backgroundColor: 'red',
         alignItems: 'center',
 
 
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     },
     centerView: {
         width: deviceWidth,
-        height: deviceHeight * 0.40,
+        height: deviceHeight * 0.30,
         alignItems: 'center',
      //   backgroundColor: 'blue',
 

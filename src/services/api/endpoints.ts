@@ -3,6 +3,6 @@ import { baseUrl } from "./serverConfig"
 const url = baseUrl
 
 export const apis = {
-    addAmount: `${url}api/auth`,
-    getAmount: `${url}api/users`,
+    createUsers: `${url}api/auth`,
+    getAllUsers: `${url}api/users`,
 }

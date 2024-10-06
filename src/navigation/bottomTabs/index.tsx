@@ -6,7 +6,8 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { Text, View, ToastAndroid, TouchableOpacity } from 'react-native';
-import ChatsScreen from '../../screens/chats';
+
+import ChatsScreenContainer from '../../containers/chatsContainer/chatScreenContainer';
 import ProfileScreen from '../../screens/Profile';
 import styles from './styles';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -34,7 +35,7 @@ export default function BottomTabs({ }) {
         },
         tabBarLabelStyle: styles.tabBarLabelStyle
       }}>
-      <Tab.Screen name="ChatsScreen" component={ChatsScreen}
+      <Tab.Screen name="ChatsScreen" component={ChatsScreenContainer}
 
         options={{
           tabBarIcon: ({ focused }) => (

@@ -8,14 +8,19 @@ import ButtonComponent from "../../../components/button/button";
 import { Icon } from "../../../utilities/Icons";
 import { SetupProfileProps } from "../../../containers/profileContainer/modal";
 
+import { createUsers, getAllUsers } from "../../../services/api/apiFunction";
 const SetupProfile: React.FC<SetupProfileProps> = (props) => {
-  const { navigation } = props
+  const { navigation,handleCreateProfile } = props
 
 
 
   const [formData, setFormData] = useState({
 
     phone: '',
+    //countryCode: '91',
+    password: '',
+    firstName: '',
+    lastName: '',
 
 
 
@@ -37,8 +42,14 @@ const SetupProfile: React.FC<SetupProfileProps> = (props) => {
 
 
 
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const response = await getAllUsers();
+  //     console.log(response, '.........api response');
+  //   };
 
-
+  //   fetchData();
+  // }, []);
 
 
 
@@ -71,9 +82,9 @@ const SetupProfile: React.FC<SetupProfileProps> = (props) => {
 
           placeholderText={" First Name"}
           keyboardType='numeric'
-          onChangeText={value => onChangeText("phone", value)}
-          onChangeCountryCode={e => onChangeText('countryCode', parseInt(e, 10))}
-          value={formData.phone}
+          onChangeText={value => onChangeText("firstName", value)}
+
+          value={formData.firstName}
         />
         <TextInputOutlined
           labelstyle={styles.labelstyle}
@@ -87,11 +98,27 @@ const SetupProfile: React.FC<SetupProfileProps> = (props) => {
 
           placeholderText={" Last  Name"}
           keyboardType='numeric'
+          onChangeText={value => onChangeText("lastName", value)}
+
+          value={formData.lastName}
+        />
+        <TextInputOutlined
+          labelstyle={styles.labelstyle}
+          parentContaineStyle={styles.parentContaineStyle}
+
+          textInputStyle={styles.textInputStyle}
+
+          countryCode={true}
+          showLabel={true}
+          maxLength={10}
+
+          placeholderText={" Phone number"}
+          keyboardType='numeric'
           onChangeText={value => onChangeText("phone", value)}
-          onChangeCountryCode={e => onChangeText('countryCode', parseInt(e, 10))}
+          // onChangeCountryCode={e => onChangeText('countryCode', parseInt(e, 10))}
           value={formData.phone}
         />
-         <TextInputOutlined
+        <TextInputOutlined
           labelstyle={styles.labelstyle}
           parentContaineStyle={styles.parentContaineStyle}
 
@@ -103,17 +130,17 @@ const SetupProfile: React.FC<SetupProfileProps> = (props) => {
 
           placeholderText={" Password"}
           keyboardType='numeric'
-          onChangeText={value => onChangeText("phone", value)}
-          onChangeCountryCode={e => onChangeText('countryCode', parseInt(e, 10))}
-          value={formData.phone}
+          onChangeText={value => onChangeText("password", value)}
+
+          value={formData.password}
         />
       </View>
       <View style={styles.centerView}>
 
         <ButtonComponent
           onPress={() => {
-
-            navigation.navigate('BottomTabs')
+            handleCreateProfile(formData)
+            // navigation.navigate('BottomTabs')
 
           }}
           buttonText={"Save"}

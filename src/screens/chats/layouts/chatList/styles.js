@@ -54,7 +54,14 @@ const styles = StyleSheet.create({
         color: colors.WHITE,
         fontSize: fontSize.h6,
         fontFamily:fontFamily.P_MEDIUM
-    }
+    },
+    loader: {
+
+
+        justifyContent: 'center',
+        alignItems: 'center',
+
+    },
 
 
 

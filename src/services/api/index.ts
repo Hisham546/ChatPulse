@@ -6,7 +6,8 @@ export const methods = {
     PUT: 'PUT',
 };
 
-export const callAPI = async ({ url, method, body }: callAPiParams): Promise<AxiosResponse | { error: String }> => {
+//export const callAPI = async ({ url, method, body }: callAPiParams): Promise<AxiosResponse | { error: String }> => {
+    export const callAPI = async ({ url, method, body }: callAPiParams): Promise<AxiosResponse | { error: String }> => {
     try {
         const response = await axios(url, {
             method,
@@ -18,6 +19,7 @@ export const callAPI = async ({ url, method, body }: callAPiParams): Promise<Axi
         });
         return response;
     } catch (error) {
+        console.log(error,'.............error in api')
         return { error: error.message || 'An error occurred' };
     }
 }
