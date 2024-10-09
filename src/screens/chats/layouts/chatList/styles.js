@@ -35,25 +35,27 @@ const styles = StyleSheet.create({
         height: deviceHeight * 0.10,
         backgroundColor: 'yellow'
     },
-    chatUserBoxes: {
-        width: deviceWidth,
-        height: deviceHeight * 0.06,
-        justifyContent:'center',
-        alignItems:'center'
-        // backgroundColor: 'red'
-    },
+  
     flatlist: {
         flex: 1,
         width: deviceWidth,
-        // backgroundColor: 'green',
+     
 
 
 
+    },
+    userBoxView:{
+        width: deviceWidth,
+        height:deviceHeight*0.10,
+      
+        alignItems:'center',
+        flexDirection:'row'
     },
     userStyle: {
         color: colors.WHITE,
         fontSize: fontSize.h6,
-        fontFamily:fontFamily.P_MEDIUM
+        fontFamily:fontFamily.P_MEDIUM,
+        marginLeft: '5%' 
     },
     loader: {
 

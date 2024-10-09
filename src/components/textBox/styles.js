@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
         width: deviceWidth,
         justifyContent: 'center',
         alignItems: 'center',
-        //backgroundColor: 'green'
+
 
     },
     textInputStyle: {

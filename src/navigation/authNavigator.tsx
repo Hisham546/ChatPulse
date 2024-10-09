@@ -10,10 +10,10 @@ const Stack = createStackNavigator();
 const AuthNavigation = () => {
 
     return (
-       
-            <Stack.Navigator>
 
-                {/* <Stack.Screen
+        <Stack.Navigator>
+
+            {/* <Stack.Screen
                     options={{ headerShown: false }}
                     name="Phone"
                     component={PhoneContainer} />
@@ -21,21 +21,17 @@ const AuthNavigation = () => {
                     options={{ headerShown: false }}
                     name="OtpScreen"
                     component={OtpContainer} /> */}
-                <Stack.Screen
-                    options={{ headerShown: false }}
-                    name="SetupProfile"
-                    component={SetupProfileContainer} />
-                    <Stack.Screen
-                    options={{ headerShown: false }}
-                    name="BottomTabs"
-                    component={BottomTabs} />
+            <Stack.Screen
+                options={{ headerShown: false }}
+                name="SetupProfile"
+                component={SetupProfileContainer} />
 
 
 
 
 
-            </Stack.Navigator>
-       
+        </Stack.Navigator>
+
     )
 
 }

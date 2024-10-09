@@ -8,7 +8,7 @@ import { useQuery } from '@tanstack/react-query';
 import { ChatsScreenProps } from "../../containers/chatsContainer/modal";
 
 const ChatsScreen: React.FC<ChatsScreenProps> = (props) => {
-const{navigation}=props
+  const { navigation } = props
 
   const { data, error, isLoading } = useQuery({
 
@@ -32,11 +32,15 @@ const{navigation}=props
 
     <View style={styles.containerStyle}>
 
-      <View style={styles.topView}></View>
+      <View style={styles.topView}>
+        <View style={styles.headerView}>
+      <Text style={styles.chatsMainText}>Chats</Text>
+      </View>
+      </View>
 
       <View style={styles.centerView}>
         <ChatsList
-        navigation={navigation}
+          navigation={navigation}
           loading={isLoading}
           userData={data} />
       </View>

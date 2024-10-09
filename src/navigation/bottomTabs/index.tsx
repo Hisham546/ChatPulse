@@ -78,7 +78,7 @@ export default function BottomTabs({ }) {
 
             </View>
           ),
-          tabBarLabel: ({ focused }) => focused ? <Text style={styles.tabBarLabelStyle}>Profiles</Text> : null,
+          tabBarLabel: ({ focused }) => focused ? <Text style={styles.tabBarLabelStyle}>More</Text> : null,
         }} />
 
     </Tab.Navigator>

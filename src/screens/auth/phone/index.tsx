@@ -55,7 +55,7 @@ const Phone: React.FC<PhoneProps> = (props) => {
                 <TextInputOutlined
                     labelstyle={styles.labelstyle}
                     parentContaineStyle={styles.parentContaineStyle}
-                    inputWrapperStyle={styles.inputWrapperStyle}
+                   
                     textInputStyle={styles.textInputStyle}
 
                     countryCode={true}

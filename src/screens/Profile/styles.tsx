@@ -9,6 +9,8 @@ import {
 import { Dimensions, Platform, StatusBar } from 'react-native';
 import colors from "../../themes/colors";
 import deviceProps from "../../utilities/deviceProps";
+import fontFamily from "../../themes/fontFamily";
+import fontSize from "../../themes/fontSize";
 const { deviceHeight, deviceWidth } = deviceProps
 const styles = StyleSheet.create({
 
@@ -18,7 +20,7 @@ const styles = StyleSheet.create({
     },
     containerStyle: {
         flex: 1,
-        backgroundColor:colors.dark_blue
+        backgroundColor: '#0f1829',
 
 
     },
@@ -44,7 +46,45 @@ const styles = StyleSheet.create({
     },
     folderName:{
         color:'black'
-    }
+    },
+    icon:{
+
+    },
+    profileItemParentView: {
+        marginTop: '4%',
+
+        height: deviceHeight * 0.28,
+        width: deviceWidth,
+        //justifyContent: 'center',
+        // alignItems: 'center',
+        // backgroundColor:'blue'
+    },
+    profileItemText: {
+        marginLeft: '4%',
+        color: colors.WHITE,
+        fontFamily: fontFamily.P_REGULAR,
+        fontSize: fontSize._15
+    },
+    profileItemIcon: {
+        color: colors.WHITE,
+    },
+    iconStyles: {
+        width: 32,
+        height: 32,
+        borderRadius: 22,
+        justifyContent: 'center',
+        alignItems: 'center',
+        // backgroundColor: colors.DARK_SLATE_GREEN
+
+    },
+    profileItem: {
+        //  backgroundColor: 'red',
+        width: deviceWidth * 0.80,
+        height: deviceHeight * 0.07,
+        flexDirection: 'row',
+        marginLeft: '8%',
+        alignItems: 'center'
+    },
 
 })
 

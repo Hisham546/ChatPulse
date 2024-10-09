@@ -58,6 +58,7 @@ const TextInputOutlined : React.FC<TextInputOutlinedProps> = (props) => {
                     secureTextEntry={secure}
                     editable={editable}
                     maxLength={maxLength}
+                    autoFocus={true}
 
                 />
                 {secureTextEntry && (

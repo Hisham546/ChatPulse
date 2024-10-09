@@ -56,9 +56,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         // backgroundColor:'blue'
     },
-    inputWrapperStyle: {
-
-    },
+   
     textInputStyle: {
         height: deviceHeight * 0.056,
         borderRadius: 10,

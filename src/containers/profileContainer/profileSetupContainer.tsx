@@ -10,19 +10,23 @@ const SetupProfileContainer = ({ ...props }) => {
     const queryClient = useQueryClient();
 
     const setUserLoggedIn = useAuthStore((state) => state.setUserLoggedIn);
+
+    const setButtonLoading = useAuthStore((state) => state.setButtonLoading);
+
     // Define the mutation outside the createProfile function
     const mutation = useMutation({
         mutationFn: createUsers,
         onSuccess: (data) => {
             console.log(data,)
             if (data && data.success) {
+                setButtonLoading(false)
                 // Invalidate and refetch
                 queryClient.invalidateQueries({ queryKey: ['createProfile'] });
 
                 setUserLoggedIn(true); // Set user as logged in
-                navigation.navigate('BottomTabs'); // Navigate only if successful
+                navigation.navigate('BottomTabs');
             } else {
-                console.error('Profile creation failed:');
+                console.log('Profile creation failed:');
 
             }
         },
@@ -32,7 +36,8 @@ const SetupProfileContainer = ({ ...props }) => {
     });
 
     const handleCreateProfile = (formData: bodyType) => {
-        console.log(formData)
+        setButtonLoading(true)
+
         mutation.mutate(formData);
     };
 

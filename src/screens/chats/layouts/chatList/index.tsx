@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { View, TouchableOpacity, Text, FlatList, ActivityIndicator } from "react-native";
 import styles from "./styles";
 
-import { users } from "../../../../utilities/dummyDatas/users";
+import { Icon } from "../../../../utilities/Icons";
 
 
 
@@ -33,15 +33,21 @@ export default function ChatsList({ userData, loading, navigation }) {
                     //data={users}
                     style={styles.flatlist}
                     renderItem={({ item, index }) => (
-
                         <TouchableOpacity
-                            onPress={() => navigation.navigate('PrivateChatScreen', { userDetails:item })}
-                            style={styles.chatUserBoxes}>
+                            onPress={() => navigation.navigate('PrivateChatScreen', { userDetails: item })}
+                            style={styles.userBoxView}>
+                            <Icon
 
-                            <Text style={styles.userStyle}>{item?.firstName}</Text>
+                                iconFamily={'Entypo'}
+                                size={24}
+                                style={{ color: 'white', marginLeft: '5%' }}
+                                name={'user'}
+                            />
+
+                            <Text style={styles.userStyle}>{item?.name}</Text>
+
+
                         </TouchableOpacity>
-
-
                     )}
                     keyExtractor={item => item.id}
                 />
