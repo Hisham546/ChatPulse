@@ -4,7 +4,7 @@ import { Dimensions, Text, TouchableOpacity, TextInput, View, TextStyle, ViewSty
 
 export interface PhoneProps {
    navigation?: any,
-   signUp?: (phone: string, password: string) => Promise<void>; // Update to take a phone number
+   login?: (data: String) => Promise<void>; // Update to take a phone number
 }
 export interface OtpProps {
    navigation?: any

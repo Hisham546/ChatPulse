@@ -19,5 +19,36 @@ export const regex = {
 
 
 
+// export const actualTime = (dateTime) => {
+//     if (!dateTime) return '';  // Handle invalid or empty date input
 
+//     let [hours, minutes] = dateTime.split("T")[1].split(":") || [];
+//     hours = parseInt(hours, 10);  // Convert hours to a number
 
+//     let period = "AM";
+//     if (hours >= 12) {
+//         period = "PM";
+//         hours = hours > 12 ? hours - 12 : hours;  // Convert 13+ hours to 1-12
+//     } else if (hours === 0) {
+//         hours = 12;  // Handle midnight (0:00) case
+//     }
+
+//     // Ensure minutes are two digits (e.g., "03" instead of "3")
+//     minutes = minutes.padStart(2, '0');
+
+//     return `${hours}:${minutes} ${period}`;
+// }
+
+export const actualTime = (dateTime) => {
+    let hours = dateTime.getHours();
+    let minutes = dateTime.getMinutes();
+
+    let period = "AM";
+    if (hours >= 12) {
+        period = "PM";
+        hours = hours > 12 ? hours - 12 : hours;  // Convert 13+ hours to 1-12
+    } else if (hours === 0) {
+        hours = 12;  // Handle midnight (0:00) case
+    }
+    return `${hours}:${minutes} ${period} ${period}`;
+}

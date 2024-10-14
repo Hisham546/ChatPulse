@@ -51,11 +51,25 @@ const styles = StyleSheet.create({
         alignItems:'center',
         flexDirection:'row'
     },
+    userBoxChild:{
+        width: deviceWidth* 0.70,
+        height:deviceHeight*0.10,
+        justifyContent:'center',
+     
+      
+    },
     userStyle: {
         color: colors.WHITE,
         fontSize: fontSize.h6,
         fontFamily:fontFamily.P_MEDIUM,
         marginLeft: '5%' 
+    },
+    lastMessage:{
+        color: colors.WHITE,
+        fontSize: fontSize._10,
+        fontFamily:fontFamily.P_MEDIUM,
+        marginLeft: '5%' 
+      
     },
     loader: {
 

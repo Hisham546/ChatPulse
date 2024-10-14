@@ -1,14 +1,14 @@
 
 import React, { useEffect, useState } from 'react';
-import SetupProfile from '../../screens/Profile/profileSetup';
+import Login from "../../screens/auth/login";
+import { loginUser } from '../../services/api/apiFunction';
+import useAuthStore from './zustandAuthStore';
 import { useQuery, useQueryClient, useMutation } from '@tanstack/react-query';
-import { createUsers } from '../../services/api/apiFunction';
-import { bodyType } from '../../services/api/modal';
-import useAuthStore from '../authContainer/zustandAuthStore';
-
-const SetupProfileContainer = ({ ...props }) => {
-    
+const LoginContainer = ({ ...props }) => {
     const { navigation } = props
+
+    const [confirm, setConfirm] = useState(null);
+
     const queryClient = useQueryClient();
 
     const setUserLoggedIn = useAuthStore((state) => state.setUserLoggedIn);
@@ -16,22 +16,25 @@ const SetupProfileContainer = ({ ...props }) => {
     const setButtonLoading = useAuthStore((state) => state.setButtonLoading);
     const setUserProfile = useAuthStore((state) => state.setUserProfile);
 
-    // Define the mutation outside the createProfile function
+
+
+
+
     const mutation = useMutation({
-        mutationFn: createUsers,
+        mutationFn: loginUser,
         onSuccess: (data) => {
-            console.log(data,)
+           
             if (data && data.success) {
-     
+
                 setUserProfile(data)
                 setButtonLoading(false)
                 // Invalidate and refetch
-                queryClient.invalidateQueries({ queryKey: ['createProfile'] });
+                queryClient.invalidateQueries({ queryKey: ['login'] });
 
                 setUserLoggedIn(true); // Set user as logged in
                 navigation.navigate('BottomTabs');
             } else {
-                console.log('Profile creation failed:');
+                console.log('Login failed:');
 
             }
         },
@@ -40,17 +43,21 @@ const SetupProfileContainer = ({ ...props }) => {
         },
     });
 
-    const handleCreateProfile = (formData: bodyType) => {
+
+
+
+    async function login(data: any) {
+        console.log(data)
         setButtonLoading(true)
 
-        mutation.mutate(formData);
-    };
-
+        mutation.mutate(data);
+    }
     return (
 
-        <SetupProfile
+        <Login
             {...props}
-            handleCreateProfile={handleCreateProfile}
+            login={login}
+
 
 
 
@@ -61,4 +68,4 @@ const SetupProfileContainer = ({ ...props }) => {
 
 
 
-export default (SetupProfileContainer);
+export default (LoginContainer);

@@ -17,22 +17,15 @@ const styles = StyleSheet.create({
     containerStyle: {
         flex: 1,
         backgroundColor: '#0f1829',
-
-
     },
     topView: {
         width: deviceWidth,
-        height: deviceHeight * 0.45,
-   
-
-
+        height: deviceHeight * 0.40,
     },
     centerView: {
         width: deviceWidth,
-        alignItems:'center',
-
+        alignItems: 'center',
         flex: 1,
-
     },
     labelstyle: {
         fontFamily: fontFamily.P_MEDIUM,
@@ -54,52 +47,41 @@ const styles = StyleSheet.create({
         width: deviceWidth,
         justifyContent: 'center',
         alignItems: 'center',
-        // backgroundColor:'blue'
     },
-   
+
     textInputStyle: {
         height: deviceHeight * 0.056,
         borderRadius: 10,
         justifyContent: 'space-evenly',
         alignItems: 'center',
         flexDirection: 'row',
-
         width: deviceWidth * 0.80,
         backgroundColor: '#152033',
-   
         color: colors.WHITE
-        //textAlign:'justify'
-
     },
-    descriptionView:{
-        width:deviceWidth,
-        height:deviceHeight*0.30,
-   
-        justifyContent:'center',
-        alignItems:'center'
-
+    descriptionView: {
+        width: deviceWidth,
+        height: deviceHeight * 0.30,
+        justifyContent: 'center',
+        alignItems: 'center'
     },
-    descriptionTextStyle:{
-        color:colors.WHITE,
-        fontSize:fontSize.h6,
-        fontFamily:fontFamily.P_MEDIUM
+    descriptionTextStyle: {
+        color: colors.WHITE,
+        fontSize: fontSize.h6,
+        fontFamily: fontFamily.P_MEDIUM
     },
     buttonTextStyle: {
         color: colors.LIGHT_GOLDEN_YELLOW,
         fontSize: fontSize.p,
         fontStyle: 'normal',
         fontFamily: fontFamily.P_MEDIUM
-
     },
     buttonStyle: {
-       // marginTop: 15,
+        marginTop: "15%",
         backgroundColor: '#375FFF',
         height: deviceHeight * 0.067,
         borderRadius: 18,
-
-
         width: deviceWidth * 0.80
-
     },
 
 

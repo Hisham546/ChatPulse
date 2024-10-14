@@ -10,6 +10,8 @@ export default function ProfileScreen() {
 
   const setUserLoggedIn = useAuthStore((state) => state.setUserLoggedIn);
 
+  const UserProfile = useAuthStore((state) => state.userProfile);
+
 
 
   const ProfileItems = [
@@ -39,15 +41,6 @@ export default function ProfileScreen() {
 
 
 
-
-
-
-
-
-
-
-
-
   return (
 
 
@@ -62,6 +55,11 @@ export default function ProfileScreen() {
 
 
     <View style={styles.containerStyle}>
+      <View style={styles.userProfileView}>
+
+        <Text style={styles.profileName}>{UserProfile?.data?.name}</Text>
+        <Text style={styles.profilePhone}>{UserProfile?.data?.phone}</Text>
+      </View>
 
       <View style={styles.profileItemParentView}>
         {ProfileItems.map((item, i) => (

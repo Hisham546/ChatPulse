@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { View, TouchableOpacity, Text, FlatList } from "react-native";
+import { useState, useEffect, useCallback } from "react";
+import { View, TouchableOpacity, Text, FlatList, ActivityIndicator, KeyboardAvoidingView, Platform } from "react-native";
 import styles from "./styles";
 import { socketUrl } from "../../services/socket";
 
@@ -7,31 +7,56 @@ import { getAllUsers } from "../../services/api/apiFunction";
 import { useQuery } from '@tanstack/react-query';
 import { Icon } from "../../utilities/Icons";
 import SendMessage from "./childs/sendMessage";
-export default function PrivateChatScreen(props) {
+import { useFocusEffect } from '@react-navigation/native';
+import { loadAllMessages } from "../../services/api/apiFunction";
+import { actualTime } from "../../utilities/utilityFunctions";
+export default function PrivateChatScreen(props: { route: any; navigation: { goBack: any; }; }) {
 
 
     const { route, navigation: { goBack }, } = props
 
-    const [messages, setMessages] = useState('')
+    const [chats, setChats] = useState<any[]>([]);
 
-    const { userDetails } = route.params
+    const { currentUserDetails } = route.params
 
 
+
+    useFocusEffect(
+        useCallback(() => {
+
+            // Listening for messages
+
+            socketUrl.on('chatMessage', (message) => {
+                setChats((previousChats) => [...previousChats, message])
+              //  console.log('Message received:', message);
+            });
+        }, [])
+    );
+
+
+    const { data, error, isLoading } = useQuery({
+
+        queryKey: ['userTexts'],
+        queryFn: loadAllMessages,
+
+
+    });
 
     useEffect(() => {
-        // Listening for messages
-        socketUrl.on('chatMessage', (message) => {
-            setMessages(message)
-            console.log('Message received:', message);
-        });
-    }, [])
-
-
+        if (data && data.data) {
+            const filteredData = data.data.filter(
+                (message: { reciever: any }) => message.reciever === currentUserDetails.name
+            );
+            setChats((prevChats) => [...filteredData, ...prevChats]); // Combine MongoDB data with live socket data
+        }
+    }, [data]);
 
 
     return (
 
-        <View style={styles.containerStyle}>
+        <View
+
+            style={styles.containerStyle}>
 
             <View style={styles.headerView}>
                 <TouchableOpacity
@@ -46,18 +71,43 @@ export default function PrivateChatScreen(props) {
                         name={'chevron-left'}
                     />
                 </TouchableOpacity>
-                <Text style={styles.userStyle}>{userDetails?.name}</Text>
+                <Text style={styles.userStyle}>{currentUserDetails?.name}</Text>
 
 
             </View>
 
             <View style={styles.centerView}>
-                <Text style={styles.userStyle}>{messages}</Text>
+
+                {isLoading ? (
+                    <ActivityIndicator size="large" color="white" style={styles.loader} />
+                ) : (
+                    <FlatList
+                        data={chats}
+
+                        style={styles.flatlist}
+                        renderItem={({ item, index }) => (
+
+                            <View style={styles.chatsBoxView}>
+                                <View style={styles.chatTextView}>
+                                    <Text style={styles.userStyle}>{item?.message}</Text>
+                                </View>
+                                <View style={styles.chatTimeView}>
+                                    <Text style={styles.textTime}>{item?.timeStamp}</Text>
+
+                                </View>
+                            </View>
+                        )
+
+                        }
+                        keyExtractor={item => item.id}
+                    />
+                )}
 
             </View>
 
             <View style={styles.footerView}>
-                <SendMessage />
+                <SendMessage
+                    currentUserDetails={currentUserDetails} />
 
             </View>
         </View>

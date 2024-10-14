@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import PhoneContainer from '../containers/authContainer/phoneContainer';
+import LoginContainer from '../containers/authContainer/loginContainer';
 import OtpContainer from '../containers/authContainer/otpContainer';
 import SetupProfileContainer from '../containers/profileContainer/profileSetupContainer';
 import BottomTabs from './bottomTabs';
@@ -13,11 +13,11 @@ const AuthNavigation = () => {
 
         <Stack.Navigator>
 
-            {/* <Stack.Screen
-                    options={{ headerShown: false }}
-                    name="Phone"
-                    component={PhoneContainer} />
-                <Stack.Screen
+            <Stack.Screen
+                options={{ headerShown: false }}
+                name="Login"
+                component={LoginContainer} />
+            {/*   <Stack.Screen
                     options={{ headerShown: false }}
                     name="OtpScreen"
                     component={OtpContainer} /> */}

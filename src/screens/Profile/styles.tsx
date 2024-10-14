@@ -44,10 +44,10 @@ const styles = StyleSheet.create({
         width: deviceWidth,
         height: deviceHeight * 0.50
     },
-    folderName:{
-        color:'black'
+    folderName: {
+        color: 'black'
     },
-    icon:{
+    icon: {
 
     },
     profileItemParentView: {
@@ -58,6 +58,24 @@ const styles = StyleSheet.create({
         //justifyContent: 'center',
         // alignItems: 'center',
         // backgroundColor:'blue'
+    },
+    userProfileView: {
+        width: deviceWidth *0.90,
+        height: deviceHeight * 0.10,
+        marginLeft:'12%',
+      
+        justifyContent:'center'
+  
+    },
+    profileName:{
+        color: colors.WHITE,
+        fontFamily: fontFamily.P_REGULAR,
+        fontSize: fontSize.h5
+    },
+    profilePhone:{
+        color: colors.WHITE,
+        fontFamily: fontFamily.P_REGULAR,
+        fontSize: fontSize.p
     },
     profileItemText: {
         marginLeft: '4%',

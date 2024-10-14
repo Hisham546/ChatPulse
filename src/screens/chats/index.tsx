@@ -3,7 +3,7 @@ import { View, TouchableOpacity, Text, FlatList } from "react-native";
 import styles from "./styles";
 
 import ChatsList from "./layouts/chatList";
-import { getAllUsers } from "../../services/api/apiFunction";
+import { getAllUsers,loadAllMessages } from "../../services/api/apiFunction";
 import { useQuery } from '@tanstack/react-query';
 import { ChatsScreenProps } from "../../containers/chatsContainer/modal";
 
@@ -19,7 +19,12 @@ const ChatsScreen: React.FC<ChatsScreenProps> = (props) => {
 
 
 
+  const { data: latestMessage, error: messageError, isLoading: isMessageLoading } = useQuery({
+    queryKey: ['userTexts'],
+    queryFn: loadAllMessages,
 
+
+  });
 
 
 
@@ -34,15 +39,17 @@ const ChatsScreen: React.FC<ChatsScreenProps> = (props) => {
 
       <View style={styles.topView}>
         <View style={styles.headerView}>
-      <Text style={styles.chatsMainText}>Chats</Text>
-      </View>
+          <Text style={styles.chatsMainText}>Chats</Text>
+        </View>
       </View>
 
       <View style={styles.centerView}>
         <ChatsList
           navigation={navigation}
           loading={isLoading}
-          userData={data} />
+          userData={data}
+        latestMessage={latestMessage}
+          />
       </View>
 
       <View>

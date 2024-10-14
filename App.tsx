@@ -19,7 +19,9 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-    <AppNavigation />
+   
+        <AppNavigation />
+    
     </QueryClientProvider>
 
   );

@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import Phone from "../../screens/auth/phone";
+import Phone from "../../screens/auth/login";
 import PrivateChatScreen from '../../screens/privateChats';
 const PrivateChatsContainer = ({ ...props }) => {
     const { navigation } = props

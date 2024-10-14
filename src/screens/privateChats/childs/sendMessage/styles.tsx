@@ -17,11 +17,12 @@ const styles = StyleSheet.create({
 
     sendMessageParent: {
 
-        backgroundColor: '#0f1829',
+        backgroundColor:  '#0f1829',
         width: deviceWidth,
         justifyContent: 'space-evenly',
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+      
         // height:deviceHeight ,  
 
 
@@ -65,6 +66,7 @@ const styles = StyleSheet.create({
         //textAlign:'justify'
 
     },
+    
 
 })
 
