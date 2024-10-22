@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { View, TouchableOpacity, Text, FlatList } from "react-native";
+import { View, TouchableOpacity, Text, Image, ToastAndroid } from "react-native";
 import styles from "./styles";
 
 import TextInputOutlined from "../../../components/textBox/inputText";
-
+import { IMAGES } from "../../../assets/images/assetsExport"
 import ButtonComponent from "../../../components/button/button";
 import { PhoneProps } from "../../../containers/authContainer/modal";
+import useAuthStore from "../../../containers/authContainer/zustandAuthStore";
 
 const Login: React.FC<PhoneProps> = (props) => {
-    const { navigation, login } = props
+    const { navigation, login, } = props
 
     const [formData, setFormData] = useState({
 
@@ -19,7 +20,7 @@ const Login: React.FC<PhoneProps> = (props) => {
 
 
     });
-
+    const buttonLoading = useAuthStore((state) => state.buttonLoading);
     const onChangeText = (state: string, value: string | number) => {
 
 
@@ -49,7 +50,15 @@ const Login: React.FC<PhoneProps> = (props) => {
             <View style={styles.topView}>
                 <View style={styles.descriptionView}>
 
-                    <Text style={styles.descriptionTextStyle}>Connect easily with your family and friends over countries</Text>
+                    <Text style={styles.getStarted}>Get Started</Text>
+                    <Text style={styles.getStarted2}>Start with login or register</Text>
+                    <Image
+                    resizeMode={'contain'}
+                    style={styles.welcomeLogo2}
+                    source={IMAGES.welcomeImage2}
+                />
+
+
                 </View>
 
             </View>
@@ -65,7 +74,7 @@ const Login: React.FC<PhoneProps> = (props) => {
                     maxLength={10}
 
                     placeholderText={" Enter your name"}
-                    keyboardType='numeric'
+                    keyboardType='default'
                     onChangeText={value => onChangeText("name", value)}
 
                     value={formData.name}
@@ -89,21 +98,41 @@ const Login: React.FC<PhoneProps> = (props) => {
 
                 <ButtonComponent
                     onPress={() => {
-                        let data = {
-                            password: formData.password,
-                            name: formData.name
+                        if (formData.password || formData.name) {
+                            let data = {
+                                password: formData.password,
+                                name: formData.name
 
+                            }
+
+                            props.login?.(data)
                         }
-                        props.login?.(data)
+                        else {
+                            console.log('else')
+                            ToastAndroid.showWithGravity(
+                                'Please fill all fields',
+                                ToastAndroid.SHORT,
+                                ToastAndroid.CENTER,
+                            );
+                        }
+
 
 
 
                     }}
-                    buttonText={"Start Messaging"}
+                    buttonText={"Login"}
+                    loading={buttonLoading}
 
                     textStyle={styles.buttonTextStyle}
                     buttonStyle={styles.buttonStyle}
                 />
+
+                <View style={styles.registerNowView}>
+                    <Text style={styles.dontHaveAc}>Don't have an account?</Text>
+                    <TouchableOpacity onPress={() => navigation.navigate('SetupProfile')}>
+                        <Text style={styles.registerNowText} >Register now</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
 
         </View>

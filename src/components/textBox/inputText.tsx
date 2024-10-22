@@ -9,9 +9,9 @@ import { CountryCodeUtility } from "../countryCode";
 const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;
 
-const TextInputOutlined : React.FC<TextInputOutlinedProps> = (props) => {
+const TextInputOutlined: React.FC<TextInputOutlinedProps> = (props) => {
     const {
-        
+
         headingLabel,
         onChangeText,
         value,
@@ -32,6 +32,9 @@ const TextInputOutlined : React.FC<TextInputOutlinedProps> = (props) => {
     } = props
     const [secure, setSecure] = useState(secureTextEntry)
 
+    // ,
+    // borderTopLeftRadius,
+
     return (
         <View style={[styles.TextInputContainer, parentContaineStyle,]}>
             {showLabel ?
@@ -39,7 +42,10 @@ const TextInputOutlined : React.FC<TextInputOutlinedProps> = (props) => {
                     <Text style={[styles.headingLabelStyle, labelstyle]}>{headingLabel}</Text>
                 </View>
                 : null}
-            <View style={[styles.inputWrapper, inputWrapperStyle, countryCode ? deviceWidth * 0.73 : deviceWidth * 0.80]}>
+            <View style={[styles.inputWrapper, inputWrapperStyle,
+            // { borderTopLeftRadius: countryCode ? 1 : 0 },
+            // { borderBottomLeftRadius: countryCode ? 1 : 0 },
+            ]}>
                 {countryCode &&
 
                     <CountryCodeUtility
@@ -75,7 +81,7 @@ const TextInputOutlined : React.FC<TextInputOutlinedProps> = (props) => {
 
 
             </View>
-        </View>
+        </View >
     )
 
 }

@@ -58,8 +58,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         // borderWidth: 1,
         // borderColor: '#ccc',
+      
         borderRadius: 5,
-        //  backgroundColor:'red'
+         // backgroundColor:'red'
     },
     eyeArea: {
         position: 'absolute',

@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     width: deviceWidth * 0.11,
     height:deviceHeight*0.055,
     paddingHorizontal: 5,
-   // backgroundColor: 'red',
+    
     flexDirection: 'row'
   },
   longCode:{

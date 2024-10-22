@@ -3,13 +3,11 @@ import { View, TouchableOpacity, Text, FlatList, ActivityIndicator, KeyboardAvoi
 import styles from "./styles";
 import { socketUrl } from "../../services/socket";
 
-import { getAllUsers } from "../../services/api/apiFunction";
 import { useQuery } from '@tanstack/react-query';
 import { Icon } from "../../utilities/Icons";
 import SendMessage from "./childs/sendMessage";
 import { useFocusEffect } from '@react-navigation/native';
 import { loadAllMessages } from "../../services/api/apiFunction";
-import { actualTime } from "../../utilities/utilityFunctions";
 export default function PrivateChatScreen(props: { route: any; navigation: { goBack: any; }; }) {
 
 

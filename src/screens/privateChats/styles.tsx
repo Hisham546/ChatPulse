@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     },
     chatsBoxView: {
         width: deviceWidth * 0.50,
-        height: deviceHeight * 0.04,
+        minHeight: deviceHeight * 0.04,
         backgroundColor: '#1c2b48',
         marginTop: '3%',
         borderBottomRightRadius: 5,

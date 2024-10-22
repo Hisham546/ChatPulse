@@ -61,14 +61,25 @@ const styles = StyleSheet.create({
     },
     descriptionView: {
         width: deviceWidth,
-        height: deviceHeight * 0.30,
+        height: deviceHeight * 0.40,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+       
     },
-    descriptionTextStyle: {
+    getStarted: {
+        color: colors.WHITE,
+        fontSize: fontSize.h4,
+        fontFamily: fontFamily.P_MEDIUM
+    },
+    getStarted2: {
         color: colors.WHITE,
         fontSize: fontSize.h6,
         fontFamily: fontFamily.P_MEDIUM
+    },
+    dontHaveAc:{
+        color: colors.WHITE,
+        fontSize: fontSize._13,
+        fontFamily: fontFamily.P_REGULAR
     },
     buttonTextStyle: {
         color: colors.LIGHT_GOLDEN_YELLOW,
@@ -83,6 +94,28 @@ const styles = StyleSheet.create({
         borderRadius: 18,
         width: deviceWidth * 0.80
     },
+
+    registerNowText: {
+        color: colors.white_100,
+        fontSize: fontSize._12,
+        fontFamily: fontFamily.P_MEDIUM,
+        textDecorationLine: 'underline'
+    },
+    registerNowView: {
+        width: deviceWidth * 0.77,
+        height: deviceHeight * 0.07,
+        justifyContent: 'center',
+        alignItems: 'center',
+
+        marginTop: '2%',
+        // backgroundColor:'red'
+    },
+    welcomeLogo2:{
+        width: deviceWidth * 0.26,
+        height: deviceHeight * 0.26, 
+      
+    },
+    
 
 
 })

@@ -34,7 +34,7 @@ export default function ChatsList({ userData, loading, navigation, latestMessage
         );
 
         //retrieves the last message
-        const lastMessage = userMessages.length > 0 ? userMessages[userMessages.length - 1] : null;
+        const lastMessage = userMessages?.length > 0 ? userMessages[userMessages.length - 1] : null;
 
         return lastMessage;
     };
