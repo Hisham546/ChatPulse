@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
         width: deviceWidth,
         height: deviceHeight * 0.09,
         backgroundColor: '#0f1829',
+
         flexDirection: 'row',
         alignItems: 'center',
 
@@ -32,6 +33,13 @@ const styles = StyleSheet.create({
 
 
         //#0F!828
+    },
+    nameView:{
+        width: deviceWidth*0.35,
+        height: deviceHeight * 0.09,
+        alignItems:"center",
+        justifyContent:"center",
+      
     },
     centerView: {
         width: deviceWidth,
@@ -98,6 +106,12 @@ const styles = StyleSheet.create({
       
     //    backgroundColor:'red',
         justifyContent:'flex-end'
+    },
+    onlineText:{
+        color: colors.green_100,
+        fontFamily: fontFamily.P_MEDIUM,
+        fontSize: fontSize._10,
+       
     },
 
 

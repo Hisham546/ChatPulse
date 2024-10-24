@@ -6,9 +6,9 @@ const useChatsStore = create((set) => ({
 
 
   userstatus: null,
-
+  userActive: [],
   setUserOnline: (state: any) => set({ userstatus: state }),
-
+  setUserActive: (update: any) => set({ userActive: update }),
 
 
 }),

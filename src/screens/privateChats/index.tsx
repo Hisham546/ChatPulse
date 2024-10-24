@@ -9,21 +9,25 @@ import SendMessage from "./childs/sendMessage";
 import { useFocusEffect } from '@react-navigation/native';
 import { loadAllMessages } from "../../services/api/apiFunction";
 import useAuthStore from "../../containers/authContainer/zustandAuthStore";
-export default function PrivateChatScreen(props: { route: any; navigation: { goBack: any; }; }) {
+import useChatsStore from "../../containers/chatsContainer/zustandChatsStore";
+export default function PrivateChatScreen(props: { userOnlineTrue: any, currentUserDetails: any; navigation: { goBack: any; }; }) {
 
 
-    const { route, navigation: { goBack }, } = props
+    const { currentUserDetails, userOnlineTrue, navigation: { goBack }, } = props
 
     const [chats, setChats] = useState<any[]>([]);
 
-    const { currentUserDetails } = route.params
 
 
+    const UserProfile = useAuthStore((state) => state.userProfile);
+    const userstatus = useChatsStore((state) => state.userstatus);
+    const userActive = useChatsStore((state) => state.userActive);
+    console.log(typeof(currentUserDetails.userId), '......current userId', userActive, '.............userstatus')
 
     useFocusEffect(
         useCallback(() => {
 
-          
+
             socketUrl.on('chatMessage', (message) => {
                 setChats((previousChats) => [...previousChats, message])
                 //  console.log('Message received:', message);
@@ -48,8 +52,9 @@ export default function PrivateChatScreen(props: { route: any; navigation: { goB
             setChats((prevChats) => [...filteredData, ...prevChats]); // Combine MongoDB data with live socket data
         }
     }, [data]);
+    const isUserOnline = userActive?.some((user) => user=== currentUserDetails.userId);
 
-
+console.log(isUserOnline)
     return (
 
         <View
@@ -69,9 +74,15 @@ export default function PrivateChatScreen(props: { route: any; navigation: { goB
                         name={'chevron-left'}
                     />
                 </TouchableOpacity>
-                <Text style={styles.userStyle}>{currentUserDetails?.name}</Text>
+                <View style={styles.nameView}>
+                    <Text style={styles.userStyle}>{currentUserDetails?.name}</Text>
+                    {isUserOnline ? (
 
-
+                        <Text style={styles.onlineText}>Online</Text>
+                    ) : (
+                        <Text style={styles.onlineText}>Offline</Text>
+                    )}
+                </View>
             </View>
 
             <View style={styles.centerView}>

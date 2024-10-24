@@ -13,7 +13,8 @@ export default function ProfileScreen() {
   const UserProfile = useAuthStore((state) => state.userProfile);
 
   const userstatus = useChatsStore((state) => state.userstatus);
-  console.log(userstatus, '........userstatus')
+  const userActive = useChatsStore((state) => state.userActive);
+  console.log(userActive,'..........useractive')
   const ProfileItems = [
 
 
@@ -73,9 +74,9 @@ export default function ProfileScreen() {
           <Text style={styles.profilePhone}>{UserProfile?.data?.phone}</Text>
 
         </View>
-        {userstatus == UserProfile?.data.userId ?
+        {userActive?
 
-          <Text style={styles.profilePhone}>Online</Text>
+          <Text style={styles.onlineText}>Online</Text>
           : null}
       </View>
 

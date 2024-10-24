@@ -33,7 +33,7 @@ export const loadAllMessages = async () => {
 export const updateUserOnline = async (userId: String) => {
     //console.log('updateUserOnline..........',userId)
     const req = { url: `${apis.userOnline}${userId}`, method: methods.GET };
-   // console.log(req)
+
     const response = await callAPI(req);
 
    return response.data;

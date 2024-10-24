@@ -99,6 +99,12 @@ const styles = StyleSheet.create({
         fontFamily: fontFamily.P_REGULAR,
         fontSize: fontSize.p
     },
+    onlineText:{
+        color: "#ADB5BD",
+        fontFamily: fontFamily.P_MEDIUM,
+        fontSize: fontSize.p,
+        marginTop:'5%'
+    },
     profileItemText: {
         marginLeft: '4%',
         color: colors.WHITE,
