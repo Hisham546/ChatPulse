@@ -7,4 +7,5 @@ export const apis = {
     getAllUsers: `${url}api/users`,
     getUserTexts: `${url}api/user-chats`,
     login: `${url}api/login`,
+    userOnline: `${url}api/online-status/`,
 }

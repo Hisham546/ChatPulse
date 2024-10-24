@@ -50,7 +50,7 @@ const LoginContainer = ({ ...props }) => {
 
 
     async function login(data: any) {
-        console.log('called')
+    
         setButtonLoading(true)
 
         mutation.mutate(data);

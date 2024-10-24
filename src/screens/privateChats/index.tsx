@@ -8,6 +8,7 @@ import { Icon } from "../../utilities/Icons";
 import SendMessage from "./childs/sendMessage";
 import { useFocusEffect } from '@react-navigation/native';
 import { loadAllMessages } from "../../services/api/apiFunction";
+import useAuthStore from "../../containers/authContainer/zustandAuthStore";
 export default function PrivateChatScreen(props: { route: any; navigation: { goBack: any; }; }) {
 
 
@@ -22,11 +23,10 @@ export default function PrivateChatScreen(props: { route: any; navigation: { goB
     useFocusEffect(
         useCallback(() => {
 
-            // Listening for messages
-
+          
             socketUrl.on('chatMessage', (message) => {
                 setChats((previousChats) => [...previousChats, message])
-              //  console.log('Message received:', message);
+                //  console.log('Message received:', message);
             });
         }, [])
     );

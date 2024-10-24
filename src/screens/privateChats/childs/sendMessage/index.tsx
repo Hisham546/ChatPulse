@@ -22,7 +22,7 @@ export default function SendMessage({ currentUserDetails }) {
 
     const sendMessage = () => {
         setMessage('')
-        Keyboard.dismiss
+        Keyboard.dismiss()
 
         let payload = {
             message: message,

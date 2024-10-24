@@ -4,7 +4,7 @@ import styles from "./styles";
 import colors from "../../themes/colors";
 import { Icon } from "../../utilities/Icons";
 import useAuthStore from "../../containers/authContainer/zustandAuthStore";
-
+import useChatsStore from "../../containers/chatsContainer/zustandChatsStore";
 
 export default function ProfileScreen() {
 
@@ -12,8 +12,8 @@ export default function ProfileScreen() {
 
   const UserProfile = useAuthStore((state) => state.userProfile);
 
-
-
+  const userstatus = useChatsStore((state) => state.userstatus);
+  console.log(userstatus, '........userstatus')
   const ProfileItems = [
 
 
@@ -55,10 +55,28 @@ export default function ProfileScreen() {
 
 
     <View style={styles.containerStyle}>
+      <View style={styles.headerView}>
+        <Text style={styles.chatsMainText}>More</Text>
+      </View>
       <View style={styles.userProfileView}>
+        <View style={styles.userIconView}>
+          <Icon
 
-        <Text style={styles.profileName}>{UserProfile?.data?.name}</Text>
-        <Text style={styles.profilePhone}>{UserProfile?.data?.phone}</Text>
+            iconFamily={'Entypo'}
+            size={24}
+            style={{ color: 'white', }}
+            name={'user'}
+          />
+        </View>
+        <View style={styles.userNameView}>
+          <Text style={styles.profileName}>{UserProfile?.data?.name}</Text>
+          <Text style={styles.profilePhone}>{UserProfile?.data?.phone}</Text>
+
+        </View>
+        {userstatus == UserProfile?.data.userId ?
+
+          <Text style={styles.profilePhone}>Online</Text>
+          : null}
       </View>
 
       <View style={styles.profileItemParentView}>

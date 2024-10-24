@@ -59,21 +59,43 @@ const styles = StyleSheet.create({
         // alignItems: 'center',
         // backgroundColor:'blue'
     },
-    userProfileView: {
-        width: deviceWidth *0.90,
-        height: deviceHeight * 0.10,
-        marginLeft:'12%',
-      
-        justifyContent:'center'
-  
+    headerView:{
+        width:deviceWidth,
+        height:deviceHeight*0.08,
+        justifyContent:'center',    
     },
-    profileName:{
+    chatsMainText: {
+        color: colors.WHITE,
+        fontSize: fontSize.h5,
+        fontFamily:fontFamily.P_MEDIUM,
+        marginLeft: '5%' 
+    },
+    userProfileView: {
+        width: deviceWidth,
+        height: deviceHeight * 0.10,
+        flexDirection: 'row'
+
+    },
+    userIconView: {
+        width: deviceWidth * 0.20,
+        height: deviceHeight * 0.10,
+        justifyContent:'center',
+        alignItems:'center',
+      
+    },
+    userNameView:{
+        width: deviceWidth * 0.50,
+        height: deviceHeight * 0.10,  
+        justifyContent:'center',
+       
+    },
+    profileName: {
         color: colors.WHITE,
         fontFamily: fontFamily.P_REGULAR,
         fontSize: fontSize.h5
     },
-    profilePhone:{
-        color: colors.WHITE,
+    profilePhone: {
+        color: "#ADB5BD",
         fontFamily: fontFamily.P_REGULAR,
         fontSize: fontSize.p
     },
@@ -103,6 +125,7 @@ const styles = StyleSheet.create({
         marginLeft: '8%',
         alignItems: 'center'
     },
+
 
 })
 

@@ -71,7 +71,7 @@ const SetupProfile: React.FC<SetupProfileProps> = (props) => {
 
 
           showLabel={true}
-          maxLength={10}
+        
 
           placeholderText={"Enter your name"}
           keyboardType='numeric'

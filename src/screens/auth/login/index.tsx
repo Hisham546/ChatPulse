@@ -71,7 +71,7 @@ const Login: React.FC<PhoneProps> = (props) => {
 
 
                     showLabel={true}
-                    maxLength={10}
+                  
 
                     placeholderText={" Enter your name"}
                     keyboardType='default'
