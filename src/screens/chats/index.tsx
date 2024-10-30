@@ -3,7 +3,7 @@ import { View, TouchableOpacity, Text, FlatList } from "react-native";
 import styles from "./styles";
 
 import ChatsList from "./layouts/chatList";
-import { getAllUsers,loadAllMessages } from "../../services/api/apiFunction";
+import { getAllUsers, loadAllMessages } from "../../services/api/apiFunction";
 import { useQuery } from '@tanstack/react-query';
 import { ChatsScreenProps } from "../../containers/chatsContainer/modal";
 
@@ -48,8 +48,8 @@ const ChatsScreen: React.FC<ChatsScreenProps> = (props) => {
           navigation={navigation}
           loading={isLoading}
           userData={data}
-        latestMessage={latestMessage}
-          />
+          latestMessage={latestMessage}
+        />
       </View>
 
       <View>

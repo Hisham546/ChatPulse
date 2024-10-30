@@ -14,7 +14,7 @@ export default function ProfileScreen() {
 
   const userstatus = useChatsStore((state) => state.userstatus);
   const userActive = useChatsStore((state) => state.userActive);
-  console.log(userActive,'..........useractive')
+
   const ProfileItems = [
 
 

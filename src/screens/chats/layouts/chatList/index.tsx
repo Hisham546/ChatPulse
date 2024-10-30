@@ -30,7 +30,7 @@ export default function ChatsList({ userData, loading, navigation, latestMessage
     const getLatestMessage = (user) => {
         // Filter messages where the user is either the sender or receiver
         const userMessages = latestMessage?.data?.filter(
-            (msg) => msg.sender === user.name || msg.reciever === user.name
+            (msg) => msg.sender === UserProfile?.data?.name && msg.reciever === user.name
         );
 
         //retrieves the last message

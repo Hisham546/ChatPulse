@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
         fontSize: fontSize.p
     },
     onlineText:{
-        color: "#ADB5BD",
+        color: colors.green_100,
         fontFamily: fontFamily.P_MEDIUM,
         fontSize: fontSize.p,
         marginTop:'5%'

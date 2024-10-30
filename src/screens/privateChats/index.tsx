@@ -22,7 +22,7 @@ export default function PrivateChatScreen(props: { userOnlineTrue: any, currentU
     const UserProfile = useAuthStore((state) => state.userProfile);
     const userstatus = useChatsStore((state) => state.userstatus);
     const userActive = useChatsStore((state) => state.userActive);
-    console.log(typeof(currentUserDetails.userId), '......current userId', userActive, '.............userstatus')
+    console.log(currentUserDetails.userId, '......current userId', userActive, '.............userstatus')
 
     useFocusEffect(
         useCallback(() => {
@@ -47,14 +47,14 @@ export default function PrivateChatScreen(props: { userOnlineTrue: any, currentU
     useEffect(() => {
         if (data && data.data) {
             const filteredData = data.data.filter(
-                (message: { reciever: any }) => message.reciever === currentUserDetails.name
+                (message: { reciever: String, sender: String }) => message.reciever === currentUserDetails.name && message.sender === UserProfile?.data?.name
             );
             setChats((prevChats) => [...filteredData, ...prevChats]); // Combine MongoDB data with live socket data
         }
     }, [data]);
-    const isUserOnline = userActive?.some((user) => user=== currentUserDetails.userId);
+    const isUserOnline = userActive?.some((user: String) => user === currentUserDetails.userId);
 
-console.log(isUserOnline)
+
     return (
 
         <View
