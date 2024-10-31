@@ -58,7 +58,12 @@ export default function SendMessage({ currentUserDetails }) {
             <TouchableOpacity
 
                 onPress={() => {
-                    sendMessage()
+                    if (message) {
+                        sendMessage()
+                    } else {
+                        console.log('no message')
+                    }
+
                 }}>
                 <Icon
 

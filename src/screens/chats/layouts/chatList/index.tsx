@@ -10,7 +10,6 @@ import useAuthStore from "../../../../containers/authContainer/zustandAuthStore"
 export default function ChatsList({ userData, loading, navigation, latestMessage }) {
     const UserProfile = useAuthStore((state) => state.userProfile);
 
-    const [userLastText, setUserLastText] = useState([])
 
 
 
@@ -50,7 +49,6 @@ export default function ChatsList({ userData, loading, navigation, latestMessage
             ) : (
                 <FlatList
                     data={filteredUsers ? filteredUsers : []}
-                    //data={users}
                     style={styles.flatlist}
                     extraData={latestMessage}
                     renderItem={({ item, index }) => {
@@ -76,15 +74,15 @@ export default function ChatsList({ userData, loading, navigation, latestMessage
                                     ) : (
                                         null
                                     )}
-                                   
+
 
 
                                 </View>
                                 {latestMessage ? (
-                                        <Text style={styles.lastMessage}>{latestMessage.timeStamp}</Text>
-                                    ) : (
-                                        null
-                                    )}
+                                    <Text style={styles.lastMessage}>{latestMessage.timeStamp}</Text>
+                                ) : (
+                                    null
+                                )}
 
 
 

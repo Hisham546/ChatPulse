@@ -10,6 +10,8 @@ import { useFocusEffect } from '@react-navigation/native';
 import { loadAllMessages } from "../../services/api/apiFunction";
 import useAuthStore from "../../containers/authContainer/zustandAuthStore";
 import useChatsStore from "../../containers/chatsContainer/zustandChatsStore";
+import deviceProps from "../../utilities/deviceProps";
+const { deviceHeight, deviceWidth } = deviceProps
 export default function PrivateChatScreen(props: { userOnlineTrue: any, currentUserDetails: any; navigation: { goBack: any; }; }) {
 
 
@@ -22,7 +24,7 @@ export default function PrivateChatScreen(props: { userOnlineTrue: any, currentU
     const UserProfile = useAuthStore((state) => state.userProfile);
     const userstatus = useChatsStore((state) => state.userstatus);
     const userActive = useChatsStore((state) => state.userActive);
-    console.log(currentUserDetails.userId, '......current userId', userActive, '.............userstatus')
+    //console.log(currentUserDetails.userId, '......current userId', userActive, '.............userstatus')
 
     useFocusEffect(
         useCallback(() => {
@@ -46,9 +48,12 @@ export default function PrivateChatScreen(props: { userOnlineTrue: any, currentU
 
     useEffect(() => {
         if (data && data.data) {
+            console.log(data.data,'.....messages')
+            console.log(UserProfile?.data?.name)
             const filteredData = data.data.filter(
                 (message: { reciever: String, sender: String }) => message.reciever === currentUserDetails.name && message.sender === UserProfile?.data?.name
             );
+
             setChats((prevChats) => [...filteredData, ...prevChats]); // Combine MongoDB data with live socket data
         }
     }, [data]);
@@ -70,7 +75,7 @@ export default function PrivateChatScreen(props: { userOnlineTrue: any, currentU
 
                         iconFamily={'Feather'}
                         size={24}
-                        style={{ color: 'white', marginLeft: '4%' }}
+                        style={{ color: 'white', marginLeft: '7%' }}
                         name={'chevron-left'}
                     />
                 </TouchableOpacity>
@@ -96,7 +101,11 @@ export default function PrivateChatScreen(props: { userOnlineTrue: any, currentU
                         style={styles.flatlist}
                         renderItem={({ item, index }) => (
 
-                            <View style={styles.chatsBoxView}>
+                            <View style={[styles.chatsBoxView,
+                            { marginLeft: item.sender === UserProfile?.data?.name ? "45%" : "0%" },
+                            { backgroundColor: item.sender === UserProfile?.data?.name ? '#375fff' : '#1c2b48' }
+
+                            ]}>
                                 <View style={styles.chatTextView}>
                                     <Text style={styles.userStyle}>{item?.message}</Text>
                                 </View>

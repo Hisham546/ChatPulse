@@ -18,14 +18,15 @@ const styles = StyleSheet.create({
     containerStyle: {
         flex: 1,
         backgroundColor: '#0f1829',
+       // justifyContent:'flex-end'
 
 
     },
     headerView: {
-        width: deviceWidth,
+        width: deviceWidth * 0.50,
         height: deviceHeight * 0.09,
         backgroundColor: '#0f1829',
-
+        justifyContent: 'center',
         flexDirection: 'row',
         alignItems: 'center',
 
@@ -34,12 +35,12 @@ const styles = StyleSheet.create({
 
         //#0F!828
     },
-    nameView:{
-        width: deviceWidth*0.35,
+    nameView: {
+        width: deviceWidth * 0.35,
         height: deviceHeight * 0.09,
-        alignItems:"center",
-        justifyContent:"center",
-      
+        alignItems: "center",
+        justifyContent: "center",
+
     },
     centerView: {
         width: deviceWidth,
@@ -63,7 +64,7 @@ const styles = StyleSheet.create({
         fontFamily: fontFamily.P_MEDIUM,
         marginLeft: '5%'
     },
-  
+
     loader: {
 
 
@@ -74,44 +75,45 @@ const styles = StyleSheet.create({
     flatlist: {
         flex: 1,
         width: deviceWidth * 0.95,
+      
 
 
     },
     chatsBoxView: {
         width: deviceWidth * 0.50,
         minHeight: deviceHeight * 0.04,
-        backgroundColor: '#1c2b48',
+        //backgroundColor: '#1c2b48',   
         marginTop: '3%',
         borderBottomRightRadius: 5,
         borderTopLeftRadius: 5,
         borderTopRightRadius: 5,
-        flexDirection:'row',
-        alignItems:'center'
+        flexDirection: 'row',
+      
     },
-    chatTextView:{
+    chatTextView: {
         width: deviceWidth * 0.38,
-        height: deviceHeight * 0.04,
-     //   backgroundColor:'blue',
-        justifyContent:'center',
+        minHeight: deviceHeight * 0.04,
+        //   backgroundColor:'blue',
+        justifyContent: 'center',
     },
-    textTime:{
+    textTime: {
         color: colors.WHITE,
         fontSize: fontSize._9,
         fontFamily: fontFamily.P_MEDIUM,
         marginLeft: '5%'
     },
-    chatTimeView:{
+    chatTimeView: {
         width: deviceWidth * 0.12,
         height: deviceHeight * 0.0350,
-      
-    //    backgroundColor:'red',
-        justifyContent:'flex-end'
+
+        //    backgroundColor:'red',
+        justifyContent: 'flex-end'
     },
-    onlineText:{
+    onlineText: {
         color: colors.green_100,
         fontFamily: fontFamily.P_MEDIUM,
         fontSize: fontSize._10,
-       
+
     },
 
 
