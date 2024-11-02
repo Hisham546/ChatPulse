@@ -12,32 +12,11 @@ const Stack = createStackNavigator();
 
 const MainNavigation = () => {
 
-    const UserProfile = useAuthStore((state) => state.userProfile);
+    const UserProfile = useAuthStore((state: any) => state.userProfile);
 
-    const setUserActive = useChatsStore((state) => state.setUserActive);
-
-    // useFocusEffect(
-    //     useCallback(() => {
-
-    //         // Listening for messages
-    //         // Notify the server that the user is connected
-    //         console.log(UserProfile.data.userId,'..........userId')
-    //         socketUrl.emit('userConnected', { userId: UserProfile?.data?.userId });
-    //         // socketUrl.emit('userConnected', () => {
-    //         //     UserProfile(true); // Update state to mark user as online
-    //         // });
-    //         socketUrl.emit('userConnected');
-    //         setUserActive(true); 
-    //         return () => {
+    const setUserActive = useChatsStore((state: any) => state.setUserActive);
 
 
-
-    //             socketUrl.emit('userDisconnected');
-    //             socketUrl.off('chatMessage');
-    //         };
-
-    //     }, [])
-    // );
 
     useFocusEffect(
         useCallback(() => {
@@ -46,7 +25,7 @@ const MainNavigation = () => {
 
             // Listen for user status updates
             socketUrl.on('userStatusUpdate', (userStatus) => {
-              //  console.log(userStatus,'.userStatus')
+                //  console.log(userStatus,'.userStatus')
                 // Update the online users' state
                 setUserActive(userStatus);
             });

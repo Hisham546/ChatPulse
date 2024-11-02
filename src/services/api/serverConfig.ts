@@ -7,7 +7,7 @@ const deviceType = userServiceStore.getState().deviceType
 
 
 
-console.log(deviceType)
+
 // export const baseUrl = 'http://localhost:5000/'
 
 //emulator url

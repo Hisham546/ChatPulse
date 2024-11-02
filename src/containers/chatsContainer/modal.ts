@@ -4,5 +4,16 @@ import { Dimensions, Text, TouchableOpacity, TextInput, View, TextStyle, ViewSty
 
 export interface ChatsScreenProps {
    navigation?: any,
+   isLoading:boolean,
+   latestMessage:object,
+   data:object
+   
+}
+
+export interface privateScreenProps {
+   navigation?: any,
+   userActive:object,
+   currentUserDetails:object,
+   UserProfile:object
    
 }

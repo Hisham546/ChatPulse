@@ -11,7 +11,7 @@ export default function SendMessage({ currentUserDetails }) {
 
 
 
-    const UserProfile = useAuthStore((state) => state.userProfile);
+    const UserProfile = useAuthStore((state:any) => state.userProfile);
 
 
 

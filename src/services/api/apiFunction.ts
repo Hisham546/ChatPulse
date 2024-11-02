@@ -3,38 +3,90 @@ import { apis } from "./endpoints";
 import { bodyType } from "./modal";
 
 export const createUsers = async (body: bodyType) => {
-    const req = { url: apis.createUsers, body, method: methods.POST };
-    const response = await callAPI(req);
 
-    return response.data
+    try {
+
+        const req = { url: apis.createUsers, body, method: methods.POST };
+        const response = await callAPI(req);
+        if ('data' in response) {
+            return response.data
+        }
+        else {
+            console.log('error')
+        }
+    } catch (error) {
+        return error
+
+    }
+
 
 };
 
-export const loginUser = async (body: any) => {
-    const req = { url: apis.login, body, method: methods.POST };
-    const response = await callAPI(req)
-    return response.data
+export const loginUser = async (body: bodyType) => {
+    try {
+        const req = { url: apis.login, body, method: methods.POST };
+        const response = await callAPI(req)
+        if ('data' in response) {
+            return response.data
+        }
+        else {
+            console.log('error')
+        }
+    } catch (error) {
+        return error
+    }
+
 }
 
 
 export const getAllUsers = async () => {
-    const req = { url: apis.getAllUsers, method: methods.GET };
-    const response = await callAPI(req);
-    // console.log(response.data,'........user data')
-    return response.data;
+    try {
+        const req = { url: apis.getAllUsers, method: methods.GET };
+        const response = await callAPI(req);
+        if ('data' in response) {
+            return response.data
+        }
+        else {
+            console.log('error')
+        }
+    } catch (error) {
+        return error
+    }
+
 };
 
 export const loadAllMessages = async () => {
-    const req = { url: apis.getUserTexts, method: methods.GET };
-    const response = await callAPI(req);
-    return response.data;
+
+    try {
+        const req = { url: apis.getUserTexts, method: methods.GET };
+        const response = await callAPI(req);
+        if ('data' in response) {
+            return response.data
+        }
+        else {
+            console.log('error')
+        }
+    } catch (error) {
+        return error
+    }
+
 };
 
-export const updateUserOnline = async (userId: String) => {
-    //console.log('updateUserOnline..........',userId)
-    const req = { url: `${apis.userOnline}${userId}`, method: methods.GET };
+export const updateUserOnline = async (userId: string) => {
 
-    const response = await callAPI(req);
+    try {
+        const req = { url: `${apis.userOnline}${userId}`, method: methods.GET };
 
-   return response.data;
+        const response = await callAPI(req);
+
+        if ('data' in response) {
+            return response.data
+        }
+        else {
+            console.log('error')
+        }
+    } catch (error) {
+        return error
+    }
+
 }

@@ -4,10 +4,11 @@ import Phone from "../../screens/auth/login";
 import ChatsScreen from '../../screens/chats';
 import useAuthStore from '../authContainer/zustandAuthStore';
 import useChatsStore from './zustandChatsStore';
-import { updateUserOnline } from '../../services/api/apiFunction';
+import { updateUserOnline, getAllUsers, loadAllMessages } from '../../services/api/apiFunction';
 import { useQuery, useQueryClient, useMutation } from '@tanstack/react-query';
+
 const ChatsScreenContainer = ({ ...props }) => {
-    const { navigation } = props
+
 
 
     const queryClient = useQueryClient();
@@ -15,25 +16,40 @@ const ChatsScreenContainer = ({ ...props }) => {
     const setUserOnline = useChatsStore((state) => state.setUserOnline);
 
     const mutation = useMutation({
-     
+
         mutationFn: updateUserOnline,
         onSuccess: (data) => {
-           
+
             if (data && data.success) {
-         
+
                 setUserOnline(data?.isOnline?.userId)
-              
+
                 // Invalidate and refetch
                 queryClient.invalidateQueries({ queryKey: ['activeOrNot'] });
 
-             
+
             } else {
-                
+
             }
         },
         onError: (error) => {
-          
+
         },
+    });
+    const { data, error, isLoading } = useQuery({
+
+        queryKey: ['allUsers'],
+        queryFn: getAllUsers
+    });
+
+
+
+
+    const { data: latestMessage, error: messageError, isLoading: isMessageLoading } = useQuery({
+        queryKey: ['userTexts'],
+        queryFn: loadAllMessages,
+
+
     });
 
 
@@ -41,17 +57,16 @@ const ChatsScreenContainer = ({ ...props }) => {
 
 
     useEffect(() => {
-        mutation.mutate(UserProfile?.data?.userId );
+        mutation.mutate(UserProfile?.data?.userId);
     }, [UserProfile])
 
     return (
 
         <ChatsScreen
             {...props}
-
-
-
-
+            latestMessage={latestMessage}
+            isLoading={isLoading}
+            data={data}
 
         />
     )

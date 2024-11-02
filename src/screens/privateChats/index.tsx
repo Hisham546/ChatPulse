@@ -6,58 +6,25 @@ import { socketUrl } from "../../services/socket";
 import { useQuery } from '@tanstack/react-query';
 import { Icon } from "../../utilities/Icons";
 import SendMessage from "./childs/sendMessage";
-import { useFocusEffect } from '@react-navigation/native';
+
 import { loadAllMessages } from "../../services/api/apiFunction";
-import useAuthStore from "../../containers/authContainer/zustandAuthStore";
-import useChatsStore from "../../containers/chatsContainer/zustandChatsStore";
+import { privateScreenProps } from "../../containers/chatsContainer/modal";
 import deviceProps from "../../utilities/deviceProps";
 const { deviceHeight, deviceWidth } = deviceProps
-export default function PrivateChatScreen(props: { userOnlineTrue: any, currentUserDetails: any; navigation: { goBack: any; }; }) {
 
 
-    const { currentUserDetails, userOnlineTrue, navigation: { goBack }, } = props
-
-    const [chats, setChats] = useState<any[]>([]);
+const PrivateChatScreen: React.FC<privateScreenProps> = (props) => {
 
 
+    const { currentUserDetails, UserProfile, navigation: { goBack },isUserOnline,chats,isLoading } = props
 
-    const UserProfile = useAuthStore((state) => state.userProfile);
-    const userstatus = useChatsStore((state) => state.userstatus);
-    const userActive = useChatsStore((state) => state.userActive);
-    //console.log(currentUserDetails.userId, '......current userId', userActive, '.............userstatus')
-
-    useFocusEffect(
-        useCallback(() => {
+ 
 
 
-            socketUrl.on('chatMessage', (message) => {
-                setChats((previousChats) => [...previousChats, message])
-                //  console.log('Message received:', message);
-            });
-        }, [])
-    );
 
 
-    const { data, error, isLoading } = useQuery({
-
-        queryKey: ['userTexts'],
-        queryFn: loadAllMessages,
 
 
-    });
-
-    useEffect(() => {
-        if (data && data.data) {
-            console.log(data.data,'.....messages')
-            console.log(UserProfile?.data?.name)
-            const filteredData = data.data.filter(
-                (message: { reciever: String, sender: String }) => message.reciever === currentUserDetails.name && message.sender === UserProfile?.data?.name
-            );
-
-            setChats((prevChats) => [...filteredData, ...prevChats]); // Combine MongoDB data with live socket data
-        }
-    }, [data]);
-    const isUserOnline = userActive?.some((user: String) => user === currentUserDetails.userId);
 
 
     return (
@@ -131,4 +98,6 @@ export default function PrivateChatScreen(props: { userOnlineTrue: any, currentU
         </View>
     )
 
-}
+};
+
+export default PrivateChatScreen;
