@@ -1,6 +1,7 @@
 Home Screen
 
-<img src="https://github.com/user-attachments/assets/ae2c1449-36e1-4269-9cf3-58b39800c8b5" alt="HomeScreen" width="300"/>
+<img src="https://github.com/user-attachments/assets/34eb7a12-9ec9-4c5b-b3e1-240273af7fab" alt="HomeScreen" width="300"/>
+
 
 
 Chatting with user
