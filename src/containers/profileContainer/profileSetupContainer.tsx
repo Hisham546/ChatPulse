@@ -5,16 +5,46 @@ import { useQuery, useQueryClient, useMutation } from '@tanstack/react-query';
 import { createUsers } from '../../services/api/apiFunction';
 import { bodyType } from '../../services/api/modal';
 import useAuthStore from '../authContainer/zustandAuthStore';
-
+import { zustandAuthState } from '../authContainer/modal';
 const SetupProfileContainer = ({ ...props }) => {
     
     const { navigation } = props
     const queryClient = useQueryClient();
 
-    const setUserLoggedIn = useAuthStore((state) => state.setUserLoggedIn);
+    const setUserLoggedIn = useAuthStore((state:any) => state.setUserLoggedIn);
 
-    const setButtonLoading = useAuthStore((state) => state.setButtonLoading);
-    const setUserProfile = useAuthStore((state) => state.setUserProfile);
+    const setButtonLoading = useAuthStore((state:any) => state.setButtonLoading);
+    const setUserProfile = useAuthStore((state:any) => state.setUserProfile);
+
+
+
+
+
+
+
+
+
+    
+  const [formData, setFormData] = useState({
+    phone: '',
+    password: '',
+    name: '',
+
+  });
+
+  const onChangeText = (state: string, value:string) => {
+
+
+
+
+
+    setFormData(prevState => ({
+      ...prevState,
+      [state]: value,
+    }));
+
+  };
+
 
     // Define the mutation outside the createProfile function
     const mutation = useMutation({
@@ -51,6 +81,8 @@ const SetupProfileContainer = ({ ...props }) => {
         <SetupProfile
             {...props}
             handleCreateProfile={handleCreateProfile}
+            onChangeText={onChangeText}
+            formData={formData}
 
 
 

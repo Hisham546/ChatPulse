@@ -1,46 +1,18 @@
-import { useState, useEffect } from "react";
-import { View, TouchableOpacity, Text, FlatList } from "react-native";
+
+import { View } from "react-native";
 import styles from "./styles";
-
 import TextInputOutlined from "../../../components/textBox/inputText";
-
 import ButtonComponent from "../../../components/button/button";
 import { Icon } from "../../../utilities/Icons";
 import { SetupProfileProps } from "../../../containers/profileContainer/modal";
 import useAuthStore from "../../../containers/authContainer/zustandAuthStore";
-import { createUsers, getAllUsers } from "../../../services/api/apiFunction";
 const SetupProfile: React.FC<SetupProfileProps> = (props) => {
 
 
 
-  const { navigation, handleCreateProfile } = props
+  const { navigation, handleCreateProfile, onChangeText, formData } = props
 
-  const setButtonLoading = useAuthStore((state) => state.setLoading);
-
-  const [formData, setFormData] = useState({
-
-    phone: '',
-    //countryCode: '91',
-    password: '',
-    name: '',
-
-
-
-
-  });
-
-  const onChangeText = (state, value) => {
-
-
-
-
-
-    setFormData(prevState => ({
-      ...prevState,
-      [state]: value,
-    }));
-
-  };
+  const buttonLoading = useAuthStore((state: any) => state.loading);
 
 
 
@@ -71,7 +43,7 @@ const SetupProfile: React.FC<SetupProfileProps> = (props) => {
 
 
           showLabel={true}
-        
+
 
           placeholderText={"Enter your name"}
           keyboardType='numeric'
@@ -117,12 +89,16 @@ const SetupProfile: React.FC<SetupProfileProps> = (props) => {
 
         <ButtonComponent
           onPress={() => {
-            handleCreateProfile(formData)
-            // navigation.navigate('BottomTabs')
+            if (formData.password || formData.name) {
+              handleCreateProfile(formData)
+            } else {
+
+            }
+
 
           }}
           buttonText={"Save"}
-          loading={setButtonLoading}
+          loading={buttonLoading}
 
           textStyle={styles.buttonTextStyle}
           buttonStyle={styles.buttonStyle}

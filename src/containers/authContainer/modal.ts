@@ -9,3 +9,8 @@ export interface PhoneProps {
 export interface OtpProps {
    navigation?: any
 }
+export interface zustandAuthState {
+   userLoggedIn: boolean;
+   setUserLoggedIn: (loggedIn: boolean) => void;
+ }
+ 

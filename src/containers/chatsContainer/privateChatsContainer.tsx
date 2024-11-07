@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { useQuery, useQueryClient, useMutation } from '@tanstack/react-query';
 import PrivateChatScreen from '../../screens/privateChats';
 import useAuthStore from '../authContainer/zustandAuthStore';
@@ -16,7 +16,7 @@ const PrivateChatsContainer = ({ ...props }) => {
     const UserProfile = useAuthStore((state: any) => state.userProfile);
     const userstatus = useChatsStore((state: any) => state.userstatus);
     const userActive = useChatsStore((state: any) => state.userActive);
-
+    const socketListenerAdded = useRef(false);
     const [chats, setChats] = useState<any[]>([]);
     const isUserOnline = userActive?.some((user: String) => user === currentUserDetails.userId);
 
@@ -33,11 +33,16 @@ const PrivateChatsContainer = ({ ...props }) => {
     useFocusEffect(
         useCallback(() => {
 
-
             socketUrl.on('chatMessage', (message) => {
                 setChats((previousChats) => [...previousChats, message])
-                //  console.log('Message received:', message);
+
             });
+
+            // Cleanup listener on component unmount
+            return () => {
+                socketUrl.off('chatMessage');
+
+            };
         }, [])
     );
 
@@ -56,14 +61,16 @@ const PrivateChatsContainer = ({ ...props }) => {
 
 
     useEffect(() => {
+
         if (data && data.data) {
 
-            console.log(UserProfile?.data?.name)
             const filteredData = data.data.filter(
-                (message: { reciever: String, sender: String }) => message.reciever === currentUserDetails.name && message.sender === UserProfile?.data?.name
+                (message: { reciever: String, sender: String }) =>
+                    (message.reciever === currentUserDetails.name && message.sender === UserProfile?.data?.name) ||
+                    (message.sender === currentUserDetails.name && message.reciever === UserProfile?.data?.name)
             );
 
-            setChats((prevChats) => [...filteredData, ...prevChats]); // Combine MongoDB data with live socket data
+            setChats((prevChats) => [...filteredData, ...prevChats]); // Combine MongoDB data with live socket dataz
         }
     }, [data]);
 
@@ -98,7 +105,7 @@ const PrivateChatsContainer = ({ ...props }) => {
 
 
 
-  
+
     return (
 
         <PrivateChatScreen
