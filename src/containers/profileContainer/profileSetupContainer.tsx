@@ -50,7 +50,7 @@ const SetupProfileContainer = ({ ...props }) => {
     const mutation = useMutation({
         mutationFn: createUsers,
         onSuccess: (data) => {
-            console.log(data,)
+         //   console.log(data,)
             if (data && data.success) {
      
                 setUserProfile(data)

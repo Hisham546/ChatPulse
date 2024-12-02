@@ -44,6 +44,7 @@ export default function ChatsList({ userData, loading, navigation, latestMessage
     return (
 
         <View style={styles.containerStyle}>
+              {/* <Text style={styles.chatsMainText}>Chats</Text> */}
             {loading ? (
                 <ActivityIndicator size="large" color="white" style={styles.loader} />
             ) : (

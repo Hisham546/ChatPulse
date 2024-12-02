@@ -17,8 +17,10 @@ const styles = StyleSheet.create({
 
     containerStyle: {
         flex: 1,
-        backgroundColor: '#0f1829',
+        backgroundColor: '#152032',
         width: deviceWidth,
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
         // height:deviceHeight ,  
 
 
@@ -33,43 +35,54 @@ const styles = StyleSheet.create({
     chatParentView: {
         width: deviceWidth,
         height: deviceHeight * 0.10,
-        backgroundColor: 'yellow'
+
     },
-  
+
     flatlist: {
-        flex: 1,
+        marginTop:'10%',
+
         width: deviceWidth,
-     
+      
+        
+
+
+
 
 
 
     },
-    userBoxView:{
-        width: deviceWidth,
-        height:deviceHeight*0.10,
-      
-        alignItems:'center',
-        flexDirection:'row'
+    chatsMainText: {
+        color: colors.WHITE,
+        fontSize: fontSize.h5,
+        fontFamily: fontFamily.P_MEDIUM,
+        marginLeft: '5%'
     },
-    userBoxChild:{
-        width: deviceWidth* 0.70,
-        height:deviceHeight*0.10,
-        justifyContent:'center',
-     
-      
+    userBoxView: {
+        width: deviceWidth,
+        height: deviceHeight * 0.10,
+
+        alignItems: 'center',
+        flexDirection: 'row'
+    },
+    userBoxChild: {
+        width: deviceWidth * 0.70,
+        height: deviceHeight * 0.10,
+        justifyContent: 'center',
+
+
     },
     userStyle: {
         color: colors.WHITE,
         fontSize: fontSize.h6,
-        fontFamily:fontFamily.P_MEDIUM,
-        marginLeft: '5%' 
+        fontFamily: fontFamily.P_MEDIUM,
+        marginLeft: '5%'
     },
-    lastMessage:{
+    lastMessage: {
         color: colors.WHITE,
         fontSize: fontSize._10,
-        fontFamily:fontFamily.P_MEDIUM,
-        marginLeft: '5%' 
-      
+        fontFamily: fontFamily.P_MEDIUM,
+        marginLeft: '5%'
+
     },
     loader: {
 

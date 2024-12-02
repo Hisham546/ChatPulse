@@ -6,7 +6,8 @@ export interface ChatsScreenProps {
    navigation?: any,
    isLoading:boolean,
    latestMessage:object,
-   data:object
+   data:object,
+   userName:String
    
 }
 

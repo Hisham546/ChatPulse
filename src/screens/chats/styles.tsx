@@ -21,27 +21,34 @@ const styles = StyleSheet.create({
     },
     topView:{
        width:deviceWidth,
-       height:deviceHeight*0.10,
+       height:deviceHeight*0.14,
        
     },
     headerView:{
         width:deviceWidth,
-        height:deviceHeight*0.08,
+        height:deviceHeight*0.10,
         justifyContent:'center',    
        
     },
     centerView:{
         width:deviceWidth,
-        borderTopWidth:.50,
-        borderTopColor:'#030201',
+
         flex:1,  
+       
     },
-    chatsMainText: {
+
+    userName:{
         color: colors.WHITE,
-        fontSize: fontSize.h5,
+        fontSize: fontSize.h6,
         fontFamily:fontFamily.P_MEDIUM,
-        marginLeft: '5%' 
+        marginLeft: '5%'   
     },
+    hello:{
+        color: colors.WHITE,
+        fontSize: fontSize.p,
+        fontFamily:fontFamily.P_MEDIUM,
+        marginLeft: '5%'   
+    }
     
 
 })

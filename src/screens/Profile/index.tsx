@@ -5,15 +5,15 @@ import colors from "../../themes/colors";
 import { Icon } from "../../utilities/Icons";
 import useAuthStore from "../../containers/authContainer/zustandAuthStore";
 import useChatsStore from "../../containers/chatsContainer/zustandChatsStore";
-
+import { cameraComponent } from "../../services/camera";
 export default function ProfileScreen() {
 
-  const setUserLoggedIn = useAuthStore((state) => state.setUserLoggedIn);
+  const setUserLoggedIn = useAuthStore((state: any) => state.setUserLoggedIn);
 
-  const UserProfile = useAuthStore((state) => state.userProfile);
+  const UserProfile = useAuthStore((state: any) => state.userProfile);
 
-  const userstatus = useChatsStore((state) => state.userstatus);
-  const userActive = useChatsStore((state) => state.userActive);
+
+  const userActive = useChatsStore((state: any) => state.userActive);
 
   const ProfileItems = [
 
@@ -60,7 +60,12 @@ export default function ProfileScreen() {
         <Text style={styles.chatsMainText}>More</Text>
       </View>
       <View style={styles.userProfileView}>
-        <View style={styles.userIconView}>
+        <TouchableOpacity
+          onPress={() => {
+            cameraComponent()
+          }}
+
+          style={styles.userIconView}>
           <Icon
 
             iconFamily={'Entypo'}
@@ -68,13 +73,13 @@ export default function ProfileScreen() {
             style={{ color: 'white', }}
             name={'user'}
           />
-        </View>
+        </TouchableOpacity>
         <View style={styles.userNameView}>
           <Text style={styles.profileName}>{UserProfile?.data?.name}</Text>
           <Text style={styles.profilePhone}>{UserProfile?.data?.phone}</Text>
 
         </View>
-        {userActive?
+        {userActive ?
 
           <Text style={styles.onlineText}>Online</Text>
           : null}

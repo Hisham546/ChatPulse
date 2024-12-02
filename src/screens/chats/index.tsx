@@ -1,12 +1,11 @@
-import { useState, useEffect } from "react";
-import { View, TouchableOpacity, Text, FlatList } from "react-native";
+import { View, Text } from "react-native";
 import styles from "./styles";
 import ChatsList from "./layouts/chatList";
 import { ChatsScreenProps } from "../../containers/chatsContainer/modal";
 
 const ChatsScreen: React.FC<ChatsScreenProps> = (props) => {
   
-  const { navigation, latestMessage, isLoading, data } = props
+  const { navigation, latestMessage, isLoading, data,userName } = props
 
 
 
@@ -17,11 +16,13 @@ const ChatsScreen: React.FC<ChatsScreenProps> = (props) => {
 
       <View style={styles.topView}>
         <View style={styles.headerView}>
-          <Text style={styles.chatsMainText}>Chats</Text>
+        <Text style={styles.hello}>Hello</Text>
+          <Text style={styles.userName}>{userName}</Text>
         </View>
       </View>
 
       <View style={styles.centerView}>
+    
         <ChatsList
           navigation={navigation}
           loading={isLoading}

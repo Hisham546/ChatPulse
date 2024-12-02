@@ -67,6 +67,7 @@ const ChatsScreenContainer = ({ ...props }) => {
             latestMessage={latestMessage}
             isLoading={isLoading}
             data={data}
+            userName={UserProfile?.data?.name}
 
         />
     )
