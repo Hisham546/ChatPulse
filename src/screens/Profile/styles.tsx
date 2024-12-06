@@ -76,13 +76,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
 
     },
-    userIconView: {
-        width: deviceWidth * 0.20,
-        height: deviceHeight * 0.10,
-        justifyContent:'center',
-        alignItems:'center',
-      
-    },
+
     userNameView:{
         width: deviceWidth * 0.50,
         height: deviceHeight * 0.10,  
@@ -131,7 +125,21 @@ const styles = StyleSheet.create({
         marginLeft: '8%',
         alignItems: 'center'
     },
+    userIconView: {
+        width: deviceWidth * 0.20,
+        height: deviceHeight * 0.10,
+        justifyContent:'center',
+        alignItems:'center',
+      
+    },
+    profileLogo: {
+        width: deviceWidth * 0.12,
+        height: deviceHeight * 0.06,
+        borderRadius: 70,
+       
 
+
+    },
 
 })
 

@@ -1,21 +1,27 @@
 
-import { View } from "react-native";
+import { Image, View } from "react-native";
 import styles from "./styles";
 import TextInputOutlined from "../../../components/textBox/inputText";
 import ButtonComponent from "../../../components/button/button";
 import { Icon } from "../../../utilities/Icons";
 import { SetupProfileProps } from "../../../containers/profileContainer/modal";
 import useAuthStore from "../../../containers/authContainer/zustandAuthStore";
+import { useCamera } from "../../../services/camera";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import ImagePickerStore from "../../../services/camera/zustandCameraStore";
+
+
+
 const SetupProfile: React.FC<SetupProfileProps> = (props) => {
 
-
+  const { openPicker } = useCamera()
 
   const { navigation, handleCreateProfile, onChangeText, formData } = props
 
   const buttonLoading = useAuthStore((state: any) => state.loading);
 
 
-
+  const imageUrl = ImagePickerStore((state: any) => state.imageUrl);
 
 
 
@@ -25,15 +31,35 @@ const SetupProfile: React.FC<SetupProfileProps> = (props) => {
 
     <View style={styles.containerStyle}>
       <View style={styles.topView}>
-        <View style={styles.iconCircleView}>
-          <Icon
+        <TouchableOpacity
+          onPress={openPicker}
+          style={styles.iconCircleView}>
+          {imageUrl ?
 
-            iconFamily={'SimpleLineIcons'}
-            size={23}
-            style={{ color: 'white' }}
-            name={'user-follow'}
-          />
-        </View>
+            <Image
+              resizeMode={'cover'}
+              style={styles.profileLogo}
+              source={{
+                uri: imageUrl
+              }}
+            // onLoadStart={() => setLoading(true)}
+            // onLoad={() => setLoading(false)}
+            // onError={() => {
+            //     setLoading(false);
+
+            // }}
+
+            /> :
+            <Icon
+
+              iconFamily={'SimpleLineIcons'}
+              size={23}
+              style={{ color: 'white' }}
+              name={'user-follow'}
+            />
+          }
+        </TouchableOpacity>
+
 
         <TextInputOutlined
           labelstyle={styles.labelstyle}

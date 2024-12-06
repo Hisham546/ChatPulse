@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
-import { View, TouchableOpacity, Text, FlatList } from "react-native";
+import { View, TouchableOpacity, Text, Image } from "react-native";
 import styles from "./styles";
 import colors from "../../themes/colors";
 import { Icon } from "../../utilities/Icons";
 import useAuthStore from "../../containers/authContainer/zustandAuthStore";
 import useChatsStore from "../../containers/chatsContainer/zustandChatsStore";
-import { cameraComponent } from "../../services/camera";
+import ImagePickerStore from "../../services/camera/zustandCameraStore";
+import { useCamera } from "../../services/camera";
 export default function ProfileScreen() {
 
   const setUserLoggedIn = useAuthStore((state: any) => state.setUserLoggedIn);
@@ -14,6 +15,11 @@ export default function ProfileScreen() {
 
 
   const userActive = useChatsStore((state: any) => state.userActive);
+
+  const imageUrl = ImagePickerStore((state: any) => state.imageUrl);
+
+  const { openPicker } = useCamera()
+
 
   const ProfileItems = [
 
@@ -39,13 +45,10 @@ export default function ProfileScreen() {
 
 
 
-
+console.log(UserProfile,'................url')
 
 
   return (
-
-
-
 
 
 
@@ -61,18 +64,36 @@ export default function ProfileScreen() {
       </View>
       <View style={styles.userProfileView}>
         <TouchableOpacity
-          onPress={() => {
-            cameraComponent()
-          }}
+          onPress={openPicker}
 
           style={styles.userIconView}>
-          <Icon
+          {UserProfile?.data.imageUrl ?
 
-            iconFamily={'Entypo'}
-            size={24}
-            style={{ color: 'white', }}
-            name={'user'}
-          />
+            <Image
+              resizeMode={'cover'}
+              style={styles.profileLogo}
+              source={{
+                uri: UserProfile?.data.imageUrl
+              }}
+            // onLoadStart={() => setLoading(true)}
+            // onLoad={() => setLoading(false)}
+            // onError={() => {
+            //     setLoading(false);
+
+            // }}
+
+            /> : <Icon
+
+              iconFamily={'Entypo'}
+              size={24}
+              style={{ color: 'white', }}
+              name={'user'}
+            />
+
+
+          }
+
+
         </TouchableOpacity>
         <View style={styles.userNameView}>
           <Text style={styles.profileName}>{UserProfile?.data?.name}</Text>

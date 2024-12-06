@@ -9,8 +9,8 @@ export interface callAPiParams {
 export interface bodyType {
     phone: Number,
     password: Number,
-    firstName: String,
-    lastName: String
+    name: String,
+    imageUrl: String
 
 
 

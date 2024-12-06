@@ -26,16 +26,17 @@ export const callAPI = async ({ url, method, body }: callAPiParams): Promise<Axi
 };
 
 
-export const callFormData = async ({ url, method, body }: callAPiParams): Promise<AxiosResponse | { error: String }> => {
+export const callFormData = async ({ url, method, formData }: callAPiParams): Promise<AxiosResponse | { error: String }> => {
     try {
         const response = await axios(url, {
             method,
             headers: {
                 'Content-Type': 'multipart/form-data',
             },
-            data: body,
+            data: formData,
         });
-        return response;
+        
+        return response.data;
     } catch (error) {
         console.log(error, '.............error in api')
         return { error: error.message || 'An error occurred' };

@@ -27,27 +27,19 @@ const styles = StyleSheet.create({
     topView: {
         width: deviceWidth,
         height: deviceHeight * 0.65,
-       // backgroundColor: 'red',
+        // backgroundColor: 'red',
         alignItems: 'center',
 
 
 
 
     },
-    iconCircleView: {
-        width: deviceWidth * 0.25,
-        height: deviceHeight * 0.13,
-        borderRadius: 50,
-        backgroundColor: '#1B2B48',
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: '5%'
-    },
+   
     centerView: {
         width: deviceWidth,
         height: deviceHeight * 0.30,
         alignItems: 'center',
-     //   backgroundColor: 'blue',
+        //   backgroundColor: 'blue',
 
 
 
@@ -105,6 +97,25 @@ const styles = StyleSheet.create({
         width: deviceWidth * 0.80
 
     },
+    profileLogo: {
+        width: '100%',
+        height: '100%',
+        borderRadius: 70,
+        overflow: 'hidden',
+        backgroundColor: 'transparent',
+
+
+    },
+    iconCircleView: {
+        width: deviceWidth * 0.25,
+        height: deviceHeight * 0.13,
+        borderRadius: deviceWidth * 0.25 / 2,
+       // backgroundColor: '#1B2B48',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: '5%'
+    },
+
 
 
 })

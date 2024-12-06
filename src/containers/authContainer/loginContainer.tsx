@@ -21,10 +21,10 @@ const LoginContainer = ({ ...props }) => {
 
 
     const mutation = useMutation({
-     
+
         mutationFn: loginUser,
         onSuccess: (data) => {
-           
+
             if (data && data.success) {
 
                 setUserProfile(data)
@@ -36,7 +36,7 @@ const LoginContainer = ({ ...props }) => {
                 navigation.navigate('BottomTabs');
             } else {
                 setButtonLoading(false)
-                console.log('Login failed:');
+                //  console.log('Login failed:');
 
             }
         },
@@ -50,7 +50,7 @@ const LoginContainer = ({ ...props }) => {
 
 
     async function login(data: any) {
-    
+
         setButtonLoading(true)
 
         mutation.mutate(data);
@@ -60,7 +60,7 @@ const LoginContainer = ({ ...props }) => {
         <Login
             {...props}
             login={login}
-       
+
 
 
 

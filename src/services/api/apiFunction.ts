@@ -1,8 +1,9 @@
+import { ImageOrVideo } from "react-native-image-crop-picker";
 import { callAPI, callFormData, methods } from ".";
 import { apis } from "./endpoints";
 import { bodyType } from "./modal";
 
-export const createUsers = async (body: bodyType) => {
+export const createUsers = async (body: bodyType,imageUrl:String) => {
 
     try {
 
@@ -25,16 +26,18 @@ export const createUsers = async (body: bodyType) => {
 export const loginUser = async (body: bodyType) => {
     try {
         const req = { url: apis.login, body, method: methods.POST };
+        console.log(req, '....req')
         const response = await callAPI(req)
-
-        if ('data' in response) {
-            return response.data
+        console.log(response)
+        if (response) {
+            return response?.data
         }
         else {
             console.log('error')
         }
     } catch (error) {
-        return error
+        console.log(error)
+        // return error
     }
 
 }
@@ -92,19 +95,26 @@ export const updateUserOnline = async (userId: string) => {
 
 };
 
-export const uploadImage = async (body) => {
-
+export const uploadImage = async (image: ImageOrVideo) => {
+    console.log(image.filename,'..........image.filename')
 
     try {
-        const req = { url: apis.uploadImages, body, method: methods.POST };
-        console.log(req)
+        const formData = new FormData();
+        formData.append('file', {
+            uri: image.path,
+            name: image.filename || 'image.jpg',
+            type: image.mime || 'image/jpeg',
+        });
+
+        const req = { url: apis.uploadImages, formData, method: methods.POST };
+
 
         const response = await callFormData(req);
 
-      //  console.log(response)
+        return response
 
     } catch (error) {
-        console.log(error,'.......error')
+        //console.log(error, '.......error')
 
     }
 
