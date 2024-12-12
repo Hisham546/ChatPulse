@@ -129,7 +129,7 @@ const Login: React.FC<PhoneProps> = (props) => {
 
                 <View style={styles.registerNowView}>
                     <Text style={styles.dontHaveAc}>Don't have an account?</Text>
-                    <TouchableOpacity onPress={() => navigation.navigate('SetupProfile')}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Register')}>
                         <Text style={styles.registerNowText} >Register now</Text>
                     </TouchableOpacity>
                 </View>

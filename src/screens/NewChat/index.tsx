@@ -13,7 +13,7 @@ import deviceProps from "../../utilities/deviceProps";
 const { deviceHeight, deviceWidth } = deviceProps
 
 
-const PrivateChatScreen: React.FC<privateScreenProps> = (props) => {
+const NewChats: React.FC<privateScreenProps> = (props) => {
 
 
     const { currentUserDetails, UserProfile, navigation: { goBack }, isUserOnline, chats, isLoading } = props
@@ -101,4 +101,4 @@ const PrivateChatScreen: React.FC<privateScreenProps> = (props) => {
 
 };
 
-export default PrivateChatScreen;
+export default NewChats;

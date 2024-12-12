@@ -4,7 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import BottomTabs from './bottomTabs';
 import { useCallback } from "react";
 import useChatsStore from '../containers/chatsContainer/zustandChatsStore';
-import PrivateChatsContainer from '../containers/chatsContainer/privateChatsContainer';
+import NewChatsContainer from '../containers/chatsContainer/newChatsContainer';
 import useAuthStore from '../containers/authContainer/zustandAuthStore';
 import { useFocusEffect } from '@react-navigation/native';
 import { socketUrl } from "../services/socket";
@@ -47,8 +47,8 @@ const MainNavigation = () => {
                 component={BottomTabs} />
             <Stack.Screen
                 options={{ headerShown: false }}
-                name="PrivateChatScreen"
-                component={PrivateChatsContainer} />
+                name="NewChats"
+                component={NewChatsContainer} />
 
 
 

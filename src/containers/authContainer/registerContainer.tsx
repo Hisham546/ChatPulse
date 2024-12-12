@@ -1,14 +1,14 @@
 
 import React, { useEffect, useState } from 'react';
-import SetupProfile from '../../screens/Profile/profileSetup';
+import Register from '../../screens/auth/register';
 import { useQuery, useQueryClient, useMutation } from '@tanstack/react-query';
 import { createUsers } from '../../services/api/apiFunction';
 import { bodyType } from '../../services/api/modal';
-import useAuthStore from '../authContainer/zustandAuthStore';
-import { zustandAuthState } from '../authContainer/modal';
+import useAuthStore from './zustandAuthStore';
+import { zustandAuthState } from './modal';
 import ImagePickerStore from '../../services/camera/zustandCameraStore';
 import { ToastAndroid } from 'react-native';
-const SetupProfileContainer = ({ ...props }) => {
+const RegisterContainer = ({ ...props }) => {
 
     const { navigation } = props
     const queryClient = useQueryClient();
@@ -95,7 +95,7 @@ const SetupProfileContainer = ({ ...props }) => {
 
     return (
 
-        <SetupProfile
+        <Register
             {...props}
             handleCreateProfile={handleCreateProfile}
             onChangeText={onChangeText}
@@ -110,4 +110,4 @@ const SetupProfileContainer = ({ ...props }) => {
 
 
 
-export default (SetupProfileContainer);
+export default (RegisterContainer);

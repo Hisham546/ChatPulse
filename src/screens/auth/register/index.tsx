@@ -4,7 +4,7 @@ import styles from "./styles";
 import TextInputOutlined from "../../../components/textBox/inputText";
 import ButtonComponent from "../../../components/button/button";
 import { Icon } from "../../../utilities/Icons";
-import { SetupProfileProps } from "../../../containers/profileContainer/modal";
+import { RegisterProps } from "../../../containers/profileContainer/modal";
 import useAuthStore from "../../../containers/authContainer/zustandAuthStore";
 import { useCamera } from "../../../services/camera";
 import { TouchableOpacity } from "react-native-gesture-handler";
@@ -12,7 +12,7 @@ import ImagePickerStore from "../../../services/camera/zustandCameraStore";
 
 
 
-const SetupProfile: React.FC<SetupProfileProps> = (props) => {
+const Register: React.FC<RegisterProps> = (props) => {
 
   const { openPicker } = useCamera()
 
@@ -136,4 +136,4 @@ const SetupProfile: React.FC<SetupProfileProps> = (props) => {
 
 }
 
-export default SetupProfile;
+export default Register;

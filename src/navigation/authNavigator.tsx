@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import LoginContainer from '../containers/authContainer/loginContainer';
 import OtpContainer from '../containers/authContainer/otpContainer';
-import SetupProfileContainer from '../containers/profileContainer/profileSetupContainer';
+import RegisterContainer from '../containers/authContainer/registerContainer';
 import BottomTabs from './bottomTabs';
 import Welcome from '../screens/welcome';
 const Stack = createStackNavigator();
@@ -27,8 +27,8 @@ const AuthNavigation = () => {
                     component={OtpContainer} /> */}
             <Stack.Screen
                 options={{ headerShown: false }}
-                name="SetupProfile"
-                component={SetupProfileContainer} />
+                name="Register"
+                component={RegisterContainer} />
 
 
 

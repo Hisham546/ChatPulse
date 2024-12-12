@@ -3,7 +3,7 @@ import { Dimensions, Text, TouchableOpacity, TextInput, View, TextStyle, ViewSty
 import { bodyType } from "../../services/api/modal";
 
 
-export interface SetupProfileProps {
+export interface RegisterProps {
    navigation?: any,
    handleCreateProfile?: (formData: bodyType) => Promise<void>;
    onChangeText: (text: string,value:string) => void;

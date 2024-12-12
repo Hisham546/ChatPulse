@@ -59,7 +59,7 @@ export default function ChatsList({ userData, loading, navigation, latestMessage
                             const latestMessage = getLatestMessage(item);
                             return (
                                 <TouchableOpacity
-                                    onPress={() => navigation.navigate('PrivateChatScreen', { currentUserDetails: item })}
+                                    onPress={() => navigation.navigate('NewChats', { currentUserDetails: item })}
                                     style={styles.userBoxView}>
                                     <Image
                                         resizeMode={'cover'}

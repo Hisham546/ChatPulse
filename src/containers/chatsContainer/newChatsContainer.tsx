@@ -1,13 +1,15 @@
 
 import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { useQuery, useQueryClient, useMutation } from '@tanstack/react-query';
-import PrivateChatScreen from '../../screens/privateChats';
+import NewChats from '../../screens/NewChat';
 import useAuthStore from '../authContainer/zustandAuthStore';
 import useChatsStore from './zustandChatsStore';
 import { useFocusEffect } from '@react-navigation/native';
 import { socketUrl } from '../../services/socket';
 import { updateUserOnline, loadAllMessages } from '../../services/api/apiFunction';
-const PrivateChatsContainer = ({ ...props }) => {
+
+const NewChatsContainer = ({ ...props }) => {
+
     const { navigation, route } = props
     const { currentUserDetails } = route.params
     const [userOnlineTrue, setUserOnlineTrue] = useState(null)
@@ -108,7 +110,7 @@ const PrivateChatsContainer = ({ ...props }) => {
 
     return (
 
-        <PrivateChatScreen
+        <NewChats
             navigation={{
                 goBack: undefined
             }} {...props}
@@ -131,4 +133,4 @@ const PrivateChatsContainer = ({ ...props }) => {
 
 
 
-export default (PrivateChatsContainer);
+export default (NewChatsContainer);
