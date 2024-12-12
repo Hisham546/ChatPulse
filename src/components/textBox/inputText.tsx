@@ -6,9 +6,17 @@ import styles from "./styles";
 import colors from "../../themes/colors";
 import { TextInputOutlinedProps } from "./modal";
 import { CountryCodeUtility } from "../countryCode";
+
+import { Icon } from "../../utilities/Icons";
+
+
+
+
+
+
+
 const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;
-
 const TextInputOutlined: React.FC<TextInputOutlinedProps> = (props) => {
     const {
 
@@ -26,6 +34,8 @@ const TextInputOutlined: React.FC<TextInputOutlinedProps> = (props) => {
         editable = true,
         countryCode = false,
         isError = false,
+        enableButton = false,
+        buttonOnPress,
         maxLength,
         defaultCountryCode = '+91',
         onChangeCountryCode
@@ -43,8 +53,8 @@ const TextInputOutlined: React.FC<TextInputOutlinedProps> = (props) => {
                 </View>
                 : null}
             <View style={[styles.inputWrapper, inputWrapperStyle,
-            // { borderTopLeftRadius: countryCode ? 1 : 0 },
-            // { borderBottomLeftRadius: countryCode ? 1 : 0 },
+                // { borderTopLeftRadius: countryCode ? 1 : 0 },
+                // { borderBottomLeftRadius: countryCode ? 1 : 0 },
             ]}>
                 {countryCode &&
 
@@ -59,7 +69,7 @@ const TextInputOutlined: React.FC<TextInputOutlinedProps> = (props) => {
                     onChangeText={onChangeText}
                     value={value}
                     placeholder={placeholderText}
-                    placeholderTextColor={colors.WHITE}
+                    placeholderTextColor={colors.BLACK}
                     keyboardType={keyboardType}
                     secureTextEntry={secure}
                     editable={editable}
@@ -81,6 +91,19 @@ const TextInputOutlined: React.FC<TextInputOutlinedProps> = (props) => {
 
 
             </View>
+            {enableButton ?
+                <TouchableOpacity
+                         onPress={buttonOnPress}
+                >
+                    <Icon
+
+                        iconFamily={'FontAwesome'}
+                        size={20}
+                        style={{ color: '#030201' }}
+                        name={'send'}
+                    />
+                </TouchableOpacity>
+                : null}
         </View >
     )
 

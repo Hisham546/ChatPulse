@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
 
     containerStyle: {
         flex: 1,
-        backgroundColor:'#0f1829',
+        backgroundColor:colors.WHITE,
     },
     topView:{
        width:deviceWidth,
@@ -25,9 +25,14 @@ const styles = StyleSheet.create({
        
     },
     headerView:{
-        width:deviceWidth,
+        width:deviceWidth *0.96,
         height:deviceHeight*0.10,
-        justifyContent:'center',    
+        justifyContent:'space-between', 
+        alignItems:'center',
+        flexDirection:'row',
+        marginLeft:'2%',
+       
+      
        
     },
     centerView:{
@@ -38,16 +43,16 @@ const styles = StyleSheet.create({
     },
 
     userName:{
-        color: colors.WHITE,
+        color: colors.BLACK,
         fontSize: fontSize.h6,
         fontFamily:fontFamily.P_MEDIUM,
         marginLeft: '5%'   
     },
-    hello:{
-        color: colors.WHITE,
-        fontSize: fontSize.p,
-        fontFamily:fontFamily.P_MEDIUM,
-        marginLeft: '5%'   
+    buddies:{
+        color: colors.BLACK,
+        fontSize: fontSize.h5,
+        fontFamily:fontFamily.P_BOLD,
+         
     }
     
 

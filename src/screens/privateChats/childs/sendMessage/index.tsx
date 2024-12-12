@@ -11,7 +11,7 @@ export default function SendMessage({ currentUserDetails }) {
 
 
 
-    const UserProfile = useAuthStore((state:any) => state.userProfile);
+    const UserProfile = useAuthStore((state: any) => state.userProfile);
 
 
 
@@ -49,30 +49,22 @@ export default function SendMessage({ currentUserDetails }) {
 
                 textInputStyle={styles.textInputStyle}
 
-                placeholderText={" Send message"}
+                placeholderText={" Type Message"}
                 keyboardType='default'
                 onChangeText={value => setMessage(value)}
 
                 value={message}
-            />
-            <TouchableOpacity
-
-                onPress={() => {
+                buttonOnPress={() => {
                     if (message) {
                         sendMessage()
                     } else {
                         console.log('no message')
                     }
+                }}
+                enableButton={true}
+            />
 
-                }}>
-                <Icon
 
-                    iconFamily={'FontAwesome'}
-                    size={24}
-                    style={{ color: '#375FFF' }}
-                    name={'send'}
-                />
-            </TouchableOpacity>
 
         </View>
     )

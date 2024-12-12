@@ -45,7 +45,7 @@ export default function ProfileScreen() {
 
 
 
-console.log(UserProfile,'................url')
+
 
 
   return (

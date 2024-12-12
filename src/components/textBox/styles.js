@@ -18,7 +18,9 @@ const styles = StyleSheet.create({
     TextInputContainer: {
         height: deviceHeight * 0.14,
         width: deviceWidth,
-        justifyContent: 'center',
+        flexDirection:'row',
+        justifyContent:'space-evenly',
+       
         alignItems: 'center',
 
 

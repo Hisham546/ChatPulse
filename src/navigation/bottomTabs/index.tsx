@@ -41,12 +41,12 @@ export default function BottomTabs({ }) {
           tabBarIcon: ({ focused }) => (
             <View style={styles.iconContainer}>
               {focused && <View style={styles.activeLine} />}
-              {/* <MaterialIcon name={focused ? "home" : "home-outline"} size={23} color={focused ? 'gray' : 'black'} /> */}
+             
               <Icon
 
                 iconFamily={'Ionicons'}
                 size={23}
-                style={{ color: focused ? 'white' : 'white' }}
+                style={{ color: focused ? 'black' : 'black' }}
                 name={focused ? 'chatbubbles-outline' : 'chatbubble-outline'}
               />
 
@@ -72,7 +72,7 @@ export default function BottomTabs({ }) {
 
                 iconFamily={'Feather'}
                 size={23}
-                style={{ color: focused ? 'white' : 'white' }}
+                style={{ color: focused ? 'black' : 'black' }}
                 name={focused ? 'user' : 'users'}
               />
 

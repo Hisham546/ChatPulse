@@ -16,9 +16,9 @@ const { deviceHeight, deviceWidth } = deviceProps
 const PrivateChatScreen: React.FC<privateScreenProps> = (props) => {
 
 
-    const { currentUserDetails, UserProfile, navigation: { goBack },isUserOnline,chats,isLoading } = props
+    const { currentUserDetails, UserProfile, navigation: { goBack }, isUserOnline, chats, isLoading } = props
 
- 
+
 
 
 
@@ -35,6 +35,7 @@ const PrivateChatScreen: React.FC<privateScreenProps> = (props) => {
 
             <View style={styles.headerView}>
                 <TouchableOpacity
+                    style={styles.goBackStyle}
                     onPress={() => {
                         goBack()
                     }}>
@@ -42,12 +43,12 @@ const PrivateChatScreen: React.FC<privateScreenProps> = (props) => {
 
                         iconFamily={'Feather'}
                         size={24}
-                        style={{ color: 'white', marginLeft: '7%' }}
+                        style={{ color: 'black' }}
                         name={'chevron-left'}
                     />
                 </TouchableOpacity>
                 <View style={styles.nameView}>
-                    <Text style={styles.userStyle}>{currentUserDetails?.name}</Text>
+                    <Text style={styles.userName}>{currentUserDetails?.name}</Text>
                     {isUserOnline ? (
 
                         <Text style={styles.onlineText}>Online</Text>
@@ -70,11 +71,11 @@ const PrivateChatScreen: React.FC<privateScreenProps> = (props) => {
 
                             <View style={[styles.chatsBoxView,
                             { marginLeft: item.sender === UserProfile?.data?.name ? "45%" : "0%" },
-                            { backgroundColor: item.sender === UserProfile?.data?.name ? '#375fff' : '#1c2b48' }
+                            { backgroundColor: item.sender === UserProfile?.data?.name ? '#d8ecc3' : '#eddadd' }
 
                             ]}>
                                 <View style={styles.chatTextView}>
-                                    <Text style={styles.userStyle}>{item?.message}</Text>
+                                    <Text style={styles.messageStyle}>{item?.message}</Text>
                                 </View>
                                 <View style={styles.chatTimeView}>
                                     <Text style={styles.textTime}>{item?.timeStamp}</Text>

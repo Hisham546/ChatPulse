@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { View, TouchableOpacity, Text, FlatList, ActivityIndicator } from "react-native";
+import { View, TouchableOpacity, Text, FlatList, ActivityIndicator, Image } from "react-native";
 import styles from "./styles";
 
 import { Icon } from "../../../../utilities/Icons";
@@ -44,56 +44,67 @@ export default function ChatsList({ userData, loading, navigation, latestMessage
     return (
 
         <View style={styles.containerStyle}>
-              {/* <Text style={styles.chatsMainText}>Chats</Text> */}
-            {loading ? (
-                <ActivityIndicator size="large" color="white" style={styles.loader} />
-            ) : (
-                <FlatList
-                    data={filteredUsers ? filteredUsers : []}
-                    style={styles.flatlist}
-                    extraData={latestMessage}
-                    renderItem={({ item, index }) => {
-                        const latestMessage = getLatestMessage(item);
-                        return (
-                            <TouchableOpacity
-                                onPress={() => navigation.navigate('PrivateChatScreen', { currentUserDetails: item })}
-                                style={styles.userBoxView}>
-                                <Icon
+            <View style={styles.recentChatsHeadingView}>
+                <Text style={styles.chatsMainText}>Recent Chats</Text>
+            </View>
+            <View style={styles.chatsListParentView}>
+                {loading ? (
+                    <ActivityIndicator size="large" color="white" style={styles.loader} />
+                ) : (
+                    <FlatList
+                        data={filteredUsers ? filteredUsers : []}
+                        style={styles.flatlist}
+                        extraData={latestMessage}
+                        renderItem={({ item, index }) => {
+                            const latestMessage = getLatestMessage(item);
+                            return (
+                                <TouchableOpacity
+                                    onPress={() => navigation.navigate('PrivateChatScreen', { currentUserDetails: item })}
+                                    style={styles.userBoxView}>
+                                    <Image
+                                        resizeMode={'cover'}
+                                        style={styles.profileLogo}
+                                        source={{
+                                            uri: item?.imageUrl
+                                        }}
+                                    // onLoadStart={() => setLoading(true)}
+                                    // onLoad={() => setLoading(false)}
+                                    // onError={() => {
+                                    //     setLoading(false);
 
-                                    iconFamily={'Entypo'}
-                                    size={24}
-                                    style={{ color: 'white', marginLeft: '5%' }}
-                                    name={'user'}
-                                />
+                                    // }}
 
-                                <View style={styles.userBoxChild}>
-                                    <Text style={styles.userStyle}>{item?.name}</Text>
+                                    />
+
+                                    <View style={styles.userBoxChild}>
+                                        <Text style={styles.userStyle}>{item?.name}</Text>
 
 
+                                        {latestMessage ? (
+                                            <Text style={styles.lastMessage}>{latestMessage.message}</Text>
+                                        ) : (
+                                            null
+                                        )}
+
+
+
+                                    </View>
                                     {latestMessage ? (
-                                        <Text style={styles.lastMessage}>{latestMessage.message}</Text>
+                                        <Text style={styles.lastMessage}>{latestMessage.timeStamp}</Text>
                                     ) : (
                                         null
                                     )}
 
 
 
-                                </View>
-                                {latestMessage ? (
-                                    <Text style={styles.lastMessage}>{latestMessage.timeStamp}</Text>
-                                ) : (
-                                    null
-                                )}
+                                </TouchableOpacity>
+                            )
+                        }}
+                        keyExtractor={item => item.id}
+                    />
 
-
-
-                            </TouchableOpacity>
-                        )
-                    }}
-                    keyExtractor={item => item.id}
-                />
-            )}
-
+                )}
+            </View>
 
         </View>
     )

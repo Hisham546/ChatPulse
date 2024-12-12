@@ -17,34 +17,45 @@ const styles = StyleSheet.create({
 
     containerStyle: {
         flex: 1,
-        backgroundColor: '#0f1829',
-       // justifyContent:'flex-end'
+        backgroundColor:'#f0eff4',
 
+//'#f0eff4',
 
     },
     headerView: {
-        width: deviceWidth * 0.50,
+        width: deviceWidth,
         height: deviceHeight * 0.09,
-        backgroundColor: '#0f1829',
-        justifyContent: 'center',
+        backgroundColor:colors.WHITE,
         flexDirection: 'row',
         alignItems: 'center',
-
-
-
-
-        //#0F!828
+        elevation:1
+        
+  
+        
+    
+       
+    },
+    goBackStyle:{
+        width: deviceWidth *0.10,
+        height: deviceHeight * 0.09,
+       /// backgroundColor: 'red',
+        justifyContent:'center',
+        marginLeft:'3%'
     },
     nameView: {
         width: deviceWidth * 0.35,
         height: deviceHeight * 0.09,
         alignItems: "center",
         justifyContent: "center",
+     //   backgroundColor: 'green',
+       
+      
+      
 
     },
     centerView: {
         width: deviceWidth,
-        backgroundColor: '#152032',
+        backgroundColor:'#f0eff4',
         alignItems: 'center',
 
         height: deviceHeight * 0.80,
@@ -58,11 +69,17 @@ const styles = StyleSheet.create({
 
 
     },
-    userStyle: {
-        color: colors.WHITE,
+    messageStyle: {
+        color: colors.BLACK,
         fontSize: fontSize.p,
         fontFamily: fontFamily.P_MEDIUM,
         marginLeft: '5%'
+    },
+    userName:{
+        color: colors.BLACK,
+        fontSize: fontSize.h6,
+        fontFamily: fontFamily.P_MEDIUM,
+   
     },
 
     loader: {
@@ -97,7 +114,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     textTime: {
-        color: colors.WHITE,
+        color: colors.black_light_100,
         fontSize: fontSize._9,
         fontFamily: fontFamily.P_MEDIUM,
         marginLeft: '5%'

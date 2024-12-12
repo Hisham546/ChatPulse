@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     },
     tabContainerStyle: {
 
-         backgroundColor: '#0f1829',
+         backgroundColor: colors.WHITE,
 
 
         minHeight: 2,
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         fontFamily: fontFamily.P_REGULAR,
         fontSize: fontSize.small,
         
-        color:colors.WHITE
+        color:colors.BLACK
     },
     iconContainer: {
         alignItems: 'center',

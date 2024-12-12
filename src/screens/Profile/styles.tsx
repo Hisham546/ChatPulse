@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     },
     containerStyle: {
         flex: 1,
-        backgroundColor: '#0f1829',
+        backgroundColor: colors.WHITE,
 
 
     },
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
         justifyContent:'center',    
     },
     chatsMainText: {
-        color: colors.WHITE,
+        color: colors.BLACK,
         fontSize: fontSize.h5,
         fontFamily:fontFamily.P_MEDIUM,
         marginLeft: '5%' 
@@ -84,8 +84,8 @@ const styles = StyleSheet.create({
        
     },
     profileName: {
-        color: colors.WHITE,
-        fontFamily: fontFamily.P_REGULAR,
+        color: colors.BLACK,
+        fontFamily: fontFamily.P_MEDIUM,
         fontSize: fontSize.h5
     },
     profilePhone: {
@@ -101,12 +101,12 @@ const styles = StyleSheet.create({
     },
     profileItemText: {
         marginLeft: '4%',
-        color: colors.WHITE,
+        color: colors.BLACK,
         fontFamily: fontFamily.P_REGULAR,
         fontSize: fontSize._15
     },
     profileItemIcon: {
-        color: colors.WHITE,
+        color: colors.BLACK,
     },
     iconStyles: {
         width: 32,

@@ -17,13 +17,10 @@ const styles = StyleSheet.create({
 
     containerStyle: {
         flex: 1,
-        backgroundColor: '#152032',
+        backgroundColor: colors.WHITE,
         width: deviceWidth,
-        borderTopLeftRadius: 20,
-        borderTopRightRadius: 20,
-        // height:deviceHeight ,  
-
-
+        borderTopColor: '#BCCCDC',
+        borderTopWidth: .30,
 
     },
     topView: {
@@ -39,23 +36,26 @@ const styles = StyleSheet.create({
     },
 
     flatlist: {
-        marginTop:'10%',
 
         width: deviceWidth,
-      
-        
-
-
-
-
-
+    },
+    chatsListParentView: {
+        width: deviceWidth * 0.95,
+        height: deviceHeight,
+        marginLeft: '3%',
 
     },
     chatsMainText: {
-        color: colors.WHITE,
-        fontSize: fontSize.h5,
+        color: colors.BLACK,
+        fontSize: fontSize.h6,
         fontFamily: fontFamily.P_MEDIUM,
-        marginLeft: '5%'
+        marginLeft: '3%'
+    },
+    recentChatsHeadingView: {
+        width: deviceWidth,
+        height: deviceHeight * 0.06,
+        // backgroundColor: 'blue',
+        justifyContent: 'center'
     },
     userBoxView: {
         width: deviceWidth,
@@ -68,13 +68,15 @@ const styles = StyleSheet.create({
         width: deviceWidth * 0.70,
         height: deviceHeight * 0.10,
         justifyContent: 'center',
+        borderBottomColor: '#BCCCDC',
+        borderBottomWidth: .30,
 
 
     },
     userStyle: {
-        color: colors.WHITE,
+        color: colors.BLACK,
         fontSize: fontSize.h6,
-        fontFamily: fontFamily.P_MEDIUM,
+        fontFamily: fontFamily.P_REGULAR,
         marginLeft: '5%'
     },
     lastMessage: {
@@ -89,6 +91,14 @@ const styles = StyleSheet.create({
 
         justifyContent: 'center',
         alignItems: 'center',
+
+    },
+    profileLogo: {
+        width: deviceWidth * 0.11,
+        height: deviceHeight * 0.05,
+        borderRadius: 70,
+
+
 
     },
 
