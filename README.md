@@ -1,3 +1,4 @@
+I'm trying to develop a fully featured chatting app,its still on development :)
 Home Screen
 
 <img src="https://github.com/user-attachments/assets/34eb7a12-9ec9-4c5b-b3e1-240273af7fab" alt="HomeScreen" width="300"/>
