@@ -50,6 +50,9 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         alignItems: 'center',
         backgroundColor: colors.WHITE,
+        flexDirection:'row',
+        justifyContent:'space-evenly',
+        
 
     },
 

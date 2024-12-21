@@ -18,9 +18,12 @@ const styles = StyleSheet.create({
     TextInputContainer: {
         height: deviceHeight * 0.14,
         width: deviceWidth,
-        flexDirection:'row',
-        justifyContent:'space-evenly',
+        // flexDirection:'row',
+        // justifyContent:'space-evenly',
+    
        
+        // alignItems: 'center',
+        justifyContent: 'center',
         alignItems: 'center',
 
 
@@ -37,8 +40,7 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         color: colors.WHITE,
         fontFamily: fontFamily.P_REGULAR,
-        //textAlign:'justify'
-        //  backgroundColor:'red'
+ 
 
     },
     headingLabelView: {
@@ -58,11 +60,10 @@ const styles = StyleSheet.create({
     inputWrapper: {
         flexDirection: 'row',
         alignItems: 'center',
-        // borderWidth: 1,
-        // borderColor: '#ccc',
+
       
         borderRadius: 5,
-         // backgroundColor:'red'
+ 
     },
     eyeArea: {
         position: 'absolute',
@@ -73,20 +74,16 @@ const styles = StyleSheet.create({
         position: 'absolute',
         width: deviceWidth * 0.08,
         height: deviceHeight * 0.05,
-        // justifyContent:'center',
-        //left:5,
-
-        // top: 12,
-        backgroundColor: 'red'
+ 
     },
     countryCodeText: {
         color: colors.DARK_SLATE_GREEN,
         fontFamily: fontFamily.P_REGULAR,
         fontSize: fontSize.h6,
-        //  marginLeft:'15%'
+    
     },
     textInputWithCountryCode: {
-        paddingLeft: 15, // Adjust as needed
+        paddingLeft: 15, 
         width: deviceWidth * 0.70,
     },
 

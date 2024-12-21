@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
 
     containerStyle: {
         flex: 1,
-        backgroundColor: '#0f1829',
+        backgroundColor: colors.WHITE,
      
     },
     topView: {
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
 
     },
     descriptionTextStyle: {
-        color: colors.WHITE,
+        color: colors.BLACK,
         fontSize: fontSize.h4,
         fontFamily: fontFamily.P_MEDIUM,
         alignItems: 'flex-start',

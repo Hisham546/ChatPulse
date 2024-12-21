@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
 
     containerStyle: {
         flex: 1,
-        backgroundColor: '#0f1829',
+        backgroundColor: colors.WHITE,
     },
     topView: {
         width: deviceWidth,
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'row',
         width: deviceWidth * 0.80,
-        backgroundColor: '#152033',
+        backgroundColor: '#f0eff4',
         color: colors.WHITE
     },
     descriptionView: {
@@ -67,17 +67,17 @@ const styles = StyleSheet.create({
        
     },
     getStarted: {
-        color: colors.WHITE,
+        color: colors.BLACK,
         fontSize: fontSize.h4,
         fontFamily: fontFamily.P_MEDIUM
     },
     getStarted2: {
-        color: colors.WHITE,
+        color: colors.BLACK,
         fontSize: fontSize.h6,
         fontFamily: fontFamily.P_MEDIUM
     },
     dontHaveAc:{
-        color: colors.WHITE,
+        color: colors.BLACK,
         fontSize: fontSize._13,
         fontFamily: fontFamily.P_REGULAR
     },
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     },
 
     registerNowText: {
-        color: colors.white_100,
+        color: colors.BLACK,
         fontSize: fontSize._12,
         fontFamily: fontFamily.P_MEDIUM,
         textDecorationLine: 'underline'

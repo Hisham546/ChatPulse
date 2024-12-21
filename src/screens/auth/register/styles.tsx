@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     },
     containerStyle: {
         flex: 1,
-        backgroundColor: '#0f1829'
+        backgroundColor: colors.WHITE,
 
 
     },
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
 
         width: deviceWidth * 0.80,
-        backgroundColor: '#152033',
+        backgroundColor: '#f0eff4',
 
         color: colors.WHITE
         //textAlign:'justify'
