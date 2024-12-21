@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         width: deviceWidth * 0.80,
         backgroundColor: '#f0eff4',
-        color: colors.WHITE
+        color: colors.BLACK
     },
     descriptionView: {
         width: deviceWidth,

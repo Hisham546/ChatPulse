@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
         marginLeft: '5%'
     },
     lastMessage: {
-        color: colors.WHITE,
+        color: colors.BLACK,
         fontSize: fontSize._10,
         fontFamily: fontFamily.P_MEDIUM,
         marginLeft: '5%'

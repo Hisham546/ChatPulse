@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
         width: deviceWidth * 0.80,
         backgroundColor: '#f0eff4',
 
-        color: colors.WHITE
+        color: colors.BLACK
         //textAlign:'justify'
 
     },
