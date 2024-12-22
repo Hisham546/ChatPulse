@@ -90,7 +90,7 @@ export default function ChatsList({ userData, loading, navigation, latestMessage
 
                                     </View>
                                     {latestMessage ? (
-                                        <Text style={styles.lastMessage}>{latestMessage.timeStamp}</Text>
+                                        <Text style={styles.timeStamp}>{latestMessage.timeStamp}</Text>
                                     ) : (
                                         null
                                     )}

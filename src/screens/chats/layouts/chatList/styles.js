@@ -72,19 +72,28 @@ const styles = StyleSheet.create({
         borderBottomWidth: .30,
 
 
+
     },
     userStyle: {
         color: colors.BLACK,
         fontSize: fontSize.h6,
         fontFamily: fontFamily.P_REGULAR,
-        marginLeft: '5%'
+        marginLeft: '3%'
+       
     },
     lastMessage: {
         color: colors.BLACK,
         fontSize: fontSize._10,
         fontFamily: fontFamily.P_MEDIUM,
-        marginLeft: '5%'
+        
+        marginLeft: '3%'
 
+    },
+    timeStamp:{
+        color: colors.BLACK,
+        fontSize: fontSize._10,
+        fontFamily: fontFamily.P_MEDIUM,
+        
     },
     loader: {
 

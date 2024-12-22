@@ -18,9 +18,12 @@ const NewChats: React.FC<privateScreenProps> = (props) => {
 
     const { currentUserDetails, UserProfile, navigation: { goBack }, isUserOnline, chats, isLoading } = props
 
+    const [messageTimeStamp, setMessageTimeStamp] = useState('')
 
-
-
+    // useEffect(() => {
+    //     const dateObj = new Date(dateTimeString);
+    //     setMessageTimeStamp(new Date().toLocaleString().replace(',', ''))
+    // }, [])
 
 
 
@@ -67,22 +70,25 @@ const NewChats: React.FC<privateScreenProps> = (props) => {
                         data={chats}
 
                         style={styles.flatlist}
-                        renderItem={({ item, index }) => (
+                        renderItem={({ item, index }) => {
+                            let parts = item?.timeStamp.split(" ")
+                            const messageTime = parts[1].split(":").slice(0, 2).join(":") + " " + parts[2];
+                            return (
+                                <View style={[styles.chatsBoxView,
+                                { marginLeft: item.sender === UserProfile?.data?.name ? "45%" : "0%" },
+                                { backgroundColor: item.sender === UserProfile?.data?.name ? '#d8ecc3' : '#eddadd' }
 
-                            <View style={[styles.chatsBoxView,
-                            { marginLeft: item.sender === UserProfile?.data?.name ? "45%" : "0%" },
-                            { backgroundColor: item.sender === UserProfile?.data?.name ? '#d8ecc3' : '#eddadd' }
+                                ]}>
+                                    <View style={styles.chatTextView}>
+                                        <Text style={styles.messageStyle}>{item?.message}</Text>
+                                    </View>
+                                    <View style={styles.chatTimeView}>
+                                        <Text style={styles.textTime}>{messageTime}</Text>
 
-                            ]}>
-                                <View style={styles.chatTextView}>
-                                    <Text style={styles.messageStyle}>{item?.message}</Text>
+                                    </View>
                                 </View>
-                                <View style={styles.chatTimeView}>
-                                    <Text style={styles.textTime}>{item?.timeStamp}</Text>
-
-                                </View>
-                            </View>
-                        )
+                            )
+                        }
 
                         }
                         keyExtractor={item => item.id}

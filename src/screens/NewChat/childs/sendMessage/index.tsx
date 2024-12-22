@@ -28,7 +28,8 @@ export default function SendMessage({ currentUserDetails }) {
             message: message,
             sender: UserProfile?.data?.name,
             reciever: currentUserDetails.name,
-            timeStamp: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }),
+            // timeStamp: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }),
+            timeStamp: new Date().toLocaleString().replace(',', '')
         }
 
         socketUrl.emit('chatMessage', payload);
