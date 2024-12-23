@@ -5,13 +5,13 @@ import styles from "./styles";
 import { Icon } from "../../../../utilities/Icons";
 import useAuthStore from "../../../../containers/authContainer/zustandAuthStore";
 
-
+import useChatsStore from "../../../../containers/chatsContainer/zustandChatsStore";
 
 export default function ChatsList({ userData, loading, navigation, latestMessage }) {
     const UserProfile = useAuthStore((state) => state.userProfile);
+    const triggerLatestMessage = useChatsStore((state) => state.triggerLatestMessage);
 
-
-
+    const [messageDate, setMessageDate] = useState(null)
 
 
 
@@ -19,10 +19,6 @@ export default function ChatsList({ userData, loading, navigation, latestMessage
     const filteredUsers = userData?.data.filter(
         (users: { name: any }) => users?.name !== UserProfile?.data?.name
     );
-
-
-
-
 
 
 
@@ -39,7 +35,7 @@ export default function ChatsList({ userData, loading, navigation, latestMessage
     };
 
 
-
+console.log(triggerLatestMessage)
 
     return (
 
@@ -54,9 +50,13 @@ export default function ChatsList({ userData, loading, navigation, latestMessage
                     <FlatList
                         data={filteredUsers ? filteredUsers : []}
                         style={styles.flatlist}
-                        extraData={latestMessage}
+                        extraData={triggerLatestMessage}
                         renderItem={({ item, index }) => {
                             const latestMessage = getLatestMessage(item);
+                            let parts = latestMessage?.timeStamp?.split(" ")
+
+                            const messageTimeStamp = parts[1].split(":").slice(0, 2).join(":") + " " + parts[2];
+
                             return (
                                 <TouchableOpacity
                                     onPress={() => navigation.navigate('NewChats', { currentUserDetails: item })}
@@ -90,7 +90,7 @@ export default function ChatsList({ userData, loading, navigation, latestMessage
 
                                     </View>
                                     {latestMessage ? (
-                                        <Text style={styles.timeStamp}>{latestMessage.timeStamp}</Text>
+                                        <Text style={styles.timeStamp}>{messageTimeStamp}</Text>
                                     ) : (
                                         null
                                     )}

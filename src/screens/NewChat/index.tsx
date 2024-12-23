@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { View, TouchableOpacity, Text, FlatList, ActivityIndicator, KeyboardAvoidingView, Platform } from "react-native";
 import styles from "./styles";
 import { socketUrl } from "../../services/socket";
-
+import useChatsStore from "../../containers/chatsContainer/zustandChatsStore";
 import { useQuery } from '@tanstack/react-query';
 import { Icon } from "../../utilities/Icons";
 import SendMessage from "./childs/sendMessage";
@@ -20,7 +20,7 @@ const NewChats: React.FC<privateScreenProps> = (props) => {
 
     const [messageDate, setMessageDate] = useState(null)
     const [IsMessageDetailModal, setIsMessageDetailModal] = useState(false)
-
+    const setTriggerLatestMessage = useChatsStore((state) => state.setTriggerLatestMessage);
     // useEffect(() => {
     //     const dateObj = new Date(dateTimeString);
     //     setMessageTimeStamp(new Date().toLocaleString().replace(',', ''))
@@ -41,6 +41,7 @@ const NewChats: React.FC<privateScreenProps> = (props) => {
                 <TouchableOpacity
                     style={styles.goBackStyle}
                     onPress={() => {
+                       setTriggerLatestMessage(true)
                         goBack()
                     }}>
                     <Icon
@@ -81,15 +82,15 @@ const NewChats: React.FC<privateScreenProps> = (props) => {
 
 
                                     <TouchableOpacity activeOpacity={0.5}
-                                    onPress={()=>{
-                                        setIsMessageDetailModal(true)
-                                    }}
-                                    style={[styles.chatsBoxView,
-                                    { marginLeft: item.sender === UserProfile?.data?.name ? "45%" : "0%" },
-                                    { backgroundColor: item.sender === UserProfile?.data?.name ? '#d8ecc3' : '#eddadd' }
+                                        onPress={() => {
+                                            setIsMessageDetailModal(true)
+                                        }}
+                                        style={[styles.chatsBoxView,
+                                        { marginLeft: item.sender === UserProfile?.data?.name ? "45%" : "0%" },
+                                        { backgroundColor: item.sender === UserProfile?.data?.name ? '#d8ecc3' : '#eddadd' }
 
-                                    ]}>
-                                        
+                                        ]}>
+
                                         <View style={styles.chatTextView}>
                                             <Text style={styles.messageStyle}>{item?.message}</Text>
                                         </View>

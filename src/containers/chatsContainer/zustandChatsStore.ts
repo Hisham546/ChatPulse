@@ -7,8 +7,10 @@ const useChatsStore = create((set) => ({
 
   userstatus: null,
   userActive: [],
+  triggerLatestMessage: false,
   setUserOnline: (state: any) => set({ userstatus: state }),
   setUserActive: (update: any) => set({ userActive: update }),
+ setTriggerLatestMessage: (update: any) => set({ triggerLatestMessage: update }),
 
 
 }),
