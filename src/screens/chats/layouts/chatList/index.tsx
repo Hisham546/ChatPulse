@@ -53,9 +53,9 @@ console.log(triggerLatestMessage)
                         extraData={triggerLatestMessage}
                         renderItem={({ item, index }) => {
                             const latestMessage = getLatestMessage(item);
-                            let parts = latestMessage?.timeStamp?.split(" ")
+                            // let parts = latestMessage?.timeStamp?.split(" ")
 
-                            const messageTimeStamp = parts[1].split(":").slice(0, 2).join(":") + " " + parts[2];
+                            // const messageTimeStamp = parts[1].split(":").slice(0, 2).join(":") + " " + parts[2];
 
                             return (
                                 <TouchableOpacity
@@ -89,11 +89,11 @@ console.log(triggerLatestMessage)
 
 
                                     </View>
-                                    {latestMessage ? (
+                                    {/* {latestMessage ? (
                                         <Text style={styles.timeStamp}>{messageTimeStamp}</Text>
                                     ) : (
                                         null
-                                    )}
+                                    )} */}
 
 
 

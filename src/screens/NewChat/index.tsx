@@ -6,7 +6,7 @@ import useChatsStore from "../../containers/chatsContainer/zustandChatsStore";
 import { useQuery } from '@tanstack/react-query';
 import { Icon } from "../../utilities/Icons";
 import SendMessage from "./childs/sendMessage";
-import MessageDetailsModal from "../../components/modals";
+import {MessageDetailsModal} from "../../components/modals";
 import { loadAllMessages } from "../../services/api/apiFunction";
 import { privateScreenProps } from "../../containers/chatsContainer/modal";
 import deviceProps from "../../utilities/deviceProps";

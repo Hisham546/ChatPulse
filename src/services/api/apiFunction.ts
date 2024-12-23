@@ -37,7 +37,7 @@ export const loginUser = async (body: bodyType) => {
         }
     } catch (error) {
         console.log(error)
-        // return error
+         return error
     }
 
 }

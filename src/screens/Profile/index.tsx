@@ -7,6 +7,8 @@ import useAuthStore from "../../containers/authContainer/zustandAuthStore";
 import useChatsStore from "../../containers/chatsContainer/zustandChatsStore";
 import ImagePickerStore from "../../services/camera/zustandCameraStore";
 import { useCamera } from "../../services/camera";
+import { LogoutModal } from "../../components/modals";
+//import {MessageDetailsModal} from "../../components/modals";
 export default function ProfileScreen() {
 
   const setUserLoggedIn = useAuthStore((state: any) => state.setUserLoggedIn);
@@ -20,7 +22,7 @@ export default function ProfileScreen() {
 
   const { openPicker } = useCamera()
 
-
+  const [logoutModalVisible, setLogoutModalVisible] = useState(false)
   const ProfileItems = [
 
 
@@ -110,7 +112,7 @@ export default function ProfileScreen() {
         {ProfileItems.map((item, i) => (
           <TouchableOpacity style={styles.profileItem}
             onPress={() => {
-              setUserLoggedIn(false)
+              setLogoutModalVisible(true)
 
 
             }}>
@@ -127,6 +129,14 @@ export default function ProfileScreen() {
       <View>
 
       </View>
+      <LogoutModal
+        logoutModalVisible={logoutModalVisible}
+        setLogoutModalVisible={setLogoutModalVisible}
+        onPressLogout={() => {
+          setUserLoggedIn(false)
+        }}
+      />
+
     </View>
   )
 

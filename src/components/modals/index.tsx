@@ -13,11 +13,11 @@ import deviceProps from '../../utilities/deviceProps';
 import colors from '../../themes/colors';
 import fontSize from '../../themes/fontSize';
 import fontFamily from '../../themes/fontFamily';
-import { Button } from '../../components/button/button';
+import ButtonComponent from '../button/button';
 import { Icon } from '../../utilities/Icons';
 const { deviceHeight, deviceWidth } = deviceProps;
 
-export default function MessageDetailsModal({ IsMessageDetailModal, setIsMessageDetailModal, messageDate }) {
+export function MessageDetailsModal({ IsMessageDetailModal, setIsMessageDetailModal, messageDate }) {
     return (
         <Modal
             animationType="fade"
@@ -26,7 +26,7 @@ export default function MessageDetailsModal({ IsMessageDetailModal, setIsMessage
 
         >
             <TouchableOpacity style={styles.transparentView}
-            activeOpacity={1}
+                activeOpacity={1}
                 onPress={() => {
                     setIsMessageDetailModal(false)
                 }}>
@@ -167,3 +167,126 @@ const styles = StyleSheet.create({
         // backgroundColor:'red' 
     }
 });
+
+
+export function LogoutModal  ({ logoutModalVisible, setLogoutModalVisible, onPressLogout }) {
+    return (
+        <Modal
+            animationType="fade"
+            transparent={true}
+            visible={logoutModalVisible}
+        >
+            <View style={logoutStyles.transparentView}>
+                <View style={logoutStyles.modalView}>
+                    <View style={logoutStyles.mainView}>
+                        <View style={logoutStyles.textContainer}>
+                            <Text style={logoutStyles.headingText1}>Log out ?</Text>
+                            <Text style={logoutStyles.headingText2}>Are you sure you want to log out ?</Text>
+                        </View>
+                        <View style={logoutStyles.buttonContainer}>
+
+                            <ButtonComponent
+                                onPress={() => {
+                                    setLogoutModalVisible(false)
+                                }}
+                                buttonText={"Cancel"}
+
+
+                                textStyle={[logoutStyles.buttonTextStyle, { color: colors.DARK_SLATE_GREEN }]}
+                                buttonStyle={[logoutStyles.buttonStyle, { backgroundColor: 'white', borderWidth: 1, borderColor: '#DEDEDE' }]}
+                            />
+                            <ButtonComponent
+                                onPress={() => {
+                                    onPressLogout()
+                                }}
+                                buttonText={"Log out"}
+
+
+                                textStyle={logoutStyles.buttonTextStyle}
+                                buttonStyle={logoutStyles.buttonStyle}
+                            />
+                        </View>
+
+                    </View>
+                </View>
+            </View>
+        </Modal>
+    );
+}
+
+const logoutStyles = StyleSheet.create({
+    transparentView: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'rgba(0,0,0,0.5)',
+    },
+    modalView: {
+        width: deviceWidth * 0.85,
+        height: deviceHeight * 0.24,
+        backgroundColor: colors.WHITE,
+        borderRadius: 14,
+        padding: 20,
+        alignItems: 'center',
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5,
+    },
+    mainView: {
+        width: '100%',
+        height: deviceHeight * 0.15,
+
+        alignItems: 'center',
+    },
+
+    buttonTextStyle: {
+        color: colors.WHITE,
+        fontSize: fontSize.p,
+        fontStyle: 'normal',
+        fontFamily: fontFamily.P_MEDIUM
+
+    },
+    buttonStyle: {
+        marginTop: 1,
+        width: deviceWidth * 0.33,
+        height: deviceHeight * 0.048,
+        borderRadius: 5,
+        backgroundColor: '#375FFF'
+
+    },
+    buttonContainer: {
+
+        height: deviceHeight * 0.09,
+        width: deviceWidth * 0.75,
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+
+
+    },
+    textContainer: {
+        height: deviceHeight * 0.10,
+        width: deviceWidth * 0.75,
+        justifyContent: 'center',
+
+
+    },
+    headingText1: {
+        color: colors.BLACK,
+        fontFamily: fontFamily.P_MEDIUM,
+        fontSize: fontSize.h5,
+        marginBottom: 10
+    },
+    headingText2: {
+        color: '#9C9C9C',
+        fontFamily: fontFamily.P_MEDIUM,
+        fontSize: fontSize._13
+
+    }
+});
+
