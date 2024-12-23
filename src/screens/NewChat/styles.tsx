@@ -17,45 +17,45 @@ const styles = StyleSheet.create({
 
     containerStyle: {
         flex: 1,
-        backgroundColor:'#f0eff4',
+        backgroundColor: '#f0eff4',
 
-//'#f0eff4',
+        //'#f0eff4',
 
     },
     headerView: {
         width: deviceWidth,
         height: deviceHeight * 0.09,
-        backgroundColor:colors.WHITE,
+        backgroundColor: colors.WHITE,
         flexDirection: 'row',
         alignItems: 'center',
-        elevation:1
-        
-  
-        
-    
-       
+        elevation: 1
+
+
+
+
+
     },
-    goBackStyle:{
-        width: deviceWidth *0.10,
+    goBackStyle: {
+        width: deviceWidth * 0.10,
         height: deviceHeight * 0.09,
-       /// backgroundColor: 'red',
-        justifyContent:'center',
-        marginLeft:'3%'
+        /// backgroundColor: 'red',
+        justifyContent: 'center',
+        marginLeft: '3%'
     },
     nameView: {
         width: deviceWidth * 0.35,
         height: deviceHeight * 0.09,
         alignItems: "center",
         justifyContent: "center",
-     //   backgroundColor: 'green',
-       
-      
-      
+        //   backgroundColor: 'green',
+
+
+
 
     },
     centerView: {
         width: deviceWidth,
-        backgroundColor:'#f0eff4',
+        backgroundColor: '#f0eff4',
         alignItems: 'center',
 
         height: deviceHeight * 0.80,
@@ -75,11 +75,11 @@ const styles = StyleSheet.create({
         fontFamily: fontFamily.P_MEDIUM,
         marginLeft: '5%'
     },
-    userName:{
+    userName: {
         color: colors.BLACK,
         fontSize: fontSize.h6,
         fontFamily: fontFamily.P_MEDIUM,
-   
+
     },
 
     loader: {
@@ -92,20 +92,20 @@ const styles = StyleSheet.create({
     flatlist: {
         flex: 1,
         width: deviceWidth * 0.95,
-      
+
 
 
     },
     chatsBoxView: {
         width: deviceWidth * 0.50,
         minHeight: deviceHeight * 0.04,
-        //backgroundColor: '#1c2b48',   
+
         marginTop: '3%',
         borderBottomRightRadius: 5,
         borderTopLeftRadius: 5,
         borderTopRightRadius: 5,
         flexDirection: 'row',
-      
+
     },
     chatTextView: {
         width: deviceWidth * 0.38,
@@ -132,6 +132,23 @@ const styles = StyleSheet.create({
         fontSize: fontSize._10,
 
     },
+    chatDateView: {
+        width: deviceWidth * 0.25,
+        height: deviceHeight * 0.038,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: colors.gray_100,
+        borderRadius: 5,
+    },
+    chatsContainer: {
+        // width: deviceWidth,
+        // alignItems: 'center'
+    },
+    chatsDateStyle: {
+        color: colors.WHITE,
+        fontFamily: fontFamily.P_MEDIUM,
+        fontSize: fontSize.tiny
+    }
 
 
 
