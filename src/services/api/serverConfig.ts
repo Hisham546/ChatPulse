@@ -6,8 +6,8 @@ import userServiceStore from "./zustandServiceStore"
 const deviceType = userServiceStore.getState().deviceType
 
 
-const devType= 'production'
-//const devType = 'development'
+//const devType= 'production'
+const devType = 'development'
 
 // export const baseUrl = 'http://localhost:5000/'
 

@@ -6,6 +6,7 @@ import TextInputOutlined from "../../../../components/textBox/inputText";
 import { Icon } from "../../../../utilities/Icons";
 import useAuthStore from "../../../../containers/authContainer/zustandAuthStore";
 import { socketUrl } from "../../../../services/socket";
+import useChatsStore from "../../../../containers/chatsContainer/zustandChatsStore";
 
 export default function SendMessage({ currentUserDetails }) {
 
@@ -13,11 +14,21 @@ export default function SendMessage({ currentUserDetails }) {
 
     const UserProfile = useAuthStore((state: any) => state.userProfile);
 
-
+    const setUserTyping = useChatsStore((state: any) => state.setUserTyping)
 
     const [message, setMessage] = useState('');
 
+    useEffect(() => {
+        socketUrl.on('userTypingUpdate', (userStatus) => {
+            console.log(userStatus, 'usertyping')
 
+            setUserTyping(userStatus);
+        });
+
+        return () => {
+            socketUrl.off('userTypingUpdate');
+        };
+    }, []);
 
 
     const sendMessage = () => {
@@ -28,7 +39,6 @@ export default function SendMessage({ currentUserDetails }) {
             message: message,
             sender: UserProfile?.data?.name,
             reciever: currentUserDetails.name,
-            // timeStamp: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }),
             timeStamp: new Date().toLocaleString().replace(',', '')
         }
 
@@ -36,7 +46,15 @@ export default function SendMessage({ currentUserDetails }) {
 
     }
 
+    const onChangeText = (value) => {
 
+        setMessage(value)
+        socketUrl.emit('userTyping', { userId: currentUserDetails?.userId });
+
+
+
+
+    }
 
     return (
 
@@ -52,7 +70,7 @@ export default function SendMessage({ currentUserDetails }) {
 
                 placeholderText={" Type Message"}
                 keyboardType='default'
-                onChangeText={value => setMessage(value)}
+                onChangeText={value => onChangeText(value)}
 
                 value={message}
                 buttonOnPress={() => {

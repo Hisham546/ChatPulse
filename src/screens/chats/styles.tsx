@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
 
     containerStyle: {
         flex: 1,
-        backgroundColor:colors.WHITE,
+        backgroundColor:colors.white_100,
     },
     topView:{
        width:deviceWidth,

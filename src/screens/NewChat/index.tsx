@@ -6,7 +6,7 @@ import useChatsStore from "../../containers/chatsContainer/zustandChatsStore";
 import { useQuery } from '@tanstack/react-query';
 import { Icon } from "../../utilities/Icons";
 import SendMessage from "./childs/sendMessage";
-import {MessageDetailsModal} from "../../components/modals";
+import { MessageDetailsModal } from "../../components/modals";
 import { loadAllMessages } from "../../services/api/apiFunction";
 import { privateScreenProps } from "../../containers/chatsContainer/modal";
 import deviceProps from "../../utilities/deviceProps";
@@ -21,15 +21,14 @@ const NewChats: React.FC<privateScreenProps> = (props) => {
     const [messageDate, setMessageDate] = useState(null)
     const [IsMessageDetailModal, setIsMessageDetailModal] = useState(false)
     const setTriggerLatestMessage = useChatsStore((state) => state.setTriggerLatestMessage);
-    // useEffect(() => {
-    //     const dateObj = new Date(dateTimeString);
-    //     setMessageTimeStamp(new Date().toLocaleString().replace(',', ''))
-    // }, [])
+
+    const userTyping = useChatsStore((state) => state.userTyping);
 
 
 
+    const isUserTyping = userTyping?.some((user: String) => user === currentUserDetails.userId);
 
-
+   // console.log(isUserTyping, 'isUserTyping')
 
     return (
 
@@ -41,7 +40,7 @@ const NewChats: React.FC<privateScreenProps> = (props) => {
                 <TouchableOpacity
                     style={styles.goBackStyle}
                     onPress={() => {
-                    //   setTriggerLatestMessage(true)
+                        //   setTriggerLatestMessage(true)
                         goBack()
                     }}>
                     <Icon
@@ -59,6 +58,12 @@ const NewChats: React.FC<privateScreenProps> = (props) => {
                         <Text style={styles.onlineText}>Online</Text>
                     ) : (
                         <Text style={styles.onlineText}>Offline</Text>
+                    )}
+                    { isUserTyping ? (
+
+                        <Text style={styles.onlineText}>Typing...</Text>
+                    ) : (
+                        null
                     )}
                 </View>
             </View>

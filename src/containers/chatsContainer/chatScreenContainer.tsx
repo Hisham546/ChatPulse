@@ -15,7 +15,7 @@ const ChatsScreenContainer = ({ ...props }) => {
     const UserProfile = useAuthStore((state) => state.userProfile);
     const setUserOnline = useChatsStore((state) => state.setUserOnline);
     const userActive = useChatsStore((state: any) => state.userActive);
-
+console.log(userActive,'userActive')
     const mutation = useMutation({
 
         mutationFn: updateUserOnline,
@@ -23,7 +23,7 @@ const ChatsScreenContainer = ({ ...props }) => {
 
             if (data && data.success) {
 
-                setUserOnline(data?.isOnline?.userId)
+             //   setUserOnline(data?.isOnline?.userId)
 
                 // Invalidate and refetch
                 queryClient.invalidateQueries({ queryKey: ['activeOrNot'] });

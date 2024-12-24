@@ -30,8 +30,8 @@ export default function BottomTabs({ }) {
         tabBarStyle: {
           ...styles.tabContainerStyle,
           borderTopWidth: 0,  // This removes the top border line
-          elevation: 0,       // Removes the shadow in Android
-          shadowOpacity: 0,   // Removes shadow in iOS
+          elevation: 4,       // Removes the shadow in Android
+          shadowOpacity: 1,   // Removes shadow in iOS
         },
         tabBarLabelStyle: styles.tabBarLabelStyle
       }}>

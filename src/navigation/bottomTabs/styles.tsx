@@ -19,9 +19,9 @@ const styles = StyleSheet.create({
         minHeight: 2,
     },
     tabBarLabelStyle: {
-        fontFamily: fontFamily.P_REGULAR,
+        fontFamily: fontFamily.P_MEDIUM,
         fontSize: fontSize.small,
-        
+
         color:colors.BLACK
     },
     iconContainer: {
