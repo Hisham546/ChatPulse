@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
         width: deviceWidth * 0.25,
         height: deviceHeight * 0.13,
         borderRadius: deviceWidth * 0.25 / 2,
-       // backgroundColor: '#1B2B48',
+        backgroundColor: '#1B2B48',
         justifyContent: 'center',
         alignItems: 'center',
         marginTop: '5%'

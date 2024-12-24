@@ -14,6 +14,7 @@ const ChatsScreenContainer = ({ ...props }) => {
     const queryClient = useQueryClient();
     const UserProfile = useAuthStore((state) => state.userProfile);
     const setUserOnline = useChatsStore((state) => state.setUserOnline);
+    const userActive = useChatsStore((state: any) => state.userActive);
 
     const mutation = useMutation({
 
@@ -68,6 +69,7 @@ const ChatsScreenContainer = ({ ...props }) => {
             isLoading={isLoading}
             data={data}
             userName={UserProfile?.data?.name}
+            userActive={userActive}
 
         />
     )

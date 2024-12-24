@@ -6,7 +6,7 @@ import { Icon } from "../../utilities/Icons";
 
 const ChatsScreen: React.FC<ChatsScreenProps> = (props) => {
 
-  const { navigation, latestMessage, isLoading, data, userName } = props
+  const { navigation, latestMessage, isLoading, data, userActive } = props
 
 
 
@@ -36,6 +36,7 @@ const ChatsScreen: React.FC<ChatsScreenProps> = (props) => {
           loading={isLoading}
           userData={data}
           latestMessage={latestMessage}
+          userActive={userActive}
         />
       </View>
 

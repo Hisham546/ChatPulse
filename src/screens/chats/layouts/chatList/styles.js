@@ -77,23 +77,23 @@ const styles = StyleSheet.create({
     userStyle: {
         color: colors.BLACK,
         fontSize: fontSize.h6,
-        fontFamily: fontFamily.P_REGULAR,
+        fontFamily: fontFamily.P_MEDIUM,
         marginLeft: '3%'
-       
+
     },
     lastMessage: {
         color: colors.BLACK,
         fontSize: fontSize._10,
         fontFamily: fontFamily.P_MEDIUM,
-        
+
         marginLeft: '3%'
 
     },
-    timeStamp:{
+    timeStamp: {
         color: colors.BLACK,
         fontSize: fontSize._10,
-        fontFamily: fontFamily.P_MEDIUM,
-        
+        fontFamily: fontFamily.P_REGULAR,
+
     },
     loader: {
 
@@ -104,13 +104,20 @@ const styles = StyleSheet.create({
     },
     profileLogo: {
         width: deviceWidth * 0.11,
-        height: deviceHeight * 0.05,
-        borderRadius: 70,
-
-
-
+        height: deviceHeight * 0.055,
+        borderRadius: 12,
     },
-
+    userIconView: {
+        width: deviceWidth * 0.11, // Match the image's width
+        height: deviceHeight * 0.055, // Match the image's height
+        position: 'relative', // Make it the positioning context
+    },
+    userActiveIcon: {
+        position: 'absolute',
+        top: -6, 
+        right: -1, 
+    
+    },
 
 
 })

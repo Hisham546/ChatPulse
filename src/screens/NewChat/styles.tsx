@@ -127,8 +127,8 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end'
     },
     onlineText: {
-        color: colors.green_100,
-        fontFamily: fontFamily.P_MEDIUM,
+        color: colors.GREEN_LANTERN,
+        fontFamily: fontFamily.P_BOLD,
         fontSize: fontSize._10,
 
     },

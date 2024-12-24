@@ -41,7 +41,7 @@ const NewChats: React.FC<privateScreenProps> = (props) => {
                 <TouchableOpacity
                     style={styles.goBackStyle}
                     onPress={() => {
-                       setTriggerLatestMessage(true)
+                    //   setTriggerLatestMessage(true)
                         goBack()
                     }}>
                     <Icon

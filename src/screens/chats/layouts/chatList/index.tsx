@@ -6,8 +6,9 @@ import { Icon } from "../../../../utilities/Icons";
 import useAuthStore from "../../../../containers/authContainer/zustandAuthStore";
 
 import useChatsStore from "../../../../containers/chatsContainer/zustandChatsStore";
+import colors from "../../../../themes/colors";
 
-export default function ChatsList({ userData, loading, navigation, latestMessage }) {
+export default function ChatsList({ userData, loading, navigation, latestMessage, userActive }) {
     const UserProfile = useAuthStore((state) => state.userProfile);
     const triggerLatestMessage = useChatsStore((state) => state.triggerLatestMessage);
 
@@ -22,10 +23,10 @@ export default function ChatsList({ userData, loading, navigation, latestMessage
 
 
 
-    const getLatestMessage = (user) => {
+    const getLatestMessage = (user: any) => {
         // Filter messages where the user is either the sender or receiver
         const userMessages = latestMessage?.data?.filter(
-            (msg) => msg.sender === UserProfile?.data?.name && msg.reciever === user.name
+            (msg: any) => msg.sender === UserProfile?.data?.name && msg.reciever === user.name
         );
 
         //retrieves the last message
@@ -35,7 +36,7 @@ export default function ChatsList({ userData, loading, navigation, latestMessage
     };
 
 
-console.log(triggerLatestMessage)
+
 
     return (
 
@@ -53,28 +54,51 @@ console.log(triggerLatestMessage)
                         extraData={triggerLatestMessage}
                         renderItem={({ item, index }) => {
                             const latestMessage = getLatestMessage(item);
-                            // let parts = latestMessage?.timeStamp?.split(" ")
+                            const isUserOnline = userActive?.some((user: String) => user === item.userId);
+                            let parts = latestMessage?.timeStamp?.split(" ")
 
-                            // const messageTimeStamp = parts[1].split(":").slice(0, 2).join(":") + " " + parts[2];
+                            if (parts) {
+                                const messageTimeStamp = parts[1].split(":").slice(0, 2).join(":") + " " + parts[2];
+
+                                setMessageDate(messageTimeStamp)
+                            } else {
+
+                            }
+
+
 
                             return (
                                 <TouchableOpacity
                                     onPress={() => navigation.navigate('NewChats', { currentUserDetails: item })}
                                     style={styles.userBoxView}>
-                                    <Image
-                                        resizeMode={'cover'}
-                                        style={styles.profileLogo}
-                                        source={{
-                                            uri: item?.imageUrl
-                                        }}
-                                    // onLoadStart={() => setLoading(true)}
-                                    // onLoad={() => setLoading(false)}
-                                    // onError={() => {
-                                    //     setLoading(false);
+                                    <View style={styles.userIconView}>
 
-                                    // }}
+                                        <Image
+                                            resizeMode={'cover'}
+                                            style={styles.profileLogo}
+                                            source={{
+                                                uri: item?.imageUrl
+                                            }}
+                                        // onLoadStart={() => setLoading(true)}
+                                        // onLoad={() => setLoading(false)}
+                                        // onError={() => {
+                                        //     setLoading(false);
 
-                                    />
+                                        // }}
+
+                                        />
+                                    
+
+                                            <Icon
+
+                                                iconFamily={'Octicons'}
+                                                size={20}
+                                                style={[styles.userActiveIcon, { color: isUserOnline ? colors.green_100 : colors.gray_light_100 }]}
+                                                name={'dot-fill'}
+                                            />
+                                        
+
+                                    </View>
 
                                     <View style={styles.userBoxChild}>
                                         <Text style={styles.userStyle}>{item?.name}</Text>
@@ -89,11 +113,11 @@ console.log(triggerLatestMessage)
 
 
                                     </View>
-                                    {/* {latestMessage ? (
-                                        <Text style={styles.timeStamp}>{messageTimeStamp}</Text>
+                                    {latestMessage ? (
+                                        <Text style={styles.timeStamp}>{messageDate}</Text>
                                     ) : (
                                         null
-                                    )} */}
+                                    )}
 
 
 
