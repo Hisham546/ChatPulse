@@ -3,13 +3,14 @@ import styles from "./styles";
 import ChatsList from "./layouts/chatList";
 import { ChatsScreenProps } from "../../containers/chatsContainer/modal";
 import { Icon } from "../../utilities/Icons";
+import useChatsStore from "../../containers/chatsContainer/zustandChatsStore";
 
 const ChatsScreen: React.FC<ChatsScreenProps> = (props) => {
 
   const { navigation, latestMessage, isLoading, data, userActive } = props
 
 
-
+  const userTyping = useChatsStore((state) => state.userTyping);
 
   return (
 
@@ -37,6 +38,7 @@ const ChatsScreen: React.FC<ChatsScreenProps> = (props) => {
           userData={data}
           latestMessage={latestMessage}
           userActive={userActive}
+          userTyping={userTyping}
         />
       </View>
 

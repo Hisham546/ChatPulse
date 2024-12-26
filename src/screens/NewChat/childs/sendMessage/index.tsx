@@ -16,23 +16,27 @@ export default function SendMessage({ currentUserDetails }) {
 
     const setUserTyping = useChatsStore((state: any) => state.setUserTyping)
 
-    const [message, setMessage] = useState('');
+    const [message, setMessage] = useState(null);
 
     useEffect(() => {
-        socketUrl.on('userTypingUpdate', (userStatus) => {
-            console.log(userStatus, 'usertyping')
 
+
+
+        socketUrl.on('userTypingUpdate', (userStatus) => {
+            
             setUserTyping(userStatus);
         });
+        socketUrl.emit('userTypingStop', { userId: UserProfile?.data?.userId });
 
         return () => {
+
             socketUrl.off('userTypingUpdate');
         };
     }, []);
 
 
     const sendMessage = () => {
-        setMessage('')
+        setMessage(null)
         Keyboard.dismiss()
 
         let payload = {
@@ -44,17 +48,25 @@ export default function SendMessage({ currentUserDetails }) {
 
         socketUrl.emit('chatMessage', payload);
 
+
     }
 
     const onChangeText = (value) => {
 
         setMessage(value)
-        socketUrl.emit('userTyping', { userId: currentUserDetails?.userId });
+        if (!value) {
+            socketUrl.emit('userTypingStop', { userId: UserProfile?.data?.userId });
+          
+
+        } else {
+            socketUrl.emit('userTyping', { userId: UserProfile?.data?.userId });
+        }
 
 
 
 
     }
+
 
     return (
 

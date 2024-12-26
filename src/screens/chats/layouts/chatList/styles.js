@@ -114,9 +114,16 @@ const styles = StyleSheet.create({
     },
     userActiveIcon: {
         position: 'absolute',
-        top: -6, 
-        right: -1, 
-    
+        top: -6,
+        right: -1,
+
+    },
+    onlineText: {
+        color: colors.GREEN_LANTERN,
+        fontFamily: fontFamily.P_BOLD,
+        fontSize: fontSize._10,
+        marginLeft: '3%'
+
     },
 
 

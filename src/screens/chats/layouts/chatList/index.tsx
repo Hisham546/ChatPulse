@@ -8,7 +8,7 @@ import useAuthStore from "../../../../containers/authContainer/zustandAuthStore"
 import useChatsStore from "../../../../containers/chatsContainer/zustandChatsStore";
 import colors from "../../../../themes/colors";
 
-export default function ChatsList({ userData, loading, navigation, latestMessage, userActive }) {
+export default function ChatsList({ userData, loading, navigation, latestMessage, userActive, userTyping }) {
     const UserProfile = useAuthStore((state) => state.userProfile);
     const triggerLatestMessage = useChatsStore((state) => state.triggerLatestMessage);
 
@@ -62,7 +62,7 @@ export default function ChatsList({ userData, loading, navigation, latestMessage
 
                                 setMessageDate(messageTimeStamp)
                             } else {
-
+                                setMessageDate(null)
                             }
 
 
@@ -87,16 +87,16 @@ export default function ChatsList({ userData, loading, navigation, latestMessage
                                         // }}
 
                                         />
-                                    
 
-                                            <Icon
 
-                                                iconFamily={'Octicons'}
-                                                size={20}
-                                                style={[styles.userActiveIcon, { color: isUserOnline ? colors.green_100 : colors.gray_light_100 }]}
-                                                name={'dot-fill'}
-                                            />
-                                        
+                                        <Icon
+
+                                            iconFamily={'Octicons'}
+                                            size={20}
+                                            style={[styles.userActiveIcon, { color: isUserOnline ? colors.green_100 : colors.gray_light_100 }]}
+                                            name={'dot-fill'}
+                                        />
+
 
                                     </View>
 
@@ -104,10 +104,16 @@ export default function ChatsList({ userData, loading, navigation, latestMessage
                                         <Text style={styles.userStyle}>{item?.name}</Text>
 
 
-                                        {latestMessage ? (
-                                            <Text style={styles.lastMessage}>{latestMessage.message}</Text>
+
+
+                                        {userTyping?.some((user: String) => user === item.userId) ? (
+
+                                            <Text style={styles.onlineText}>Typing...</Text>
                                         ) : (
-                                            null
+                                            latestMessage ? (
+                                                <Text style={styles.lastMessage}>{latestMessage.message}</Text>
+                                            ) :
+                                                null
                                         )}
 
 

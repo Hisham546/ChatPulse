@@ -26,10 +26,6 @@ const NewChats: React.FC<privateScreenProps> = (props) => {
 
 
 
-    const isUserTyping = userTyping?.some((user: String) => user === currentUserDetails.userId);
-
-   // console.log(isUserTyping, 'isUserTyping')
-
     return (
 
         <View
@@ -59,7 +55,7 @@ const NewChats: React.FC<privateScreenProps> = (props) => {
                     ) : (
                         <Text style={styles.onlineText}>Offline</Text>
                     )}
-                    { isUserTyping ? (
+                    {userTyping?.some((user: String) => user === currentUserDetails.userId) ? (
 
                         <Text style={styles.onlineText}>Typing...</Text>
                     ) : (
