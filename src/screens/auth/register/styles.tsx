@@ -26,15 +26,15 @@ const styles = StyleSheet.create({
     },
     secondView: {
         width: deviceWidth,
-        height: deviceHeight * 0.80,
-       //  backgroundColor: 'red',
+        height: deviceHeight,
+        //  backgroundColor: 'red',
         alignItems: 'center',
 
 
 
 
     },
-   
+
     centerView: {
         width: deviceWidth,
         height: deviceHeight * 0.30,
@@ -68,14 +68,14 @@ const styles = StyleSheet.create({
     },
     textInputStyle: {
         height: deviceHeight * 0.056,
-        borderRadius: 10,
+        borderRadius: 16,
         justifyContent: 'space-evenly',
         alignItems: 'center',
         flexDirection: 'row',
 
         width: deviceWidth * 0.80,
         backgroundColor: '#f0eff4',
-
+        fontFamily: fontFamily.P_REGULAR,
         color: colors.BLACK
         //textAlign:'justify'
 
@@ -110,23 +110,47 @@ const styles = StyleSheet.create({
         width: deviceWidth * 0.25,
         height: deviceHeight * 0.13,
         borderRadius: deviceWidth * 0.25 / 2,
-        backgroundColor: '#1B2B48',
+        backgroundColor: colors.white_100,
         justifyContent: 'center',
         alignItems: 'center',
         marginTop: '5%'
     },
-    headerView:{
-        width:deviceWidth,
-        height:deviceHeight*0.08,
-        justifyContent:'center',
-        alignItems:'flex-start',
- 
+    headerView: {
+        width: deviceWidth ,
+        height: deviceHeight * 0.08,
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+      
+
     },
-    registerText:{
-        color:colors.BLACK,
-        fontSize:fontSize.h5,
-        fontFamily:fontFamily.P_MEDIUM,
-   
+    registerText: {
+        color: colors.BLACK,
+        fontSize: fontSize.h5,
+        fontFamily: fontFamily.P_MEDIUM,
+        marginLeft: '5%'
+
+    },
+    belowDetails: {
+        color: colors.BLACK,
+        fontSize: fontSize.p,
+        fontFamily: fontFamily.P_REGULAR,
+        marginLeft: '5%'
+    },
+    registerView: {
+        width: deviceWidth * 0.80,
+        height: deviceHeight * 0.08,
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        // backgroundColor:'red'
+
+
+    },
+    profileLogoMainView: {
+        width: deviceWidth,
+        height: deviceHeight * 0.20,
+        justifyContent: 'center',
+        alignItems: 'center',
+        //  backgroundColor:'blue'
     }
 
 

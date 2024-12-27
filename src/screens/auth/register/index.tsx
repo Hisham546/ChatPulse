@@ -32,15 +32,18 @@ const Register: React.FC<RegisterProps> = (props) => {
 
     <View style={styles.containerStyle}>
       <View style={styles.headerView}>
+        <TouchableOpacity onPress={() => navigation.goBack()} >
         <Icon
 
           iconFamily={'Ionicons'}
           size={23}
-          style={{ color: 'black',marginLeft:'5%' }}
+          style={{ color: 'black', marginLeft: '20%' }}
           name={'chevron-back'}
         />
+        </TouchableOpacity>
       </View>
       <View style={styles.secondView}>
+        <View style={styles.profileLogoMainView}>
         <TouchableOpacity
           onPress={openPicker}
           style={styles.iconCircleView}>
@@ -64,13 +67,17 @@ const Register: React.FC<RegisterProps> = (props) => {
 
               iconFamily={'SimpleLineIcons'}
               size={23}
-              style={{ color: 'white' }}
+              style={{ color: 'black' }}
               name={'user-follow'}
             />
           }
         </TouchableOpacity>
+        </View>
+        <View style={styles.registerView}>
 
-        <Text style={styles.registerText}>Profile</Text>
+          <Text style={styles.registerText}>Register</Text>
+          <Text style={styles.belowDetails}>Enter the below details to proceed</Text>
+        </View>
         <TextInputOutlined
           labelstyle={styles.labelstyle}
           parentContaineStyle={styles.parentContaineStyle}

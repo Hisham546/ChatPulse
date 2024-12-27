@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
 
     textInputStyle: {
         height: deviceHeight * 0.056,
-        borderRadius: 10,
+        borderRadius: 18,
         justifyContent: 'space-evenly',
         alignItems: 'center',
         flexDirection: 'row',
