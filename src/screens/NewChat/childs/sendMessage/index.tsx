@@ -23,7 +23,7 @@ export default function SendMessage({ currentUserDetails }) {
 
 
         socketUrl.on('userTypingUpdate', (userStatus) => {
-            
+
             setUserTyping(userStatus);
         });
         socketUrl.emit('userTypingStop', { userId: UserProfile?.data?.userId });
@@ -47,6 +47,9 @@ export default function SendMessage({ currentUserDetails }) {
         }
 
         socketUrl.emit('chatMessage', payload);
+        if (!message) {
+            socketUrl.emit('userTypingStop', { userId: UserProfile?.data?.userId });
+        }
 
 
     }
@@ -56,7 +59,7 @@ export default function SendMessage({ currentUserDetails }) {
         setMessage(value)
         if (!value) {
             socketUrl.emit('userTypingStop', { userId: UserProfile?.data?.userId });
-          
+
 
         } else {
             socketUrl.emit('userTyping', { userId: UserProfile?.data?.userId });

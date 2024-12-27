@@ -24,10 +24,10 @@ const styles = StyleSheet.create({
 
 
     },
-    topView: {
+    secondView: {
         width: deviceWidth,
-        height: deviceHeight * 0.65,
-        // backgroundColor: 'red',
+        height: deviceHeight * 0.80,
+       //  backgroundColor: 'red',
         alignItems: 'center',
 
 
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
 
     },
     buttonStyle: {
-        marginTop: 15,
+        marginTop: '13%',
         backgroundColor: '#375FFF',
         height: deviceHeight * 0.067,
         borderRadius: 18,
@@ -115,6 +115,19 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: '5%'
     },
+    headerView:{
+        width:deviceWidth,
+        height:deviceHeight*0.08,
+        justifyContent:'center',
+        alignItems:'flex-start',
+ 
+    },
+    registerText:{
+        color:colors.BLACK,
+        fontSize:fontSize.h5,
+        fontFamily:fontFamily.P_MEDIUM,
+   
+    }
 
 
 

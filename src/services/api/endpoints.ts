@@ -9,4 +9,5 @@ export const apis = {
     login: `${url}api/login`,
     userOnline: `${url}api/online-status/`,
     uploadImages: `${url}api/upload`,
+    deleteMessages: `${url}api/delete-messages/`,
 }

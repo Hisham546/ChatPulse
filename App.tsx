@@ -10,7 +10,8 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query'
 import userServiceStore from './src/services/api/zustandServiceStore';
-import DeviceInfo from 'react-native-device-info'
+import DeviceInfo from 'react-native-device-info';
+import Toast from 'react-native-toast-message';
 if (__DEV__) {
   require("./ReactotronConfig");
 }
@@ -36,7 +37,7 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
 
       <AppNavigation />
-
+      <Toast />
     </QueryClientProvider>
 
   );

@@ -17,7 +17,7 @@ import ButtonComponent from '../button/button';
 import { Icon } from '../../utilities/Icons';
 const { deviceHeight, deviceWidth } = deviceProps;
 
-export function MessageDetailsModal({ IsMessageDetailModal, setIsMessageDetailModal, messageDate }) {
+export function MessageDetailsModal({ IsMessageDetailModal, setIsMessageDetailModal, messageDate ,deleteMessage}) {
     return (
         <Modal
             animationType="fade"
@@ -62,7 +62,9 @@ export function MessageDetailsModal({ IsMessageDetailModal, setIsMessageDetailMo
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.textViews}
 
-                            >
+                                onPress={() => {
+                                    deleteMessage()
+                                }}>
                                 <Text style={styles.headingText}>Delete</Text>
 
                             </TouchableOpacity>
@@ -169,7 +171,7 @@ const styles = StyleSheet.create({
 });
 
 
-export function LogoutModal  ({ logoutModalVisible, setLogoutModalVisible, onPressLogout }) {
+export function LogoutModal({ logoutModalVisible, setLogoutModalVisible, onPressLogout }) {
     return (
         <Modal
             animationType="fade"

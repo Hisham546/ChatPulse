@@ -98,25 +98,31 @@ const Login: React.FC<PhoneProps> = (props) => {
 
                 <ButtonComponent
                     onPress={() => {
-                        if (formData.password || formData.name) {
-                            let data = {
-                                password: formData.password,
-                                name: formData.name
 
-                            }
 
-                            props.login?.(data)
-                        }
-                        else {
-                            console.log('else')
-                            ToastAndroid.showWithGravity(
-                                'Please fill all fields',
-                                ToastAndroid.SHORT,
-                                ToastAndroid.CENTER,
-                            );
+
+
+                        let data = {
+                            password: formData.password,
+                            name: formData.name
                         }
 
+                        props.login?.(data)
+                        // if (formData.password || formData.name) {
+                         
+                        //     }
 
+                        //     props.login?.(data)
+                        // }
+                        // else {
+                        //     console.log('else')
+                        //     ToastAndroid.showWithGravity(
+                        //         'Please fill all fields',
+                        //         ToastAndroid.SHORT,
+                        //         ToastAndroid.CENTER,
+                        //     );
+                        // }
+                       
 
 
                     }}

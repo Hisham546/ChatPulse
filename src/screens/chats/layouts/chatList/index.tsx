@@ -12,7 +12,7 @@ export default function ChatsList({ userData, loading, navigation, latestMessage
     const UserProfile = useAuthStore((state) => state.userProfile);
     const triggerLatestMessage = useChatsStore((state) => state.triggerLatestMessage);
 
-    const [messageDate, setMessageDate] = useState(null)
+    const [messageDate, setMessageDate] = useState('')
 
 
 
@@ -62,7 +62,7 @@ export default function ChatsList({ userData, loading, navigation, latestMessage
 
                                 setMessageDate(messageTimeStamp)
                             } else {
-                                setMessageDate(null)
+                                setMessageDate('')
                             }
 
 

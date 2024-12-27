@@ -3,7 +3,7 @@ import { callAPI, callFormData, methods } from ".";
 import { apis } from "./endpoints";
 import { bodyType } from "./modal";
 
-export const createUsers = async (body: bodyType,imageUrl:String) => {
+export const createUsers = async (body: bodyType, imageUrl: String) => {
 
     try {
 
@@ -13,7 +13,7 @@ export const createUsers = async (body: bodyType,imageUrl:String) => {
             return response.data
         }
         else {
-            console.log('error')
+            return response.error
         }
     } catch (error) {
         return error
@@ -26,18 +26,19 @@ export const createUsers = async (body: bodyType,imageUrl:String) => {
 export const loginUser = async (body: bodyType) => {
     try {
         const req = { url: apis.login, body, method: methods.POST };
-        console.log(req, '....req')
+
         const response = await callAPI(req)
-        console.log(response)
-        if (response) {
+
+        if (response.status) {
             return response?.data
         }
         else {
-            console.log('error')
+           
+           return response.error
         }
     } catch (error) {
-        console.log(error)
-         return error
+
+        return error
     }
 
 }
@@ -51,7 +52,7 @@ export const getAllUsers = async () => {
             return response.data
         }
         else {
-            console.log('error')
+            return response.error
         }
     } catch (error) {
         return error
@@ -68,7 +69,7 @@ export const loadAllMessages = async () => {
             return response.data
         }
         else {
-            console.log('error')
+            return response.error
         }
     } catch (error) {
         return error
@@ -87,7 +88,7 @@ export const updateUserOnline = async (userId: string) => {
             return response.data
         }
         else {
-            console.log('error')
+            return response.error
         }
     } catch (error) {
         return error
@@ -96,7 +97,7 @@ export const updateUserOnline = async (userId: string) => {
 };
 
 export const uploadImage = async (image: ImageOrVideo) => {
-    console.log(image.filename,'..........image.filename')
+
 
     try {
         const formData = new FormData();
@@ -119,3 +120,28 @@ export const uploadImage = async (image: ImageOrVideo) => {
     }
 
 }
+
+export const deleteMessages = async (messageId) => {
+    console.log(messageId, '....messageId')
+
+    try {
+        if (messageId) {
+            const req = { url: `${apis.deleteMessages}${messageId}`, method: methods.GET };
+
+            const response = await callAPI(req);
+            console.log(response.data, '....response')
+            if ('data' in response) {
+                return response.data
+            }
+            else {
+                return response.error
+            }
+        } else {
+           // return response.error
+        }
+
+    } catch (error) {
+        return error
+    }
+
+};

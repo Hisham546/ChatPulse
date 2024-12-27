@@ -8,6 +8,7 @@ import useAuthStore from './zustandAuthStore';
 import { zustandAuthState } from './modal';
 import ImagePickerStore from '../../services/camera/zustandCameraStore';
 import { ToastAndroid } from 'react-native';
+import ToastMessage from '../../components/toast';
 const RegisterContainer = ({ ...props }) => {
 
     const { navigation } = props
@@ -57,8 +58,11 @@ const RegisterContainer = ({ ...props }) => {
 
                 setUserProfile(data)
                 setButtonLoading(false)
-                // Invalidate and refetch
-                queryClient.invalidateQueries({ queryKey: ['createProfile'] });
+                ToastMessage({
+                    message: 'Your account has been created successfully',
+                    type: 'success',
+
+                });
 
                 setUserLoggedIn(true); // Set user as logged in
                 navigation.navigate('BottomTabs');

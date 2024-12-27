@@ -7,7 +7,7 @@ export const methods = {
     PUT: 'PUT' as 'PUT',
     DELETE: 'DELETE' as 'DELETE',
 }
-//export const callAPI = async ({ url, method, body }: callAPiParams): Promise<AxiosResponse | { error: String }> => {
+
 export const callAPI = async ({ url, method, body }: callAPiParams): Promise<AxiosResponse | { error: String }> => {
     try {
         const response = await axios(url, {
@@ -20,8 +20,8 @@ export const callAPI = async ({ url, method, body }: callAPiParams): Promise<Axi
         });
         return response;
     } catch (error) {
-        console.log(error, '.............error in api')
-        return { error: error.message || 'An error occurred' };
+        console.log(error?.response?.data?.message, '................hola')
+        return { error: error?.response?.data?.message || 'An error occurred' };
     }
 };
 
@@ -35,10 +35,10 @@ export const callFormData = async ({ url, method, formData }: callAPiParams): Pr
             },
             data: formData,
         });
-        
+
         return response.data;
     } catch (error) {
-        console.log(error, '.............error in api')
+
         return { error: error.message || 'An error occurred' };
     }
 }

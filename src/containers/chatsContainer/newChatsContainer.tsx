@@ -6,7 +6,7 @@ import useAuthStore from '../authContainer/zustandAuthStore';
 import useChatsStore from './zustandChatsStore';
 import { useFocusEffect } from '@react-navigation/native';
 import { socketUrl } from '../../services/socket';
-import { updateUserOnline, loadAllMessages } from '../../services/api/apiFunction';
+import { updateUserOnline, loadAllMessages, deleteMessages } from '../../services/api/apiFunction';
 
 const NewChatsContainer = ({ ...props }) => {
 
@@ -22,8 +22,8 @@ const NewChatsContainer = ({ ...props }) => {
     const [chats, setChats] = useState<any[]>([]);
     const isUserOnline = userActive?.some((user: String) => user === currentUserDetails.userId);
 
-
-
+    const [messageId, setMessageId] = useState(null)
+    const [IsMessageDetailModal, setIsMessageDetailModal] = useState(false)
 
     useEffect(() => {
 
@@ -58,7 +58,7 @@ const NewChatsContainer = ({ ...props }) => {
 
     });
 
-
+    console.log(data, 'chats...............')
 
 
 
@@ -83,11 +83,30 @@ const NewChatsContainer = ({ ...props }) => {
         onSuccess: (data) => {
 
             if (data && data.success) {
-                console.log(data)
+
                 setUserOnlineTrue(data?.isOnline?.userId)
 
+
+            } else {
+
+            }
+        },
+        onError: (error) => {
+
+        },
+    });
+
+    const deleteAMessage = useMutation({
+
+        mutationFn: deleteMessages,
+        onSuccess: (data) => {
+
+            if (data.success) {
+
+
+
                 // Invalidate and refetch
-                queryClient.invalidateQueries({ queryKey: ['activeOrNot'] });
+                queryClient.invalidateQueries({ queryKey: ['userTexts'] });
 
 
             } else {
@@ -102,10 +121,19 @@ const NewChatsContainer = ({ ...props }) => {
 
 
 
+    function deleteMessage() {
+        console.log(messageId)
+        deleteAMessage.mutate(messageId);
+        setIsMessageDetailModal(false)
+
+    }
 
 
+    function openMessageDetailModal(textId) {
 
-
+        setMessageId(textId)
+        setIsMessageDetailModal(true)
+    }
 
 
     return (
@@ -122,6 +150,10 @@ const NewChatsContainer = ({ ...props }) => {
             isUserOnline={isUserOnline}
             chats={chats}
             isLoading={isLoading}
+            deleteMessage={deleteMessage}
+            openMessageDetailModal={openMessageDetailModal}
+            IsMessageDetailModal={IsMessageDetailModal}
+            setIsMessageDetailModal={setIsMessageDetailModal}
 
 
 

@@ -16,14 +16,14 @@ const { deviceHeight, deviceWidth } = deviceProps
 const NewChats: React.FC<privateScreenProps> = (props) => {
 
 
-    const { currentUserDetails, UserProfile, navigation: { goBack }, isUserOnline, chats, isLoading } = props
+    const { currentUserDetails, UserProfile, navigation: { goBack }, isUserOnline, chats, isLoading,
+        deleteMessage, openMessageDetailModal, setIsMessageDetailModal, IsMessageDetailModal } = props
 
     const [messageDate, setMessageDate] = useState(null)
-    const [IsMessageDetailModal, setIsMessageDetailModal] = useState(false)
-    const setTriggerLatestMessage = useChatsStore((state) => state.setTriggerLatestMessage);
+
+
 
     const userTyping = useChatsStore((state) => state.userTyping);
-
 
 
     return (
@@ -36,7 +36,7 @@ const NewChats: React.FC<privateScreenProps> = (props) => {
                 <TouchableOpacity
                     style={styles.goBackStyle}
                     onPress={() => {
-                        //   setTriggerLatestMessage(true)
+
                         goBack()
                     }}>
                     <Icon
@@ -71,7 +71,7 @@ const NewChats: React.FC<privateScreenProps> = (props) => {
                 ) : (
                     <FlatList
                         data={chats}
-
+                        extraData={chats}
                         style={styles.flatlist}
                         renderItem={({ item, index }) => {
                             let parts = item?.timeStamp.split(" ")
@@ -84,7 +84,7 @@ const NewChats: React.FC<privateScreenProps> = (props) => {
 
                                     <TouchableOpacity activeOpacity={0.5}
                                         onPress={() => {
-                                            setIsMessageDetailModal(true)
+                                            openMessageDetailModal(item?.textId)
                                         }}
                                         style={[styles.chatsBoxView,
                                         { marginLeft: item.sender === UserProfile?.data?.name ? "45%" : "0%" },
@@ -120,6 +120,7 @@ const NewChats: React.FC<privateScreenProps> = (props) => {
                 IsMessageDetailModal={IsMessageDetailModal}
                 setIsMessageDetailModal={setIsMessageDetailModal}
                 messageDate={messageDate}
+                deleteMessage={deleteMessage}
             />
         </View>
     )

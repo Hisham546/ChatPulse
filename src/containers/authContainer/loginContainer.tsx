@@ -4,6 +4,7 @@ import Login from "../../screens/auth/login";
 import { loginUser } from '../../services/api/apiFunction';
 import useAuthStore from './zustandAuthStore';
 import { useQuery, useQueryClient, useMutation } from '@tanstack/react-query';
+import ToastMessage from '../../components/toast';
 const LoginContainer = ({ ...props }) => {
     const { navigation } = props
 
@@ -25,30 +26,41 @@ const LoginContainer = ({ ...props }) => {
         mutationFn: loginUser,
         onSuccess: (data) => {
 
-            if (data && data.success) {
+            if (data.success) {
 
                 setUserProfile(data)
                 setButtonLoading(false)
-                // Invalidate and refetch
-                queryClient.invalidateQueries({ queryKey: ['login'] });
+                ToastMessage({
+                    message: 'Login successfull',
+                    type: 'success',
 
-                setUserLoggedIn(true); // Set user as logged in
+                });
+
+                setUserLoggedIn(true);
                 navigation.navigate('BottomTabs');
             } else {
                 setButtonLoading(false)
-                //  console.log('Login failed:');
+                ToastMessage({
+                    message: `${data}`,
+                    type: 'error',
 
+                });
             }
         },
         onError: (error) => {
             setButtonLoading(false)
-            console.error('Error creating profile:', error);
+            ToastMessage({
+                message: `${error.message}`,
+                type: 'error',
+
+            });
+
         },
     });
 
 
 
-
+    //message
     async function login(data: any) {
 
         setButtonLoading(true)
