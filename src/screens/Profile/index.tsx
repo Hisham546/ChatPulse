@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { View, TouchableOpacity, Text, Image } from "react-native";
+import { View, TouchableOpacity, Text, Image, ImageBackground } from "react-native";
 import styles from "./styles";
 import colors from "../../themes/colors";
 import { Icon } from "../../utilities/Icons";
@@ -8,6 +8,7 @@ import useChatsStore from "../../containers/chatsContainer/zustandChatsStore";
 import ImagePickerStore from "../../services/camera/zustandCameraStore";
 import { useCamera } from "../../services/camera";
 import { LogoutModal } from "../../components/modals";
+import { IMAGES } from "../../assets/images/assetsExport";
 //import {MessageDetailsModal} from "../../components/modals";
 export default function ProfileScreen() {
 
@@ -60,7 +61,10 @@ export default function ProfileScreen() {
 
 
 
-    <View style={styles.containerStyle}>
+    <ImageBackground
+      source={IMAGES.backgroundImage}
+      resizeMode={'cover'}
+      style={styles.containerStyle}>
       <View style={styles.headerView}>
         {/* <Text style={styles.chatsMainText}>Settings</Text> */}
       </View>
@@ -137,7 +141,7 @@ export default function ProfileScreen() {
         }}
       />
 
-    </View>
+    </ImageBackground>
   )
 
 }

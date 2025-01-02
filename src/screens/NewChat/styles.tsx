@@ -16,29 +16,22 @@ const { deviceHeight, deviceWidth } = deviceProps
 const styles = StyleSheet.create({
 
     containerStyle: {
-        flex: 1,
-        backgroundColor: '#f0eff4',
+       // flex: 1,
+       backgroundColor: colors.black_light_100,
 
-        //'#f0eff4',
 
     },
     headerView: {
         width: deviceWidth,
-        height: deviceHeight * 0.09,
-        backgroundColor: colors.WHITE,
+        height: deviceHeight * 0.13,
+        backgroundColor: colors.black_light_100,
         flexDirection: 'row',
         alignItems: 'center',
-        elevation: 1
-
-
-
-
-
+  
     },
     goBackStyle: {
         width: deviceWidth * 0.10,
         height: deviceHeight * 0.09,
-        /// backgroundColor: 'red',
         justifyContent: 'center',
         marginLeft: '3%'
     },
@@ -47,26 +40,23 @@ const styles = StyleSheet.create({
         height: deviceHeight * 0.09,
         alignItems: "center",
         justifyContent: "center",
-        // backgroundColor: 'green',
-
-
-
+  
 
     },
     centerView: {
         width: deviceWidth,
-        backgroundColor: '#f0eff4',
+        borderTopLeftRadius:22,
+        borderTopRightRadius:22,
         alignItems: 'center',
-
-        height: deviceHeight * 0.80,
+        backgroundColor:colors.WHITE,
+        height: deviceHeight * 0.76,
 
     },
     footerView: {
         width: deviceWidth,
         alignItems: 'center',
-        height: deviceHeight * 0.05
-
-
+        height: deviceHeight * 0.05,
+        backgroundColor:colors.WHITE,
 
     },
     messageStyle: {
@@ -76,14 +66,13 @@ const styles = StyleSheet.create({
         marginLeft: '5%'
     },
     userName: {
-        color: colors.BLACK,
+        color: colors.WHITE,
         fontSize: fontSize.h6,
         fontFamily: fontFamily.P_MEDIUM,
 
     },
 
     loader: {
-
 
         justifyContent: 'center',
         alignItems: 'center',
@@ -92,7 +81,6 @@ const styles = StyleSheet.create({
     flatlist: {
         flex: 1,
         width: deviceWidth * 0.95,
-
 
 
     },
@@ -110,7 +98,6 @@ const styles = StyleSheet.create({
     chatTextView: {
         width: deviceWidth * 0.38,
         minHeight: deviceHeight * 0.04,
-        //   backgroundColor:'blue',
         justifyContent: 'center',
     },
     textTime: {

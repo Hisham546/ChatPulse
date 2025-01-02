@@ -1,24 +1,29 @@
-import { View, Text } from "react-native";
+import { View, Text, ImageBackground } from "react-native";
 import styles from "./styles";
 import ChatsList from "./layouts/chatList";
 import { ChatsScreenProps } from "../../containers/chatsContainer/modal";
 import { Icon } from "../../utilities/Icons";
 import useChatsStore from "../../containers/chatsContainer/zustandChatsStore";
+import { IMAGES } from "../../assets/images/assetsExport";
 
 const ChatsScreen: React.FC<ChatsScreenProps> = (props) => {
 
-  const { navigation, latestMessage, isLoading, data, userActive,userName } = props
+  const { navigation, latestMessage, isLoading, data, userActive, userName } = props
 
 
   const userTyping = useChatsStore((state) => state.userTyping);
 
   return (
 
-    <View style={styles.containerStyle}>
+    <ImageBackground
+      source={IMAGES.backgroundImage}
+      resizeMode={'cover'}
+      style={styles.containerStyle}>
 
       <View style={styles.topView}>
         <View style={styles.headerView}>
-          <Text style={styles.buddies}>Hello {userName}</Text>
+          <Text style={styles.hello}>Hello there, </Text>
+          <Text style={styles.buddies}> {userName}</Text>
           {/* <Icon
 
             iconFamily={'EvilIcons'}
@@ -44,7 +49,7 @@ const ChatsScreen: React.FC<ChatsScreenProps> = (props) => {
       <View>
 
       </View>
-    </View>
+    </ImageBackground>
   )
 
 }

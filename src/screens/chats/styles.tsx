@@ -17,18 +17,18 @@ const styles = StyleSheet.create({
 
     containerStyle: {
         flex: 1,
-        backgroundColor:colors.white_100,
+        backgroundColor:colors.black_light_100,
     },
     topView:{
        width:deviceWidth,
-       height:deviceHeight*0.14,
+       height:deviceHeight*0.19,
 
        
     },
     headerView:{
         width:deviceWidth *0.96,
         height:deviceHeight*0.10,
-        justifyContent:'space-between', 
+        justifyContent:'flex-start', 
         alignItems:'center',
         flexDirection:'row',
         marginLeft:'2%',
@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
     },
     centerView:{
         width:deviceWidth,
+
 
         flex:1,  
        
@@ -50,10 +51,16 @@ const styles = StyleSheet.create({
         marginLeft: '5%'   
     },
     buddies:{
-        color: colors.BLACK,
-        fontSize: fontSize.h6,
-        fontFamily:fontFamily.P_MEDIUM,
+        color: colors.WHITE,
+        fontSize: fontSize.h5,
+        fontFamily:fontFamily.P_BOLD,
          
+    },
+    hello:{
+        color: colors.white_100,
+        fontSize: fontSize.p,
+        fontFamily:fontFamily.P_REGULAR, 
+        marginLeft:'2%'
     }
     
 

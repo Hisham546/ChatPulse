@@ -17,15 +17,12 @@ const styles = StyleSheet.create({
 
     sendMessageParent: {
 
-        backgroundColor: '#f0eff4',
+        backgroundColor: colors.WHITE,
         width: deviceWidth,
-        justifyContent: 'space-evenly',
+        justifyContent: 'center',
         flexDirection: 'row',
         alignItems: 'center',
-
-        // height:deviceHeight ,  
-
-
+        height: deviceHeight * 0.11,
 
     },
 
@@ -45,14 +42,15 @@ const styles = StyleSheet.create({
         fontSize: fontSize._13
     },
     parentContaineStyle: {
-        height: deviceHeight * 0.056,
+        height: deviceHeight * 0.065,
         width: deviceWidth * 0.83,
-        borderRadius: 10,
+        borderRadius: 15,
         alignItems: 'center',
         backgroundColor: colors.WHITE,
-        flexDirection:'row',
-        justifyContent:'space-evenly',
-        
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        borderWidth: .50,
+        borderColor: 'gray'
 
     },
 
@@ -62,11 +60,8 @@ const styles = StyleSheet.create({
         justifyContent: 'space-evenly',
         alignItems: 'center',
         flexDirection: 'row',
-
         width: deviceWidth * 0.60,
         color: colors.BLACK,
-
-
     },
 
 

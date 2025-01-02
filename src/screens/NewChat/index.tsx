@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { View, TouchableOpacity, Text, FlatList, ActivityIndicator, Image, Platform } from "react-native";
+import { View, TouchableOpacity, Text, FlatList, ActivityIndicator, Image, Platform, ImageBackground } from "react-native";
 import styles from "./styles";
 import { socketUrl } from "../../services/socket";
 import useChatsStore from "../../containers/chatsContainer/zustandChatsStore";
@@ -10,6 +10,7 @@ import { MessageDetailsModal } from "../../components/modals";
 import { loadAllMessages } from "../../services/api/apiFunction";
 import { privateScreenProps } from "../../containers/chatsContainer/modal";
 import deviceProps from "../../utilities/deviceProps";
+import { IMAGES } from "../../assets/images/assetsExport";
 const { deviceHeight, deviceWidth } = deviceProps
 
 
@@ -28,11 +29,17 @@ const NewChats: React.FC<privateScreenProps> = (props) => {
 
     return (
 
-        <View
+        <ImageBackground
+        source={IMAGES.backgroundImage}
+        resizeMode={'cover'}
 
             style={styles.containerStyle}>
 
-            <View style={styles.headerView}>
+            <ImageBackground
+                source={IMAGES.backgroundImage}
+                resizeMode={'cover'}
+
+                style={styles.headerView}>
                 <TouchableOpacity
                     style={styles.goBackStyle}
                     onPress={() => {
@@ -43,7 +50,7 @@ const NewChats: React.FC<privateScreenProps> = (props) => {
 
                         iconFamily={'Feather'}
                         size={24}
-                        style={{ color: 'black' }}
+                        style={{ color: 'white' }}
                         name={'chevron-left'}
                     />
                 </TouchableOpacity>
@@ -76,7 +83,7 @@ const NewChats: React.FC<privateScreenProps> = (props) => {
                         null
                     )}
                 </View>
-            </View>
+            </ImageBackground>
 
             <View style={styles.centerView}>
 
@@ -88,7 +95,7 @@ const NewChats: React.FC<privateScreenProps> = (props) => {
                         extraData={chats}
                         style={styles.flatlist}
                         renderItem={({ item, index }) => {
-                           
+
                             let parts = item?.timeStamp.split(" ")
                             const messageTime = parts[1].split(":").slice(0, 2).join(":") + " " + parts[2];
                             setMessageDate(item?.timeStamp.split(" ")[0])
@@ -137,7 +144,7 @@ const NewChats: React.FC<privateScreenProps> = (props) => {
                 messageDate={messageDate}
                 deleteMessage={deleteMessage}
             />
-        </View>
+        </ImageBackground>
     )
 
 };

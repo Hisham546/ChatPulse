@@ -15,6 +15,8 @@ const styles = StyleSheet.create({
         width: deviceWidth,
         borderTopColor: '#BCCCDC',
         borderTopWidth: .30,
+        borderTopLeftRadius:22,
+        borderTopRightRadius:22,
 
     },
     topView: {
@@ -34,14 +36,14 @@ const styles = StyleSheet.create({
     chatsListParentView: {
         width: deviceWidth * 0.95,
         height: deviceHeight,
-        marginLeft: '3%',
+        marginLeft: '4%',
 
     },
     chatsMainText: {
         color: colors.BLACK,
-        fontSize: fontSize.h6,
-        fontFamily: fontFamily.P_MEDIUM,
-        marginLeft: '3%'
+        fontSize: fontSize.h5,
+        fontFamily: fontFamily.P_BOLD,
+        marginLeft: '4%'
     },
     recentChatsHeadingView: {
         width: deviceWidth,

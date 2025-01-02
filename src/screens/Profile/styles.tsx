@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     },
     containerStyle: {
         flex: 1,
-        backgroundColor: colors.WHITE,
+        backgroundColor: colors.black_light_100,
 
 
     },
@@ -53,17 +53,17 @@ const styles = StyleSheet.create({
     profileItemParentView: {
         marginTop: '4%',
 
-        height: deviceHeight * 0.28,
+        height: deviceHeight,
         width: deviceWidth,
-        //justifyContent: 'center',
-        // alignItems: 'center',
-        // backgroundColor:'blue'
+        borderTopLeftRadius: 22,
+        borderTopRightRadius: 22,
+        backgroundColor: colors.WHITE
     },
     headerView: {
         width: deviceWidth * 0.90,
         height: deviceHeight * 0.08,
         justifyContent: 'center',
-        marginLeft:'5%',
+        marginLeft: '5%',
     },
     chatsMainText: {
         color: colors.BLACK,
@@ -75,10 +75,10 @@ const styles = StyleSheet.create({
         width: deviceWidth * 0.90,
         height: deviceHeight * 0.10,
         flexDirection: 'row',
-        borderBottomColor: '#BCCCDC',
-        borderBottomWidth: .30,
-        marginLeft:'5%',
-       
+        // borderBottomColor: '#BCCCDC',
+        // borderBottomWidth: .30,
+        marginLeft: '5%',
+
 
     },
 
@@ -89,12 +89,12 @@ const styles = StyleSheet.create({
 
     },
     profileName: {
-        color: colors.BLACK,
+        color: colors.WHITE,
         fontFamily: fontFamily.P_MEDIUM,
         fontSize: fontSize.h5
     },
     profilePhone: {
-        color: "#ADB5BD",
+        color: colors.white_100,
         fontFamily: fontFamily.P_REGULAR,
         fontSize: fontSize.p
     },
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     profileItemText: {
         marginLeft: '4%',
         color: colors.BLACK,
-        fontFamily: fontFamily.P_REGULAR,
+        fontFamily: fontFamily.P_MEDIUM,
         fontSize: fontSize._15
     },
     profileItemIcon: {
@@ -119,6 +119,7 @@ const styles = StyleSheet.create({
         borderRadius: 22,
         justifyContent: 'center',
         alignItems: 'center',
+
         // backgroundColor: colors.DARK_SLATE_GREEN
 
     },
@@ -128,6 +129,7 @@ const styles = StyleSheet.create({
         height: deviceHeight * 0.07,
         flexDirection: 'row',
         marginLeft: '8%',
+        marginTop: '2%',
         alignItems: 'center'
     },
     userIconView: {
