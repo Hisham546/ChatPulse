@@ -88,6 +88,7 @@ const NewChats: React.FC<privateScreenProps> = (props) => {
                         extraData={chats}
                         style={styles.flatlist}
                         renderItem={({ item, index }) => {
+                           
                             let parts = item?.timeStamp.split(" ")
                             const messageTime = parts[1].split(":").slice(0, 2).join(":") + " " + parts[2];
                             setMessageDate(item?.timeStamp.split(" ")[0])

@@ -42,7 +42,7 @@ export default function ChatsList({ userData, loading, navigation, latestMessage
 
         <View style={styles.containerStyle}>
             <View style={styles.recentChatsHeadingView}>
-                <Text style={styles.chatsMainText}>Recent Chats</Text>
+                <Text style={styles.chatsMainText}> Chats</Text>
             </View>
             <View style={styles.chatsListParentView}>
                 {loading ? (

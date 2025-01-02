@@ -7,6 +7,7 @@ import useChatsStore from './zustandChatsStore';
 import { useFocusEffect } from '@react-navigation/native';
 import { socketUrl } from '../../services/socket';
 import { updateUserOnline, loadAllMessages, deleteMessages } from '../../services/api/apiFunction';
+import ToastMessage from '../../components/toast';
 
 const NewChatsContainer = ({ ...props }) => {
 
@@ -58,23 +59,33 @@ const NewChatsContainer = ({ ...props }) => {
 
     });
 
-  
 
 
 
-    useEffect(() => {
+    useFocusEffect(
 
-        if (data && data.data) {
+        useCallback(() => {
 
-            const filteredData = data.data.filter(
-                (message: { reciever: String, sender: String }) =>
-                    (message.reciever === currentUserDetails.name && message.sender === UserProfile?.data?.name) ||
-                    (message.sender === currentUserDetails.name && message.reciever === UserProfile?.data?.name)
-            );
+            if (data?.data) {
 
-            setChats((prevChats) => [...filteredData, ...prevChats]); // Combine MongoDB data with live socket dataz
-        }
-    }, [data]);
+
+                const filteredData = data.data.filter(
+                    (message: { reciever: String, sender: String }) =>
+                        (message.reciever === currentUserDetails.name && message.sender === UserProfile?.data?.name) ||
+                        (message.sender === currentUserDetails.name && message.reciever === UserProfile?.data?.name)
+                );
+
+                 setChats(filteredData);
+
+                // setChats((prevChats) => {
+                //     const existingIds = new Set(prevChats.map((chat) => chat.textId));
+                //     const newChats = filteredData.filter((message: { textId: any; }) => !existingIds.has(message.textId));
+                //     return [...prevChats, ...newChats];
+                // }); // Combine MongoDB data with live socket sdata
+            }
+
+        }, [data])
+    );
 
 
     const mutation = useMutation({
@@ -103,13 +114,17 @@ const NewChatsContainer = ({ ...props }) => {
 
             if (data.success) {
 
-
-
                 // Invalidate and refetch
                 queryClient.invalidateQueries({ queryKey: ['userTexts'] });
 
 
+
             } else {
+                ToastMessage({
+                    message: `${data}`,
+                    type: 'error',
+
+                });
 
             }
         },
@@ -122,14 +137,14 @@ const NewChatsContainer = ({ ...props }) => {
 
 
     function deleteMessage() {
-        console.log(messageId)
+
         deleteAMessage.mutate(messageId);
         setIsMessageDetailModal(false)
 
     }
 
 
-    function openMessageDetailModal(textId) {
+    function openMessageDetailModal(textId: React.SetStateAction<null>) {
 
         setMessageId(textId)
         setIsMessageDetailModal(true)
@@ -166,3 +181,6 @@ const NewChatsContainer = ({ ...props }) => {
 
 
 export default (NewChatsContainer);
+
+
+

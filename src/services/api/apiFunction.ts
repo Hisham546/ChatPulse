@@ -137,7 +137,7 @@ export const deleteMessages = async (messageId) => {
                 return response.error
             }
         } else {
-           // return response.error
+            return response.error
         }
 
     } catch (error) {
