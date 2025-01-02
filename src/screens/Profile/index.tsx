@@ -34,8 +34,8 @@ export default function ProfileScreen() {
 
         <Icon
 
-          iconFamily={'AntDesign'}
-          size={15}
+          iconFamily={'MaterialCommunityIcons'}
+          size={23}
 
           name={'logout'}
         />

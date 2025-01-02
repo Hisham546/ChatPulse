@@ -12,6 +12,9 @@ import ProfileScreen from '../../screens/Profile';
 import styles from './styles';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Icon } from '../../utilities/Icons';
+import colors from '../../themes/colors';
+import fontSize from '../../themes/fontSize';
+import fontFamily from '../../themes/fontFamily';
 const Tab = createBottomTabNavigator();
 
 export default function BottomTabs({ }) {
@@ -41,18 +44,31 @@ export default function BottomTabs({ }) {
           tabBarIcon: ({ focused }) => (
             <View style={styles.iconContainer}>
               {focused && <View style={styles.activeLine} />}
-             
+
               <Icon
 
                 iconFamily={'Ionicons'}
                 size={23}
-                style={{ color: focused ? 'black' : 'black' }}
-                name={focused ? 'chatbubbles-outline' : 'chatbubble-outline'}
+                style={{
+                   color: focused ?  colors.BLACK : colors.black_light_100,
+                   
+                  }}
+                name={focused ? 'chatbubbles-sharp' : 'chatbubbles-outline'}
               />
 
             </View>
           ),
-          tabBarLabel: ({ focused }) => focused ? <Text style={styles.tabBarLabelStyle}>Chats</Text> : null,
+          tabBarLabel: ({ focused }) => (
+            <Text
+              style={{
+                color: focused ? colors.BLACK : colors.black_light_100,
+                fontSize: focused ? fontSize.p : fontSize.small,
+                fontFamily: focused ? fontFamily.P_BOLD : fontFamily.P_MEDIUM,
+              }}
+            >
+              Chats
+            </Text>
+          ),
         }} />
 
 
@@ -67,18 +83,28 @@ export default function BottomTabs({ }) {
           tabBarIcon: ({ focused }) => (
             <View style={styles.iconContainer}>
               {focused && <View style={styles.activeLine} />}
-              {/* <MaterialIcon name={focused ? "folder-outline" : "folder"} size={23} color={focused ? 'gray' : 'black'} /> */}
+          
               <Icon
 
                 iconFamily={'Ionicons'}
                 size={23}
-                style={{ color: focused ? 'black' : 'black' }}
-                name={focused ? 'settings-outline' : 'settings-outline'}
+                style={{ color: focused ?  colors.BLACK : colors.black_light_100, }}
+                name={focused ? 'settings' : 'settings-outline'}
               />
 
             </View>
           ),
-          tabBarLabel: ({ focused }) => focused ? <Text style={styles.tabBarLabelStyle}>Settings</Text> : null,
+          tabBarLabel: ({ focused }) => (
+            <Text
+              style={{
+                color: focused ? colors.BLACK : colors.black_light_100,
+                fontSize: focused ? fontSize.p : fontSize.small,
+                fontFamily: focused ? fontFamily.P_BOLD : fontFamily.P_MEDIUM,
+              }}
+            >
+              Settings
+            </Text>
+          ),
         }} />
 
     </Tab.Navigator>

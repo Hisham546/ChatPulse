@@ -89,7 +89,7 @@ const Register: React.FC<RegisterProps> = (props) => {
           textInputStyle={styles.textInputStyle}
           showLabel={true}
           placeholderText={"Enter your name"}
-          keyboardType='numeric'
+          keyboardType='default'
           onChangeText={value => onChangeText("name", value)}
           value={formData.name}
         />
