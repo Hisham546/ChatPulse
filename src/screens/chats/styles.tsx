@@ -50,8 +50,8 @@ const styles = StyleSheet.create({
     },
     buddies:{
         color: colors.BLACK,
-        fontSize: fontSize.h5,
-        fontFamily:fontFamily.P_BOLD,
+        fontSize: fontSize.h6,
+        fontFamily:fontFamily.P_MEDIUM,
          
     }
     

@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { View, TouchableOpacity, Text, FlatList, ActivityIndicator, KeyboardAvoidingView, Platform } from "react-native";
+import { View, TouchableOpacity, Text, FlatList, ActivityIndicator, Image, Platform } from "react-native";
 import styles from "./styles";
 import { socketUrl } from "../../services/socket";
 import useChatsStore from "../../containers/chatsContainer/zustandChatsStore";
@@ -47,6 +47,20 @@ const NewChats: React.FC<privateScreenProps> = (props) => {
                         name={'chevron-left'}
                     />
                 </TouchableOpacity>
+                <Image
+                    resizeMode={'cover'}
+                    style={styles.profileLogo}
+                    source={{
+                        uri: currentUserDetails?.imageUrl
+                    }}
+                // onLoadStart={() => setLoading(true)}
+                // onLoad={() => setLoading(false)}
+                // onError={() => {
+                //     setLoading(false);
+
+                // }}
+
+                />
                 <View style={styles.nameView}>
                     <Text style={styles.userName}>{currentUserDetails?.name}</Text>
                     {isUserOnline ? (

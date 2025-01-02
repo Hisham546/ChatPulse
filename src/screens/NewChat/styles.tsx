@@ -43,11 +43,11 @@ const styles = StyleSheet.create({
         marginLeft: '3%'
     },
     nameView: {
-        width: deviceWidth * 0.35,
+        width: deviceWidth * 0.33,
         height: deviceHeight * 0.09,
         alignItems: "center",
         justifyContent: "center",
-        //   backgroundColor: 'green',
+        // backgroundColor: 'green',
 
 
 
@@ -148,7 +148,12 @@ const styles = StyleSheet.create({
         color: colors.WHITE,
         fontFamily: fontFamily.P_MEDIUM,
         fontSize: fontSize.tiny
-    }
+    },
+    profileLogo: {
+        width: deviceWidth * 0.10,
+        height: deviceHeight * 0.050,
+        borderRadius: 12,
+    },
 
 
 

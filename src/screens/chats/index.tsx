@@ -7,7 +7,7 @@ import useChatsStore from "../../containers/chatsContainer/zustandChatsStore";
 
 const ChatsScreen: React.FC<ChatsScreenProps> = (props) => {
 
-  const { navigation, latestMessage, isLoading, data, userActive } = props
+  const { navigation, latestMessage, isLoading, data, userActive,userName } = props
 
 
   const userTyping = useChatsStore((state) => state.userTyping);
@@ -18,8 +18,8 @@ const ChatsScreen: React.FC<ChatsScreenProps> = (props) => {
 
       <View style={styles.topView}>
         <View style={styles.headerView}>
-          {/* <Text style={styles.hello}>Hello</Text> */}
-          <Text style={styles.buddies}>buddies</Text>
+          {/* <Text style={styles.buddies}>Hello</Text> */}
+          <Text style={styles.buddies}>Hello {userName}</Text>
           <Icon
 
             iconFamily={'EvilIcons'}
