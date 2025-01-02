@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
 
     containerStyle: {
         flex: 1,
-        backgroundColor: colors.WHITE,
+        backgroundColor: colors.BLACK,
      
     },
     topView: {
@@ -44,22 +44,21 @@ const styles = StyleSheet.create({
 
     },
     descriptionTextStyle: {
-        color: colors.BLACK,
-        fontSize: fontSize.h4,
+        color: colors.WHITE,
+        fontSize: fontSize.h2,
         fontFamily: fontFamily.P_MEDIUM,
         alignItems: 'flex-start',
     },
     buttonTextStyle: {
-        color: colors.LIGHT_GOLDEN_YELLOW,
-        fontSize: fontSize.p,
-        fontStyle: 'normal',
-        fontFamily: fontFamily.P_MEDIUM
+        color: colors.BLACK,
+        fontSize: fontSize.h6,
+        fontFamily: fontFamily.P_BOLD
     },
     buttonStyle: {
         marginTop: "15%",
-        backgroundColor: '#375FFF',
+        backgroundColor:colors.WHITE,
         height: deviceHeight * 0.067,
-        borderRadius: 18,
+        borderRadius: 25,
         width: deviceWidth * 0.80
     },
     welcomeLogo: {

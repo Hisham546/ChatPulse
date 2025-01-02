@@ -18,15 +18,14 @@ const ChatsScreen: React.FC<ChatsScreenProps> = (props) => {
 
       <View style={styles.topView}>
         <View style={styles.headerView}>
-          {/* <Text style={styles.buddies}>Hello</Text> */}
           <Text style={styles.buddies}>Hello {userName}</Text>
-          <Icon
+          {/* <Icon
 
             iconFamily={'EvilIcons'}
             size={23}
             style={{ color: 'black' }}
             name={'search'}
-          />
+          /> */}
         </View>
       </View>
 

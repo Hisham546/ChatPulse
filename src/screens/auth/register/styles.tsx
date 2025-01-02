@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     },
     containerStyle: {
         flex: 1,
-        backgroundColor: colors.WHITE,
+         backgroundColor: colors.BLACK,
 
 
     },

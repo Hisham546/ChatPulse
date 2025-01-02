@@ -1,5 +1,5 @@
 
-import { Image, Text, View } from "react-native";
+import { Image, Text, View, ImageBackground } from "react-native";
 import styles from "./styles";
 import TextInputOutlined from "../../../components/textBox/inputText";
 import ButtonComponent from "../../../components/button/button";
@@ -10,6 +10,7 @@ import { useCamera } from "../../../services/camera";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import ImagePickerStore from "../../../services/camera/zustandCameraStore";
 import ToastMessage from "../../../components/toast";
+import { IMAGES } from "../../../assets/images/assetsExport";
 
 
 
@@ -30,48 +31,52 @@ const Register: React.FC<RegisterProps> = (props) => {
 
   return (
 
-    <View style={styles.containerStyle}>
+    <ImageBackground
+      source={IMAGES.backgroundImage}
+      resizeMode={'cover'}
+
+      style={styles.containerStyle}>
       <View style={styles.headerView}>
         <TouchableOpacity onPress={() => navigation.goBack()} >
-        <Icon
+          <Icon
 
-          iconFamily={'Ionicons'}
-          size={23}
-          style={{ color: 'black', marginLeft: '20%' }}
-          name={'chevron-back'}
-        />
+            iconFamily={'Ionicons'}
+            size={23}
+            style={{ color: 'white', marginLeft: '20%' }}
+            name={'chevron-back'}
+          />
         </TouchableOpacity>
       </View>
       <View style={styles.secondView}>
         <View style={styles.profileLogoMainView}>
-        <TouchableOpacity
-          onPress={openPicker}
-          style={styles.iconCircleView}>
-          {imageUrl ?
+          <TouchableOpacity
+            onPress={openPicker}
+            style={styles.iconCircleView}>
+            {imageUrl ?
 
-            <Image
-              resizeMode={'cover'}
-              style={styles.profileLogo}
-              source={{
-                uri: imageUrl
-              }}
-            // onLoadStart={() => setLoading(true)}
-            // onLoad={() => setLoading(false)}
-            // onError={() => {
-            //     setLoading(false);
+              <Image
+                resizeMode={'cover'}
+                style={styles.profileLogo}
+                source={{
+                  uri: imageUrl
+                }}
+              // onLoadStart={() => setLoading(true)}
+              // onLoad={() => setLoading(false)}
+              // onError={() => {
+              //     setLoading(false);
 
-            // }}
+              // }}
 
-            /> :
-            <Icon
+              /> :
+              <Icon
 
-              iconFamily={'SimpleLineIcons'}
-              size={23}
-              style={{ color: 'black' }}
-              name={'user-follow'}
-            />
-          }
-        </TouchableOpacity>
+                iconFamily={'SimpleLineIcons'}
+                size={23}
+                style={{ color: 'black' }}
+                name={'user-follow'}
+              />
+            }
+          </TouchableOpacity>
         </View>
         <View style={styles.registerView}>
 
@@ -135,7 +140,7 @@ const Register: React.FC<RegisterProps> = (props) => {
       </View>
 
 
-    </View>
+    </ImageBackground>
   )
 
 }

@@ -70,15 +70,15 @@ export default function BottomTabs({ }) {
               {/* <MaterialIcon name={focused ? "folder-outline" : "folder"} size={23} color={focused ? 'gray' : 'black'} /> */}
               <Icon
 
-                iconFamily={'Feather'}
+                iconFamily={'Ionicons'}
                 size={23}
                 style={{ color: focused ? 'black' : 'black' }}
-                name={focused ? 'user' : 'users'}
+                name={focused ? 'settings-outline' : 'settings-outline'}
               />
 
             </View>
           ),
-          tabBarLabel: ({ focused }) => focused ? <Text style={styles.tabBarLabelStyle}>More</Text> : null,
+          tabBarLabel: ({ focused }) => focused ? <Text style={styles.tabBarLabelStyle}>Settings</Text> : null,
         }} />
 
     </Tab.Navigator>

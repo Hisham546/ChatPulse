@@ -1,13 +1,7 @@
 import {
-    View,
-    Image,
-    Text, Button,
-    StyleSheet, TouchableOpacity, FlatList,
-    TextInput
+    StyleSheet
 }
     from "react-native";
-import { Dimensions, Platform, StatusBar } from 'react-native';
-
 import deviceProps from "../../../../utilities/deviceProps";
 import colors from "../../../../themes/colors";
 import fontSize from "../../../../themes/fontSize";
@@ -32,11 +26,9 @@ const styles = StyleSheet.create({
     chatParentView: {
         width: deviceWidth,
         height: deviceHeight * 0.10,
-
     },
 
     flatlist: {
-
         width: deviceWidth,
     },
     chatsListParentView: {
@@ -54,13 +46,11 @@ const styles = StyleSheet.create({
     recentChatsHeadingView: {
         width: deviceWidth,
         height: deviceHeight * 0.06,
-        // backgroundColor: 'blue',
         justifyContent: 'center'
     },
     userBoxView: {
         width: deviceWidth,
         height: deviceHeight * 0.10,
-
         alignItems: 'center',
         flexDirection: 'row'
     },
@@ -85,9 +75,7 @@ const styles = StyleSheet.create({
         color: colors.BLACK,
         fontSize: fontSize._10,
         fontFamily: fontFamily.P_MEDIUM,
-
         marginLeft: '3%'
-
     },
     timeStamp: {
         color: colors.BLACK,
@@ -96,8 +84,6 @@ const styles = StyleSheet.create({
 
     },
     loader: {
-
-
         justifyContent: 'center',
         alignItems: 'center',
 
@@ -108,9 +94,9 @@ const styles = StyleSheet.create({
         borderRadius: 12,
     },
     userIconView: {
-        width: deviceWidth * 0.11, // Match the image's width
-        height: deviceHeight * 0.055, // Match the image's height
-        position: 'relative', // Make it the positioning context
+        width: deviceWidth * 0.11,
+        height: deviceHeight * 0.055,
+        position: 'relative',
     },
     userActiveIcon: {
         position: 'absolute',
@@ -123,7 +109,6 @@ const styles = StyleSheet.create({
         fontFamily: fontFamily.P_BOLD,
         fontSize: fontSize._10,
         marginLeft: '3%'
-
     },
 
 

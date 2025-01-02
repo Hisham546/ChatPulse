@@ -59,29 +59,34 @@ const styles = StyleSheet.create({
         // alignItems: 'center',
         // backgroundColor:'blue'
     },
-    headerView:{
-        width:deviceWidth,
-        height:deviceHeight*0.08,
-        justifyContent:'center',    
+    headerView: {
+        width: deviceWidth * 0.90,
+        height: deviceHeight * 0.08,
+        justifyContent: 'center',
+        marginLeft:'5%',
     },
     chatsMainText: {
         color: colors.BLACK,
         fontSize: fontSize.h5,
-        fontFamily:fontFamily.P_MEDIUM,
-        marginLeft: '5%' 
+        fontFamily: fontFamily.P_MEDIUM,
+        marginLeft: '5%'
     },
     userProfileView: {
-        width: deviceWidth,
+        width: deviceWidth * 0.90,
         height: deviceHeight * 0.10,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        borderBottomColor: '#BCCCDC',
+        borderBottomWidth: .30,
+        marginLeft:'5%',
+       
 
     },
 
-    userNameView:{
+    userNameView: {
         width: deviceWidth * 0.50,
-        height: deviceHeight * 0.10,  
-        justifyContent:'center',
-       
+        height: deviceHeight * 0.10,
+        justifyContent: 'center',
+
     },
     profileName: {
         color: colors.BLACK,
@@ -93,11 +98,11 @@ const styles = StyleSheet.create({
         fontFamily: fontFamily.P_REGULAR,
         fontSize: fontSize.p
     },
-    onlineText:{
+    onlineText: {
         color: colors.green_100,
         fontFamily: fontFamily.P_MEDIUM,
         fontSize: fontSize.p,
-        marginTop:'5%'
+        marginTop: '5%'
     },
     profileItemText: {
         marginLeft: '4%',
@@ -128,15 +133,15 @@ const styles = StyleSheet.create({
     userIconView: {
         width: deviceWidth * 0.20,
         height: deviceHeight * 0.10,
-        justifyContent:'center',
-        alignItems:'center',
-      
+        justifyContent: 'center',
+        alignItems: 'center',
+
     },
     profileLogo: {
         width: deviceWidth * 0.12,
         height: deviceHeight * 0.06,
         borderRadius: 70,
-       
+
 
 
     },

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, TouchableOpacity, Text, FlatList, Image } from "react-native";
+import { View, ImageBackground, Text, FlatList, Image } from "react-native";
 import styles from "./styles";
 import ButtonComponent from "../../components/button/button";
 import { IMAGES } from "../../assets/images/assetsExport"
@@ -13,7 +13,11 @@ const Welcome = ({ navigation }) => {
 
     return (
 
-        <View style={styles.containerStyle}>
+        <ImageBackground
+            source={IMAGES.backgroundImage}
+            resizeMode={'cover'}
+            style={styles.containerStyle}>
+                
             <View style={styles.topView}>
 
                 <Image
@@ -45,7 +49,7 @@ const Welcome = ({ navigation }) => {
                         navigation.navigate("Login")
 
                     }}
-                    buttonText={"Start Messaging"}
+                    buttonText={"Get Started"}
 
 
                     textStyle={styles.buttonTextStyle}
@@ -53,7 +57,7 @@ const Welcome = ({ navigation }) => {
                 />
             </View>
 
-        </View>
+        </ImageBackground>
     )
 
 }

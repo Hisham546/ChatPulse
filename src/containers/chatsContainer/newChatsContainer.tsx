@@ -144,7 +144,7 @@ const NewChatsContainer = ({ ...props }) => {
     }
 
 
-    function openMessageDetailModal(textId: React.SetStateAction<null>) {
+    function openMessageDetailModal(textId) {
 
         setMessageId(textId)
         setIsMessageDetailModal(true)

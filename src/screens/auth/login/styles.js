@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
 
     containerStyle: {
         flex: 1,
-        backgroundColor: colors.WHITE,
+        backgroundColor: colors.BLACK,
     },
     topView: {
         width: deviceWidth,
@@ -64,39 +64,38 @@ const styles = StyleSheet.create({
         height: deviceHeight * 0.40,
         justifyContent: 'center',
         alignItems: 'center',
-       
+
     },
     getStarted: {
-        color: colors.BLACK,
+        color: colors.WHITE,
         fontSize: fontSize.h4,
         fontFamily: fontFamily.P_MEDIUM
     },
     getStarted2: {
-        color: colors.BLACK,
+        color: colors.WHITE,
         fontSize: fontSize.h6,
         fontFamily: fontFamily.P_MEDIUM
     },
-    dontHaveAc:{
-        color: colors.BLACK,
+    dontHaveAc: {
+        color: colors.WHITE,
         fontSize: fontSize._13,
         fontFamily: fontFamily.P_REGULAR
     },
     buttonTextStyle: {
-        color: colors.LIGHT_GOLDEN_YELLOW,
-        fontSize: fontSize.p,
-        fontStyle: 'normal',
+        color: colors.BLACK,
+        fontSize: fontSize.h6,
         fontFamily: fontFamily.P_MEDIUM
     },
     buttonStyle: {
         marginTop: "15%",
-        backgroundColor: '#375FFF',
+        backgroundColor: colors.WHITE,
         height: deviceHeight * 0.067,
-        borderRadius: 18,
+        borderRadius: 25,
         width: deviceWidth * 0.80
     },
 
     registerNowText: {
-        color: colors.BLACK,
+        color: colors.WHITE,
         fontSize: fontSize._12,
         fontFamily: fontFamily.P_MEDIUM,
         textDecorationLine: 'underline'
@@ -110,12 +109,12 @@ const styles = StyleSheet.create({
         marginTop: '2%',
         // backgroundColor:'red'
     },
-    welcomeLogo2:{
+    welcomeLogo2: {
         width: deviceWidth * 0.26,
-        height: deviceHeight * 0.26, 
-      
+        height: deviceHeight * 0.26,
+
     },
-    
+
 
 
 })

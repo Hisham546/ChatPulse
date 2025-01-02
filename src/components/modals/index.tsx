@@ -258,7 +258,7 @@ const logoutStyles = StyleSheet.create({
         width: deviceWidth * 0.33,
         height: deviceHeight * 0.048,
         borderRadius: 5,
-        backgroundColor: '#375FFF'
+        backgroundColor: colors.black_light_100
 
     },
     buttonContainer: {

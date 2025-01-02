@@ -33,10 +33,10 @@ export default function ProfileScreen() {
 
         <Icon
 
-          iconFamily={'FontAwesome5'}
+          iconFamily={'AntDesign'}
           size={15}
 
-          name={'share'}
+          name={'logout'}
         />
 
       ),
@@ -62,7 +62,7 @@ export default function ProfileScreen() {
 
     <View style={styles.containerStyle}>
       <View style={styles.headerView}>
-        <Text style={styles.chatsMainText}>More</Text>
+        {/* <Text style={styles.chatsMainText}>Settings</Text> */}
       </View>
       <View style={styles.userProfileView}>
         <TouchableOpacity

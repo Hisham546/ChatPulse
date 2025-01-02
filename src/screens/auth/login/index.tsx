@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, TouchableOpacity, Text, Image, ToastAndroid } from "react-native";
+import { View, TouchableOpacity, Text, Image, ImageBackground } from "react-native";
 import styles from "./styles";
 
 import TextInputOutlined from "../../../components/textBox/inputText";
@@ -46,7 +46,11 @@ const Login: React.FC<PhoneProps> = (props) => {
 
     return (
 
-        <View style={styles.containerStyle}>
+           <ImageBackground
+                    source={IMAGES.backgroundImage}
+                    resizeMode={'cover'} 
+        
+        style={styles.containerStyle}>
             <View style={styles.topView}>
                 <View style={styles.descriptionView}>
 
@@ -141,7 +145,7 @@ const Login: React.FC<PhoneProps> = (props) => {
                 </View>
             </View>
 
-        </View>
+        </ImageBackground>
     )
 
 }
