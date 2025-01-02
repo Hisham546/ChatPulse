@@ -58,7 +58,7 @@ const NewChatsContainer = ({ ...props }) => {
 
     });
 
-    console.log(data, 'chats...............')
+  
 
 
 

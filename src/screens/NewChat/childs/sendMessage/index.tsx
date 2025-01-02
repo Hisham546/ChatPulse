@@ -7,6 +7,7 @@ import { Icon } from "../../../../utilities/Icons";
 import useAuthStore from "../../../../containers/authContainer/zustandAuthStore";
 import { socketUrl } from "../../../../services/socket";
 import useChatsStore from "../../../../containers/chatsContainer/zustandChatsStore";
+import ToastMessage from "../../../../components/toast";
 
 export default function SendMessage({ currentUserDetails }) {
 
@@ -92,7 +93,11 @@ export default function SendMessage({ currentUserDetails }) {
                     if (message) {
                         sendMessage()
                     } else {
-                        console.log('no message')
+                        ToastMessage({
+                            message: 'No message to send',
+                            type: 'error',
+        
+                        });
                     }
                 }}
                 enableButton={true}
