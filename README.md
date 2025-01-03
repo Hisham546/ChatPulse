@@ -11,7 +11,8 @@ Home Screen
 
 Chatting with user
 
-<img src="https://github.com/user-attachments/assets/64e54e0e-b17b-42fe-8a2d-45e6e7d79e2b" alt="ChatsScreen" width="300" />
+<img src="https://github.com/user-attachments/assets/71ab3af8-b2e5-4b8e-8474-236154b8006f" alt="ChatsScreen" width="300" />
+
 
 
 
