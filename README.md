@@ -25,8 +25,9 @@ A fully fledged chatting app.
 
 ## Screenshots:
 
-<img src="https://github.com/user-attachments/assets/ce20d15b-4566-4d15-82ce-6306ea33ba02" alt="HomeScreen" width="300" />
+<img src="https://github.com/user-attachments/assets/a78e31ad-12f1-4325-9839-37e78665b296" alt="HomeScreen" width="300" />
 <img src="https://github.com/user-attachments/assets/71ab3af8-b2e5-4b8e-8474-236154b8006f" alt="ChatsScreen" width="300" />
+
 
 
 
