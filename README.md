@@ -6,10 +6,11 @@ A fully fledged chatting app.
 
 ## Features:
 
-- Real-time messages
+- Real-time communication with users
 - Typing status indicators
 - Online status visibility
 - Easy access to chats
+- Users can add profile picture and crop or rotate it as well
 
 
 Home Screen
