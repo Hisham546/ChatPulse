@@ -1,4 +1,8 @@
-I'm trying to develop a fully featured chatting app,its still on development :)
+
+# ChatPulse
+
+A fully fledged chatting app.
+
 Home Screen
 
 <img src="https://github.com/user-attachments/assets/ce20d15b-4566-4d15-82ce-6306ea33ba02" alt="HomeScreen" width="300" />
