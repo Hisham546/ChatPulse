@@ -3,6 +3,15 @@
 
 A fully fledged chatting app.
 
+
+## Features:
+
+- Real-time messages
+- Typing status indicators
+- Online status visibility
+- Easy access to chats
+
+
 Home Screen
 
 <img src="https://github.com/user-attachments/assets/ce20d15b-4566-4d15-82ce-6306ea33ba02" alt="HomeScreen" width="300" />
