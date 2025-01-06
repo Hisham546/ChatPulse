@@ -1,7 +1,7 @@
 
 # ChatPulse
 
-A fully fledged chatting app.
+A chatting app made in React Native.
 
 
 ## Features:
