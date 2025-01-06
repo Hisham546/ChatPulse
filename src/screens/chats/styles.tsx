@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     },
     topView:{
        width:deviceWidth,
-       height:deviceHeight*0.19,
+       height:deviceHeight*0.13,
 
        
     },

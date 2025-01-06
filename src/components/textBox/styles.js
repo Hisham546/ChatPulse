@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
 
         borderRadius: 8,
         color: colors.WHITE,
-        fontFamily: fontFamily.P_REGULAR,
+        fontFamily: fontFamily.P_MEDIUM,
  
 
     },

@@ -99,7 +99,7 @@ const TextInputOutlined: React.FC<TextInputOutlinedProps> = (props) => {
 
                         iconFamily={'FontAwesome'}
                         size={20}
-                        style={{ color: '#030201' }}
+                        style={{ color: colors.gray_100 }}
                         name={'send'}
                     />
                 </TouchableOpacity>

@@ -50,13 +50,13 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
     },
     buttonTextStyle: {
-        color: colors.BLACK,
+        color: colors.WHITE,
         fontSize: fontSize.h6,
         fontFamily: fontFamily.P_BOLD
     },
     buttonStyle: {
         marginTop: "15%",
-        backgroundColor:colors.WHITE,
+        backgroundColor:colors.blue_100,
         height: deviceHeight * 0.067,
         borderRadius: 25,
         width: deviceWidth * 0.80

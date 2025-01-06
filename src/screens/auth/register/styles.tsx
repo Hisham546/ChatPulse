@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
 
     },
     buttonTextStyle: {
-        color: colors.LIGHT_GOLDEN_YELLOW,
+        color: colors.WHITE,
         fontSize: fontSize.p,
         fontStyle: 'normal',
         fontFamily: fontFamily.P_MEDIUM
@@ -89,11 +89,9 @@ const styles = StyleSheet.create({
     },
     buttonStyle: {
         marginTop: '13%',
-        backgroundColor: '#375FFF',
+        backgroundColor: colors.blue_100,
         height: deviceHeight * 0.067,
         borderRadius: 18,
-
-
         width: deviceWidth * 0.80
 
     },
@@ -124,14 +122,14 @@ const styles = StyleSheet.create({
 
     },
     registerText: {
-        color: colors.BLACK,
+        color: colors.WHITE,
         fontSize: fontSize.h5,
         fontFamily: fontFamily.P_MEDIUM,
         marginLeft: '5%'
 
     },
     belowDetails: {
-        color: colors.BLACK,
+        color: colors.WHITE,
         fontSize: fontSize.p,
         fontFamily: fontFamily.P_REGULAR,
         marginLeft: '5%'

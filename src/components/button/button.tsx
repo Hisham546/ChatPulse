@@ -3,6 +3,7 @@ import { Dimensions, Text, TouchableOpacity, ActivityIndicator } from "react-nat
 
 import { ButtonProps } from "./modal";
 import styles from "./styles";
+import colors from "../../themes/colors";
 
 const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;
@@ -27,7 +28,7 @@ const ButtonComponent: React.FC<ButtonProps> = props => {
             {loading === true ?
                 <ActivityIndicator
                     size={loaderSize ? loaderSize : 'small'}
-                    color={loaderColor ? loaderColor : '#fff'}
+                    color={loaderColor ? loaderColor : colors.BLACK}
                 />
                 :
                 <Text style={textStyle}>{buttonText}</Text>

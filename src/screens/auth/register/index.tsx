@@ -115,6 +115,7 @@ const Register: React.FC<RegisterProps> = (props) => {
           keyboardType='numeric'
           onChangeText={value => onChangeText("password", value)}
           value={formData.password}
+          secureTextEntry
         />
 
         <ButtonComponent

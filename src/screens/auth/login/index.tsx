@@ -96,7 +96,7 @@ const Login: React.FC<PhoneProps> = (props) => {
                     placeholderText={" Enter your password"}
                     keyboardType='numeric'
                     onChangeText={value => onChangeText("password", value)}
-
+                    secureTextEntry
                     value={formData.password}
                 />
 

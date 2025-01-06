@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     topView: {
         width: deviceWidth,
         height: deviceHeight * 0.25,
-        backgroundColor: 'red'
+       // backgroundColor: 'red'
     },
 
     chatParentView: {
