@@ -33,8 +33,8 @@ export const loginUser = async (body: bodyType) => {
             return response?.data
         }
         else {
-           
-           return response.error
+
+            return response.error
         }
     } catch (error) {
 

@@ -13,22 +13,22 @@ export const useCamera = () => {
             cropping: true,
         })
             .then(image => {
-               
+
 
                 uploadImage(image)
                     .then(res => {
                         if (res?.data) {
                             setImageUrl(res.data); // Update Zustand store
                         } else {
-                            console.error('Image upload failed or invalid response:', res);
+                            //  console.error('Image upload failed or invalid response:', res);
                         }
                     })
                     .catch(error => {
-                        console.error('Error during image upload:', error);
+                        // console.error('Error during image upload:', error);
                     });
             })
             .catch(error => {
-                console.error('Error during image selection:', error);
+                //console.error('Error during image selection:', error);
             });
     };
 

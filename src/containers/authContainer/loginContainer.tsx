@@ -16,7 +16,32 @@ const LoginContainer = ({ ...props }) => {
 
     const setButtonLoading = useAuthStore((state) => state.setButtonLoading);
     const setUserProfile = useAuthStore((state) => state.setUserProfile);
+    
+    const buttonLoading = useAuthStore((state) => state.buttonLoading);
 
+    const [formData, setFormData] = useState({
+
+        name: '',
+        password: ''
+
+
+
+
+    });
+
+
+    const onChangeText = (state: string, value: string | number) => {
+
+
+
+
+
+        setFormData(prevState => ({
+            ...prevState,
+            [state]: value,
+        }));
+
+    };
 
 
 
@@ -72,6 +97,9 @@ const LoginContainer = ({ ...props }) => {
         <Login
             {...props}
             login={login}
+            onChangeText={onChangeText}
+            formData={formData}
+            buttonLoading={buttonLoading}
 
 
 

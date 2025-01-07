@@ -44,9 +44,21 @@ export default function SendMessage({ currentUserDetails }) {
             message: message,
             sender: UserProfile?.data?.name,
             reciever: currentUserDetails.name,
-            timeStamp: new Date().toLocaleString().replace(',', '')
-        }
+            //  timeStamp: new Date().toLocaleString().replace(',', '')
+            timeStamp:
+                new Date().toLocaleString('en-US', {
+                    hour12: true, 
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                }).replace(',', '')
 
+
+        }
+        console.log(payload, '...........payload')
         socketUrl.emit('chatMessage', payload);
         if (!message) {
             socketUrl.emit('userTypingStop', { userId: UserProfile?.data?.userId });
@@ -96,7 +108,7 @@ export default function SendMessage({ currentUserDetails }) {
                         ToastMessage({
                             message: 'No message to send',
                             type: 'error',
-        
+
                         });
                     }
                 }}
