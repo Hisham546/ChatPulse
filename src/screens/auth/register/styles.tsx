@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     profileLogo: {
         width: '100%',
         height: '100%',
-        borderRadius: 70,
+        borderRadius: 73,
         overflow: 'hidden',
         backgroundColor: 'transparent',
 
@@ -149,7 +149,19 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         //  backgroundColor:'blue'
-    }
+    },
+    loader: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
+
 
 
 

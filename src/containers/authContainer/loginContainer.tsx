@@ -8,33 +8,20 @@ import ToastMessage from '../../components/toast';
 const LoginContainer = ({ ...props }) => {
     const { navigation } = props
 
-    const [confirm, setConfirm] = useState(null);
-
     const queryClient = useQueryClient();
 
-    const setUserLoggedIn = useAuthStore((state) => state.setUserLoggedIn);
-
-    const setButtonLoading = useAuthStore((state) => state.setButtonLoading);
-    const setUserProfile = useAuthStore((state) => state.setUserProfile);
-    
-    const buttonLoading = useAuthStore((state) => state.buttonLoading);
+    const setUserLoggedIn = useAuthStore((state: any) => state.setUserLoggedIn);
+    const setButtonLoading = useAuthStore((state: any) => state.setButtonLoading);
+    const setUserProfile = useAuthStore((state: any) => state.setUserProfile);
+    const buttonLoading = useAuthStore((state: any) => state.buttonLoading);
 
     const [formData, setFormData] = useState({
-
         name: '',
         password: ''
-
-
-
-
     });
 
 
     const onChangeText = (state: string, value: string | number) => {
-
-
-
-
 
         setFormData(prevState => ({
             ...prevState,
@@ -42,8 +29,6 @@ const LoginContainer = ({ ...props }) => {
         }));
 
     };
-
-
 
 
     const mutation = useMutation({
@@ -60,7 +45,6 @@ const LoginContainer = ({ ...props }) => {
                     type: 'success',
 
                 });
-
                 setUserLoggedIn(true);
                 navigation.navigate('BottomTabs');
             } else {
@@ -85,11 +69,9 @@ const LoginContainer = ({ ...props }) => {
 
 
 
-    //message
+
     async function login(data: any) {
-
         setButtonLoading(true)
-
         mutation.mutate(data);
     }
     return (
@@ -100,10 +82,6 @@ const LoginContainer = ({ ...props }) => {
             onChangeText={onChangeText}
             formData={formData}
             buttonLoading={buttonLoading}
-
-
-
-
 
         />
     )

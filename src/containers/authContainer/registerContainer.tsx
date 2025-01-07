@@ -22,6 +22,10 @@ const RegisterContainer = ({ ...props }) => {
     const imageUrl = ImagePickerStore((state: any) => state.imageUrl);
 
 
+    const buttonLoading = useAuthStore((state: any) => state.loading);
+    const loadingImage = ImagePickerStore((state: any) => state.loadingImage);
+
+    const setLoadingImage = ImagePickerStore((state: any) => state.setLoadingImage);
 
 
 
@@ -104,6 +108,10 @@ const RegisterContainer = ({ ...props }) => {
             handleCreateProfile={handleCreateProfile}
             onChangeText={onChangeText}
             formData={formData}
+            buttonLoading={buttonLoading}
+            imageUrl={imageUrl}
+            loadingImage={loadingImage}
+            setLoadingImage={setLoadingImage}
 
 
 

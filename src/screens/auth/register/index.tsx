@@ -1,5 +1,5 @@
 
-import { Image, Text, View, ImageBackground } from "react-native";
+import { Image, Text, View, ImageBackground, ActivityIndicator } from "react-native";
 import styles from "./styles";
 import TextInputOutlined from "../../../components/textBox/inputText";
 import ButtonComponent from "../../../components/button/button";
@@ -11,6 +11,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import ImagePickerStore from "../../../services/camera/zustandCameraStore";
 import ToastMessage from "../../../components/toast";
 import { IMAGES } from "../../../assets/images/assetsExport";
+import colors from "../../../themes/colors";
 
 
 
@@ -18,12 +19,8 @@ const Register: React.FC<RegisterProps> = (props) => {
 
   const { openPicker } = useCamera()
 
-  const { navigation, handleCreateProfile, onChangeText, formData } = props
+  const { navigation, handleCreateProfile, onChangeText, formData, imageUrl, buttonLoading, loadingImage, setLoadingImage } = props
 
-  const buttonLoading = useAuthStore((state: any) => state.loading);
-
-
-  const imageUrl = ImagePickerStore((state: any) => state.imageUrl);
 
 
 
@@ -49,9 +46,16 @@ const Register: React.FC<RegisterProps> = (props) => {
       </View>
       <View style={styles.secondView}>
         <View style={styles.profileLogoMainView}>
-          <TouchableOpacity
+          <TouchableOpacity activeOpacity={.95}
             onPress={openPicker}
             style={styles.iconCircleView}>
+            {loadingImage && (
+              <ActivityIndicator
+                size="small"
+                color={colors.BLACK}
+                style={styles.loader}
+              />
+            )}
             {imageUrl ?
 
               <Image
@@ -60,12 +64,12 @@ const Register: React.FC<RegisterProps> = (props) => {
                 source={{
                   uri: imageUrl
                 }}
-              // onLoadStart={() => setLoading(true)}
-              // onLoad={() => setLoading(false)}
-              // onError={() => {
-              //     setLoading(false);
+                onLoadStart={() => setLoadingImage(true)}
+                onLoad={() => setLoadingImage(true)}
+                onError={() => {
+                  setLoadingImage(false)
 
-              // }}
+                }}
 
               /> :
               <Icon

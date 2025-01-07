@@ -58,7 +58,7 @@ export default function SendMessage({ currentUserDetails }) {
 
 
         }
-        console.log(payload, '...........payload')
+    
         socketUrl.emit('chatMessage', payload);
         if (!message) {
             socketUrl.emit('userTypingStop', { userId: UserProfile?.data?.userId });
