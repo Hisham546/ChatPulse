@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { View, TouchableOpacity, Text, FlatList, ActivityIndicator, Image, Platform, ImageBackground } from "react-native";
+import { View, TouchableOpacity, Text, FlatList, ActivityIndicator, Image, Platform, ImageBackground, ScrollView } from "react-native";
 import styles from "./styles";
 import { socketUrl } from "../../services/socket";
 import useChatsStore from "../../containers/chatsContainer/zustandChatsStore";
@@ -21,132 +21,105 @@ const NewChats: React.FC<privateScreenProps> = (props) => {
         deleteMessage, openMessageDetailModal, setIsMessageDetailModal, IsMessageDetailModal } = props
 
     const [messageDate, setMessageDate] = useState(null)
-
-
-
     const userTyping = useChatsStore((state) => state.userTyping);
 
 
     return (
-
-        <ImageBackground
-        source={IMAGES.backgroundImage}
-        resizeMode={'cover'}
-
-            style={styles.containerStyle}>
-
+        <ScrollView>
             <ImageBackground
                 source={IMAGES.backgroundImage}
                 resizeMode={'cover'}
-
-                style={styles.headerView}>
-                <TouchableOpacity
-                    style={styles.goBackStyle}
-                    onPress={() => {
-
-                        goBack()
-                    }}>
-                    <Icon
-
-                        iconFamily={'Feather'}
-                        size={24}
-                        style={{ color: 'white' }}
-                        name={'chevron-left'}
-                    />
-                </TouchableOpacity>
-                <Image
+                style={styles.containerStyle}>
+                <ImageBackground
+                    source={IMAGES.backgroundImage}
                     resizeMode={'cover'}
-                    style={styles.profileLogo}
-                    source={{
-                        uri: currentUserDetails?.imageUrl
-                    }}
-                // onLoadStart={() => setLoading(true)}
-                // onLoad={() => setLoading(false)}
-                // onError={() => {
-                //     setLoading(false);
-
-                // }}
-
-                />
-                <View style={styles.nameView}>
-                    <Text style={styles.userName}>{currentUserDetails?.name}</Text>
-                    {isUserOnline ? (
-
-                        <Text style={styles.onlineText}>Online</Text>
+                    style={styles.headerView}>
+                    <TouchableOpacity
+                        style={styles.goBackStyle}
+                        onPress={() => {
+                            goBack()
+                        }}>
+                        <Icon
+                            iconFamily={'Feather'}
+                            size={24}
+                            style={{ color: 'white' }}
+                            name={'chevron-left'}
+                        />
+                    </TouchableOpacity>
+                    <Image
+                        resizeMode={'cover'}
+                        style={styles.profileLogo}
+                        source={{
+                            uri: currentUserDetails?.imageUrl
+                        }}
+                    />
+                    <View style={styles.nameView}>
+                        <Text style={styles.userName}>{currentUserDetails?.name}</Text>
+                        {isUserOnline ? (
+                            <Text style={styles.onlineText}>Online</Text>
+                        ) : (
+                            <Text style={styles.onlineText}>Offline</Text>
+                        )}
+                        {userTyping?.some((user: String) => user === currentUserDetails.userId) ? (
+                            <Text style={styles.onlineText}>Typing...</Text>
+                        ) : (
+                            null
+                        )}
+                    </View>
+                </ImageBackground>
+                <View style={styles.centerView}>
+                    {isLoading ? (
+                        <ActivityIndicator size="large" color="white" style={styles.loader} />
                     ) : (
-                        <Text style={styles.onlineText}>Offline</Text>
-                    )}
-                    {userTyping?.some((user: String) => user === currentUserDetails.userId) ? (
+                        <FlatList
+                            data={chats}
+                            extraData={chats}
+                            style={styles.flatlist}
+                            renderItem={({ item, index }) => {
+                                let parts = item?.timeStamp.split(" ")
+                                const messageTime = parts[1].split(":").slice(0, 2).join(":") + " " + parts[2];
+                                setMessageDate(item?.timeStamp.split(" ")[0])
+                                return (
+                                    <View style={styles.chatsContainer}>
+                                        <TouchableOpacity activeOpacity={0.5}
+                                            onPress={() => {
+                                                openMessageDetailModal(item?.textId)
+                                            }}
+                                            style={[styles.chatsBoxView,
+                                            { marginLeft: item.sender === UserProfile?.data?.name ? "45%" : "0%" },
+                                            { backgroundColor: item.sender === UserProfile?.data?.name ? '#d8ecc3' : '#eddadd' }
 
-                        <Text style={styles.onlineText}>Typing...</Text>
-                    ) : (
-                        null
+                                            ]}>
+
+                                            <View style={styles.chatTextView}>
+                                                <Text style={styles.messageStyle}>{item?.message}</Text>
+                                            </View>
+                                            <View style={styles.chatTimeView}>
+                                                <Text style={styles.textTime}>{messageTime}</Text>
+
+                                            </View>
+                                        </TouchableOpacity>
+                                    </View>
+                                )
+                            }
+                            }
+                            keyExtractor={item => item.id}
+                        />
                     )}
                 </View>
+                <View style={styles.footerView}>
+                    <SendMessage
+                        currentUserDetails={currentUserDetails} />
+                </View>
+                <MessageDetailsModal
+                    IsMessageDetailModal={IsMessageDetailModal}
+                    setIsMessageDetailModal={setIsMessageDetailModal}
+                    messageDate={messageDate}
+                    deleteMessage={deleteMessage}
+                />
             </ImageBackground>
-
-            <View style={styles.centerView}>
-
-                {isLoading ? (
-                    <ActivityIndicator size="large" color="white" style={styles.loader} />
-                ) : (
-                    <FlatList
-                        data={chats}
-                        extraData={chats}
-                        style={styles.flatlist}
-                        renderItem={({ item, index }) => {
-
-                            let parts = item?.timeStamp.split(" ")
-                            const messageTime = parts[1].split(":").slice(0, 2).join(":") + " " + parts[2];
-                            setMessageDate(item?.timeStamp.split(" ")[0])
-                            return (
-                                <View style={styles.chatsContainer}>
-
-
-
-                                    <TouchableOpacity activeOpacity={0.5}
-                                        onPress={() => {
-                                            openMessageDetailModal(item?.textId)
-                                        }}
-                                        style={[styles.chatsBoxView,
-                                        { marginLeft: item.sender === UserProfile?.data?.name ? "45%" : "0%" },
-                                        { backgroundColor: item.sender === UserProfile?.data?.name ? '#d8ecc3' : '#eddadd' }
-
-                                        ]}>
-
-                                        <View style={styles.chatTextView}>
-                                            <Text style={styles.messageStyle}>{item?.message}</Text>
-                                        </View>
-                                        <View style={styles.chatTimeView}>
-                                            <Text style={styles.textTime}>{messageTime}</Text>
-
-                                        </View>
-                                    </TouchableOpacity>
-                                </View>
-                            )
-                        }
-
-                        }
-                        keyExtractor={item => item.id}
-                    />
-                )}
-
-            </View>
-
-            <View style={styles.footerView}>
-                <SendMessage
-                    currentUserDetails={currentUserDetails} />
-
-            </View>
-            <MessageDetailsModal
-                IsMessageDetailModal={IsMessageDetailModal}
-                setIsMessageDetailModal={setIsMessageDetailModal}
-                messageDate={messageDate}
-                deleteMessage={deleteMessage}
-            />
-        </ImageBackground>
+        </ScrollView>
     )
-
 };
 
 export default NewChats;

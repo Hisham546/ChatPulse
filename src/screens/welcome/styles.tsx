@@ -11,6 +11,7 @@ import deviceProps from "../../utilities/deviceProps";
 import colors from "../../themes/colors";
 import fontFamily from "../../themes/fontFamily";
 import fontSize from "../../themes/fontSize";
+import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 const { deviceHeight, deviceWidth } = deviceProps
 const styles = StyleSheet.create({
 
@@ -33,15 +34,12 @@ const styles = StyleSheet.create({
         flex: 1,
 
     },
-
-
     descriptionView: {
         width: deviceWidth ,
         height: deviceHeight * 0.30,
         justifyContent: 'center',
         alignItems: 'center',
-      
-
+    
     },
     descriptionTextStyle: {
         color: colors.WHITE,

@@ -11,6 +11,7 @@ import deviceProps from "../../../utilities/deviceProps";
 import colors from "../../../themes/colors";
 import fontFamily from "../../../themes/fontFamily";
 import fontSize from "../../../themes/fontSize";
+import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 const { deviceHeight, deviceWidth } = deviceProps
 const styles = StyleSheet.create({
 
@@ -21,11 +22,14 @@ const styles = StyleSheet.create({
     topView: {
         width: deviceWidth,
         height: deviceHeight * 0.40,
+        alignItems:'center',
+  
     },
     centerView: {
         width: deviceWidth,
         alignItems: 'center',
         flex: 1,
+      
     },
     labelstyle: {
         fontFamily: fontFamily.P_MEDIUM,
@@ -33,7 +37,7 @@ const styles = StyleSheet.create({
     },
     selectedTextStyle: {
         color: colors.DARK_SLATE_GRAY,
-        fontSize: fontSize.p,
+        fontSize:moderateScale(12),
         marginLeft: 10,
         fontFamily: fontFamily.P_REGULAR
     },
@@ -55,7 +59,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-evenly',
         alignItems: 'center',
         flexDirection: 'row',
-        width: deviceWidth * 0.80,
+        width: scale(327),
         backgroundColor: '#f0eff4',
         color: colors.BLACK
     },
@@ -78,7 +82,7 @@ const styles = StyleSheet.create({
     },
     dontHaveAc: {
         color: colors.WHITE,
-        fontSize: fontSize._13,
+        fontSize:moderateScale(13),
         fontFamily: fontFamily.P_REGULAR
     },
     buttonTextStyle: {
@@ -91,12 +95,12 @@ const styles = StyleSheet.create({
         backgroundColor: colors.blue_100,
         height: deviceHeight * 0.067,
         borderRadius: 25,
-        width: deviceWidth * 0.80
+        width: scale(327),
     },
 
     registerNowText: {
         color: colors.blue_100,
-        fontSize: fontSize._12,
+               fontSize:moderateScale(12),
         fontFamily: fontFamily.P_MEDIUM,
         textDecorationLine: 'underline'
     },

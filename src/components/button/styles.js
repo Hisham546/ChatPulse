@@ -7,6 +7,7 @@ import {
 }
     from "react-native";
 import { Dimensions, Platform, StatusBar } from 'react-native';
+import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;
 
